@@ -14,7 +14,9 @@ Convert `[ed2k]` tag that contains eD2k links or other text to a nice table to d
 
 Sorry, now the FAQ and documentation are only available in Chinese. 更多用法、功能的介绍与讨论（中文），请至[插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看。
 
-您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[emule-fans.com电骡爱好者blog](http://emule-fans.com/category/news/emule/ "emule-fans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如aMule(http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E7%94%B5%E9%A9%B4 维基百科“电驴”条目)官方无关，不推荐使用VeryCD的软件。
+= eD2k software =
+
+您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[emule-fans.com电骡爱好者blog](http://emule-fans.com/category/news/emule/ "emule-fans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如[aMule](http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E7%94%B5%E9%A9%B4 "维基百科“电驴”条目")官方无关，不推荐使用VeryCD的软件。
 
 = I18n =
 
