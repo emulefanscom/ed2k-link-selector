@@ -1,7 +1,7 @@
 === eD2k Link Selector ===
 Contributors: tomchen1989
 Donate link: http://emule-fans.com/wordpress-ed2k-link-selector/
-Tags: ed2k, link, 电驴, 链接, eMule, selector
+Tags: ed2k, link, 电驴, 链接, eMule, 电骡, BBcode, selector
 Requires at least: 2.5
 Tested up to: 2.9.2
 Stable tag: 1.0.0
@@ -44,8 +44,6 @@ intro
 ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 [/ed2k]`
 
-== Frequently Asked Questions ==
-
 == Screenshots ==
 
 1. Plugin screenshot
@@ -55,7 +53,3 @@ ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 = 1.0.0 =
 
 * Initial release 初始版本
-
-== Upgrade Notice ==
-
-See Changelog.
