@@ -1,0 +1,161 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: eD2k Link Selector 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-17 02:09+0100\n"
+"PO-Revision-Date: 2010-03-17 02:09+0100\n"
+"Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
+"Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ed2k-link-selector\n"
+
+#: ed2k-link-selector/ed2k-link-selector.php:77
+#: ed2k-link-selector/ed2k-link-selector.php:263
+#: ed2k-link-selector/ed2k-link-selector.php:272
+msgid "Bytes"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:80
+#: ed2k-link-selector/ed2k-link-selector.php:259
+#: ed2k-link-selector/ed2k-link-selector.php:268
+msgid "TB"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:83
+#: ed2k-link-selector/ed2k-link-selector.php:260
+#: ed2k-link-selector/ed2k-link-selector.php:269
+msgid "GB"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:86
+#: ed2k-link-selector/ed2k-link-selector.php:261
+#: ed2k-link-selector/ed2k-link-selector.php:270
+msgid "MB"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:89
+#: ed2k-link-selector/ed2k-link-selector.php:262
+#: ed2k-link-selector/ed2k-link-selector.php:271
+msgid "KB"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:108
+msgid "eD2k Links"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:132
+msgid "Loading not finished. Please retry."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:133
+#: ed2k-link-selector/ed2k-link-selector.php:140
+msgid "Shrink"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:134
+msgid "Expand"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:140
+#: ed2k-link-selector/ed2k-link-selector.php:156
+#: ed2k-link-selector/ed2k-link-selector.php:241
+#: ed2k-link-selector/ed2k-link-selector.php:255
+msgid "Help"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:142
+msgid "Please enable javascript in your browser to visit this page."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:148
+msgid "Close help info"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:149
+msgid "Help Info:"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:150
+msgid "You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods.de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links.  Click and hold down SHIFT key to toggle multiple checkboxes. Use filters to select. View <a href=\"http://emule-fans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:151
+msgid "Name Filter helps you select files by their names or extensions. Case insensitive. Symbols Usage: AND: space(<code> </code>), <code>+</code>; NOT: <code>-</code>; OR: <code>|</code>; Escape: two quote marks(<code>\"\"</code>); Match at the start: <code>^</code>; Match at the end: <code>$</code>. e.g. <code>emule|0.49c -exe</code> to select names that contain \"eMule\" and \"0.49c\" but not contain \"exe\"; <code>^emule 0.49c$</code> to select names started with \"emule\" and end with \"0.49c\"; <code>\"emule 0.49c\"</code> with quote marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:152
+msgid "Size Filter helps you select files by their sizes."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:158
+msgid "http://www.emule-project.net/"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:158
+msgid "eMule Official"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:160
+msgid "eMule-fans.com [eMule Fans Chinese Blog]"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:160
+msgid "eMule-fans.com"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:162
+msgid "eMule-Mods.de [eMule Mods Site]"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:164
+msgid "Homepage for eD2k Link Selector WordPress Plugin"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:164
+msgid "Plugin Home"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:207
+msgid "Stat"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:237
+msgid "All"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:241
+msgid "Name Filter"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:255
+msgid "Size Filter"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:278
+msgid "Files"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:282
+msgid "Download Selected"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:282
+msgid "Copy Selected Names"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:282
+msgid "Copy Selected Links"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:282
+msgid "Copyed"
+msgstr ""
+
