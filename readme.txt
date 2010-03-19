@@ -12,11 +12,9 @@ Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k
 
 Convert `[ed2k]` tag that contains eD2k links or other text to a nice table to display them with filter makes it easy to select. 
 
-本插件能够很好地显示多个eD2k链接（eDonkey电驴、eMule 电骡、aMule等所用链接）。它能将用类BBCode标签`[ed2k][/ed2k]`和`[emule][/emule]`包裹起来的一个或多个eD2k文件链接以及其他文字，转换为一个显示eD2k链接，并带有文件名与大小过滤选择器的漂亮表格，或者是普通锚链接的形式。
+Sorry, now the FAQ and documentation are only available in Chinese. 更多用法、功能的介绍与讨论（中文），请至[插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看。
 
-请至[插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看更详细的帮助说明文档（中文）。
-
-在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[emule-fans.com电骡爱好者blog](http://emule-fans.com/category/news/emule/ "emule-fans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod。
+您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[emule-fans.com电骡爱好者blog](http://emule-fans.com/category/news/emule/ "emule-fans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如aMule(http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E7%94%B5%E9%A9%B4 维基百科“电驴”条目)官方无关，不推荐使用VeryCD的软件。
 
 = I18n =
 
@@ -29,9 +27,11 @@ The plugin is available in 插件可用语言:
 
 == Frequently Asked Questions ==
 
-Now the FAQ is only available in Chinese. 请至[插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看更详细的帮助说明文档（中文）。
+Sorry, now the FAQ and documentation are only available in Chinese. 更多用法、功能的介绍与讨论（中文），请至[插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看。
 
 == Installation ==
+
+(See [插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") in Chinese.)
 
 Decompress the file. Upload `ed2k-link-selector` folder to the `/wp-content/plugins/` directory. Activate the plugin through the 'Plugins' menu in WordPress. Then use `[ed2k]` or `[emule]` tag like this:
 
@@ -50,6 +50,8 @@ ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 
 == Changelog ==
 
+(See [插件发布页](http://emule-fans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") in Chinese.)
+
 = 1.0.0 =
 
-* Initial release 初始版本
+* Initial release
