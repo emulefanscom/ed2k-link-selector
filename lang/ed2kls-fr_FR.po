@@ -1,0 +1,183 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: eD2k Link Selector 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-20 19:43+0100\n"
+"PO-Revision-Date: 2010-03-20 19:48+0100\n"
+"Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
+"Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ed2k-link-selector\n"
+
+#: ed2k-link-selector/ed2k-link-selector.php:79
+#: ed2k-link-selector/ed2k-link-selector.php:137
+#: ed2k-link-selector/ed2k-link-selector.php:270
+#: ed2k-link-selector/ed2k-link-selector.php:279
+msgid "Bytes"
+msgstr "Bytes"
+
+#: ed2k-link-selector/ed2k-link-selector.php:82
+#: ed2k-link-selector/ed2k-link-selector.php:138
+#: ed2k-link-selector/ed2k-link-selector.php:266
+#: ed2k-link-selector/ed2k-link-selector.php:275
+msgid "TB"
+msgstr "TB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:85
+#: ed2k-link-selector/ed2k-link-selector.php:139
+#: ed2k-link-selector/ed2k-link-selector.php:267
+#: ed2k-link-selector/ed2k-link-selector.php:276
+msgid "GB"
+msgstr "GB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:88
+#: ed2k-link-selector/ed2k-link-selector.php:140
+#: ed2k-link-selector/ed2k-link-selector.php:268
+#: ed2k-link-selector/ed2k-link-selector.php:277
+msgid "MB"
+msgstr "MB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:91
+#: ed2k-link-selector/ed2k-link-selector.php:141
+#: ed2k-link-selector/ed2k-link-selector.php:269
+#: ed2k-link-selector/ed2k-link-selector.php:278
+msgid "KB"
+msgstr "KB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:110
+msgid "eD2k Links"
+msgstr "Liens eD2k"
+
+#: ed2k-link-selector/ed2k-link-selector.php:134
+msgid "Loading not finished. Please retry."
+msgstr "Chargement n'est pas fini. Veuillez réessayer svp."
+
+#: ed2k-link-selector/ed2k-link-selector.php:135
+#: ed2k-link-selector/ed2k-link-selector.php:147
+msgid "Shrink"
+msgstr "Rétrécir"
+
+#: ed2k-link-selector/ed2k-link-selector.php:136
+msgid "Expand"
+msgstr "Développer"
+
+#: ed2k-link-selector/ed2k-link-selector.php:147
+#: ed2k-link-selector/ed2k-link-selector.php:163
+#: ed2k-link-selector/ed2k-link-selector.php:248
+#: ed2k-link-selector/ed2k-link-selector.php:262
+msgid "Help"
+msgstr "Aide"
+
+#: ed2k-link-selector/ed2k-link-selector.php:149
+msgid "Please enable javascript in your browser to visit this page."
+msgstr "Permettez javascript dans votre navigateur à visiter cette page svp."
+
+#: ed2k-link-selector/ed2k-link-selector.php:155
+msgid "Close help info"
+msgstr "Fermer info d'aide"
+
+#: ed2k-link-selector/ed2k-link-selector.php:156
+msgid "Help Info:"
+msgstr "Info d'aide:"
+
+#: ed2k-link-selector/ed2k-link-selector.php:157
+msgid "You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods.de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links.  Click and hold down SHIFT key to toggle multiple checkboxes. Use filters to select. View <a href=\"http://emule-fans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:158
+msgid "Name Filter helps you select files by their names or extensions. Case insensitive. Symbols Usage: AND: space(<code> </code>), <code>+</code>; NOT: <code>-</code>; OR: <code>|</code>; Escape: two quote marks(<code>\"\"</code>); Match at the start: <code>^</code>; Match at the end: <code>$</code>. e.g. <code>emule|0.49c -exe</code> to select names that contain \"eMule\" and \"0.49c\" but not contain \"exe\"; <code>^emule 0.49c$</code> to select names started with \"emule\" and end with \"0.49c\"; <code>\"emule 0.49c\"</code> with quote marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:159
+msgid "Size Filter helps you select files by their sizes."
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:165
+msgid "eMule Official"
+msgstr "eMule Officiel"
+
+#: ed2k-link-selector/ed2k-link-selector.php:167
+msgid "eMule-fans.com [eMule Fans Chinese Blog]"
+msgstr "eMule-fans.com [Blog Chinois d'eMule Fans]"
+
+#: ed2k-link-selector/ed2k-link-selector.php:167
+msgid "eMule-fans.com"
+msgstr "eMule-fans.com"
+
+#: ed2k-link-selector/ed2k-link-selector.php:169
+msgid "eMule-Mods.de [eMule Mods Site]"
+msgstr "eMule-Mods.de [eMule Mods Site]"
+
+#: ed2k-link-selector/ed2k-link-selector.php:171
+msgid "Homepage for eD2k Link Selector WordPress Plugin"
+msgstr "Homepage d'eD2k Link Selector (Sélecteur de Lien eD2k) WordPress Plugin"
+
+#: ed2k-link-selector/ed2k-link-selector.php:171
+msgid "Plugin Home"
+msgstr "Plugin Home"
+
+#: ed2k-link-selector/ed2k-link-selector.php:214
+msgid "Stat"
+msgstr "Etat"
+
+#: ed2k-link-selector/ed2k-link-selector.php:244
+msgid "All"
+msgstr "Tous"
+
+#: ed2k-link-selector/ed2k-link-selector.php:248
+msgid "Name Filter"
+msgstr "Filtre de Nom"
+
+#: ed2k-link-selector/ed2k-link-selector.php:262
+msgid "Size Filter"
+msgstr "Filtre de Taille"
+
+#: ed2k-link-selector/ed2k-link-selector.php:285
+msgid "Files"
+msgstr "Fichiers"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Download Selected"
+msgstr "Télécharger Sélectionnés"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Copy Selected Names"
+msgstr "Copier Noms Sélectionnés"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Copy Selected Links"
+msgstr "Copier Liens Sélectionnés"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Copyed"
+msgstr "Copié"
+
+#: ed2k-link-selector/ed2k-link-selector.php:337
+#: ed2k-link-selector/ed2k-link-selector.php:379
+msgid "Add eD2k Links"
+msgstr "Ajouter Liens eD2k"
+
+#: ed2k-link-selector/ed2k-link-selector.php:375
+msgid "Enter your eD2k links and intros:"
+msgstr "Entrer votre Liens eD2k et intros:"
+
+#: ed2k-link-selector/ed2k-link-selector.php:376
+msgid "OK"
+msgstr "Valider"
+
+#: ed2k-link-selector/ed2k-link-selector.php:377
+msgid "Clean"
+msgstr "Ranger"
+
+#: ed2k-link-selector/ed2k-link-selector.php:378
+msgid "Cancel"
+msgstr "Annuler"
+
