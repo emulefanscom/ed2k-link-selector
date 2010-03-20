@@ -21,7 +21,6 @@ var ed2klsDialog = {
 	},
 	clean : function(str,rplmt) {
 		str = str.replace(/(?!^)(ed2k:\/\/\|file\|.+?\|\/(?!\|))/gim, rplmt + "$1").replace(/(ed2k:\/\/\|file\|.+?\|\/(?!\|))(?!$)/gim, "$1" + rplmt);
-		alert(uneval(RegExp("(" + rplmt.replace(/\//g, "\\/") + "){2,}", "g")));
 		str = str.replace(new RegExp("(" + rplmt.replace(/\//g, "\\/") + "){2,}", "g"), rplmt);
 		return str;
 	},
