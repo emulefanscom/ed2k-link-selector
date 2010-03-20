@@ -1,5 +1,5 @@
 .el-s {
-	font: 13px/ 1.6em "Lucida Grande", Verdana, "Times New Roman", Times;
+	font: 13px/1.6em "Lucida Grande", Verdana, "Times New Roman", Times;
 }
 
 .el-s,.el-s * {
@@ -74,6 +74,10 @@
 
 .el-s-chkbx {
 	margin: 0 0.3em 0 0.2em !important;
+}
+
+.el-s-chktype {
+	margin-right: 0 !important;
 }
 
 .el-s-desctr {

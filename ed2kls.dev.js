@@ -29,7 +29,7 @@ function $c(classname, tag, parentEl) {
 
 var els = {
 
-	help:  function(no, subno) {
+	help: function(no, subno) {
 		var info = $("el-s-info-" + no);
 		if (info.style.display == "none") {
 			if (typeof jQuery == 'undefined') {
@@ -42,19 +42,19 @@ var els = {
 		for (var i = 0; i < cont.length; i++) {
 			cont[i].style.display = (i==subno)? "block" : "none";
 		}
-		this.cb.run();
+		this.cb.init();
 	},
 
-	closeinfo:  function(no) {
+	closeinfo: function(no) {
 		if (typeof jQuery == 'undefined') {
 			$("el-s-info-" + no).style.display = "none";
 		} else {
 			jQuery($("el-s-info-" + no)).slideUp(300);
 		}
-		this.cb.run();
+		this.cb.init();
 	},
 
-	close:  function(no) {
+	close: function(no) {
 		var tb = $("el-s-tb-" + no);
 		var exd = $("el-s-exd-" + no);
 		if (typeof jQuery != 'undefined' && !jQuery.browser.msie) {
@@ -62,24 +62,24 @@ var els = {
 			if (tb.css("display") == "none") {
 				tb.fadeIn("slow");
 				jQuery(exd).html("[-]");
-				jQuery(exd).attr("title", ed2klsshk[no]);
+				jQuery(exd).attr("title", ed2kls.shk[no]);
 			} else {
 				tb.fadeOut("slow");
 				jQuery(exd).html("[+]");
-				jQuery(exd).attr("title", ed2klsexd[no]);
+				jQuery(exd).attr("title", ed2kls.exd[no]);
 			}
 		} else {
 			if (tb.style.display == "none") {
 				tb.style.display = "table-row-group";
 				exd.innerHTML = "[-]";
-				exd.setAttribute("title", ed2klsshk[no]);
+				exd.setAttribute("title", ed2kls.shk[no]);
 			} else {
 				tb.style.display = "none";
 				exd.innerHTML = "[+]";
-				exd.setAttribute("title", ed2klsexd[no]);
+				exd.setAttribute("title", ed2kls.exd[no]);
 			}
 		}
-		this.cb.run();
+		this.cb.init();
 	},
 
 	cb: {
@@ -109,7 +109,7 @@ var els = {
 			clip.addEventListener("complete", function(client, text) {
 				var notespan = $("el-s-copied-" + no);
 				if (!load) {
-					alert(ed2klsretry[no]);
+					alert(ed2kls.retry[no]);
 				} else {
 					notespan.style.display = "inline";
 					window.setTimeout(function(){
@@ -124,7 +124,7 @@ var els = {
 			}
 		},
 
-		run: function() {
+		init: function() {
 			var cbebd = $c("ZeroClipboard_ED2k", "embed");
 			for (var j = 0; j < cbebd.length; j++) {
 				var me = cbebd[j].parentNode;
@@ -146,7 +146,7 @@ var els = {
 		exe: function() {
 			if (window.addEventListener) {
 				window.addEventListener("load", function() {
-					els.cb.run();
+					els.cb.init();
 				}, false);
 			}
 		},
@@ -172,28 +172,28 @@ var els = {
 					notespan.style.display = "none";
 				}, 1000);
 			} else {
-				this.run();
-				alert(ed2klsretry[no]);
+				this.init();
+				alert(ed2kls.retry[no]);
 			}
 		}
 
 	},
 
-	formatSize: function(val) {
+	formatSize: function(val, no) {
 		var sep = 100;
-		var unit = "字节";
+		var unit = ed2kls.bytes[no];
 		if (val >= 1099511627776) {
 			val = Math.round( val / (1099511627776/sep) ) / sep;
-			unit  = "TB";
+			unit  = ed2kls.tb[no];
 		} else if (val >= 1073741824) {
 			val = Math.round( val / (1073741824/sep) ) / sep;
-			unit  = "GB";
+			unit  = ed2kls.gb[no];
 		} else if (val >= 1048576) {
 			val = Math.round( val / (1048576/sep) ) / sep;
-			unit  = "MB";
+			unit  = ed2kls.mb[no];
 		} else if (val >= 1024) {
 			val = Math.round( val / (1024/sep) ) / sep;
-			unit  = "KB";
+			unit  = ed2kls.kb[no];
 		}
 		return val + unit;
 	},
@@ -248,7 +248,7 @@ var els = {
 		}
 		chkall.checked = (totnum == n) ? true : false;
 		if (isfile) {
-			$("el-s-totsize-" + no).innerHTML = this.formatSize(totsize);
+			$("el-s-totsize-" + no).innerHTML = this.formatSize(totsize, no);
 		}
 		$("el-s-totnum-" + no).innerHTML = totnum;
 	},
@@ -368,6 +368,12 @@ var els = {
 	},
 
 	filter: function(no){
+		this.filterRun(no);
+		this.setChktype(no);
+		this.total(no);
+	},
+
+	filterRun: function(no){
 		if ($("el-s-namefilter-" + no)) {
 			var namefilter = $("el-s-namefilter-" + no);
 			var str = namefilter.value;
@@ -380,7 +386,6 @@ var els = {
 			sizeunit1 = sizeunit1.options[sizeunit1.selectedIndex].value;
 			var sizesymbol2 = $("el-s-sizesymbol-" + no + "-2");
 			sizesymbol2 = sizesymbol2.options[sizesymbol2.selectedIndex].value;
-
 
 			var sizefilter2 = $("el-s-sizefilter-" + no + "-2").value;
 			var sizeunit2 = $("el-s-sizeunit-" + no + "-2");
@@ -396,31 +401,56 @@ var els = {
 				this.testSize(this.getSize(a[i].value), sizesymbol2, sizefilter2, sizeunit2)
 			)? true : false;
 		}
+	},
 
-		this.total(no);
+	setChktype: function(no){
+		var chkts = $n("el-s-chktype-" + no);
+		var query = $("el-s-namefilter-" + no).value;
+		var n = chkts.length;
+		var myextreg, str;
+		for (var i=0; i<n; i++) {
+			str = chkts[i].value;
+			myextreg = new RegExp("\\." + str +"\\$", "i");
+			chkts[i].checked = myextreg.test(query) ? true : false;
+		}
 	},
 
 	typeFilter: function(no, str, chked){
 		var nfbox = $("el-s-namefilter-" + no);
 		var chkts = $n("el-s-chktype-" + no);
 		var n = chkts.length;
-		for (var i=0; i<n; i++) {
-			if (chkts[i].id != "el-s-chktype-" + str + "-" + no) {
-				chkts[i].checked = false;
-			}
-		}
+		var extreg = /(\.\S+?\$)(\|\.\S+?\$)*/gi;
+		var myextreg = new RegExp("\\|\\." + str + "\\$|\\." + str + "\\$\\||\\." + str +"\\$", "i");
+		nfbox.value = nfbox.value.replace(myextreg, "");
 		if (chked) {
-			nfbox.value = nfbox.value.replace(/\S+?\$/gi,"");
-			if (nfbox.value !== "" && nfbox.value.substr(nfbox.value.length-1, 1) != " " ) {
-				nfbox.value += " ";
+			if (extreg.test(nfbox.value)) {
+				nfbox.value = nfbox.value.replace(extreg, "$&|." + str + "$");
+			} else {
+				if (nfbox.value !== "" && nfbox.value.substr(nfbox.value.length-1, 1) != " " ) {
+					nfbox.value += " ";
+				}
+				nfbox.value += "." + str + "$";
 			}
-			nfbox.value += str + "$";
-		} else {
-			nfbox.value = nfbox.value.replace(/\S+?\$/gi,"");
 		}
-		this.filter(no);
+		this.filterRun(no);
+	},
+
+	exe: function(){
+		if (window.addEventListener) {
+			window.addEventListener("load", els.init, false);
+		} else if (window.attachEvent) {
+			window.attachEvent("onload", els.init);
+		}
+	},
+
+	init: function(){
+		var els = $c("el-s-namefilter", "input", document).concat($c("el-s-sizefilter", "input", document));
+		for (var i=0; i<els.length; i++) {
+			els[i].value = "";
+		}
 	}
 
 };
 
 els.cb.exe();
+els.exe();

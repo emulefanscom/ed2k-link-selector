@@ -4,7 +4,7 @@ Donate link: http://emule-fans.com/wordpress-ed2k-link-selector/
 Tags: ed2k, link, 电驴, 链接, eMule, 电骡, BBcode, selector
 Requires at least: 2.5
 Tested up to: 2.9.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 
 Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
 
@@ -37,8 +37,6 @@ Sorry, now the FAQ and documentation are only available in Chinese. 更多用法
 
 Decompress the file. Upload `ed2k-link-selector` folder to the `/wp-content/plugins/` directory. Activate the plugin through the 'Plugins' menu in WordPress. Then use `[ed2k]` or `[emule]` tag like this:
 
-把插件文件夹上传至`/wp-content/plugins/`目录下，在WordPress“控制板”的“管理插件”中启用eD2k Link Selector插件即安装完毕。您只要在文章中使用以下这种形式的代码即可：
-
 `[ed2k]
 ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
@@ -49,6 +47,7 @@ ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 == Screenshots ==
 
 1. Plugin screenshot
+2. Buttons for HTML (Quicktags) and TinyMCE editors
 
 == Changelog ==
 
@@ -57,3 +56,9 @@ ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 = 1.0.0 =
 
 * Initial release
+
+= 1.1.0 =
+
+* Add buttons to Visual editor (TinyMCE) and HTML editor (Quicktags)
+* Fix javascript i18n bug
+* Allow to check multiple file extension checkboxs
