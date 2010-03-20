@@ -433,6 +433,7 @@ var els = {
 			}
 		}
 		this.filterRun(no);
+		this.total(no);
 	},
 
 	exe: function(){
