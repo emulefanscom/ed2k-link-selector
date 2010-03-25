@@ -3,14 +3,10 @@
 // http://emule-fans.com/wordpress-ed2k-link-selector/
 // CC-BY-NC-SA
 
-function $(id) { return document.getElementById(id); }
-function $n(name) { return document.getElementsByName(name); }
+function $id(id) { return document.getElementById(id); }
+function $nm(name) { return document.getElementsByName(name); }
 
-function hasClass(el, cls) {
-	return el.className.match(new RegExp("(\\s|^)"+cls+"(\\s|$)"));
-}
-
-function $c(classname, tag, parentEl) {
+function $cl(classname, tag, parentEl) {
 	if (!parentEl){
 		parentEl = document;
 	}
@@ -20,17 +16,17 @@ function $c(classname, tag, parentEl) {
 	var allels = parentEl.getElementsByTagName(tag);
 	var clsels = [];
 	for (var i=0; i<allels.length; i++) {
-		if (hasClass(allels[i], classname)) {
+		if ( allels[i].className.match(new RegExp("(\\s|^)"+classname+"(\\s|$)")) ) {
 			clsels.push(allels[i]);
 		}
 	}
 	return clsels;
 }
 
-var els = {
+var ed2kls = {
 
 	help: function(no, subno) {
-		var info = $("el-s-info-" + no);
+		var info = $id("el-s-info-" + no);
 		if (info.style.display == "none") {
 			if (typeof jQuery == 'undefined') {
 				info.style.display = "block";
@@ -38,7 +34,7 @@ var els = {
 				jQuery(info).slideDown(300);
 			}
 		}
-		var cont = $c("el-s-info-content", "div", info);
+		var cont = $cl("el-s-info-content", "div", info);
 		for (var i = 0; i < cont.length; i++) {
 			cont[i].style.display = (i==subno)? "block" : "none";
 		}
@@ -47,36 +43,36 @@ var els = {
 
 	closeinfo: function(no) {
 		if (typeof jQuery == 'undefined') {
-			$("el-s-info-" + no).style.display = "none";
+			$id("el-s-info-" + no).style.display = "none";
 		} else {
-			jQuery($("el-s-info-" + no)).slideUp(300);
+			jQuery($id("el-s-info-" + no)).slideUp(300);
 		}
 		this.cb.init();
 	},
 
 	close: function(no) {
-		var tb = $("el-s-tb-" + no);
-		var exd = $("el-s-exd-" + no);
+		var tb = $id("el-s-tb-" + no);
+		var exd = $id("el-s-exd-" + no);
 		if (typeof jQuery != 'undefined' && !jQuery.browser.msie) {
 			tb = jQuery(tb);
 			if (tb.css("display") == "none") {
 				tb.fadeIn("slow");
 				jQuery(exd).html("[-]");
-				jQuery(exd).attr("title", ed2kls.shk[no]);
+				jQuery(exd).attr("title", ed2klsStr.shk[no]);
 			} else {
 				tb.fadeOut("slow");
 				jQuery(exd).html("[+]");
-				jQuery(exd).attr("title", ed2kls.exd[no]);
+				jQuery(exd).attr("title", ed2klsStr.exd[no]);
 			}
 		} else {
 			if (tb.style.display == "none") {
 				tb.style.display = "table-row-group";
 				exd.innerHTML = "[-]";
-				exd.setAttribute("title", ed2kls.shk[no]);
+				exd.setAttribute("title", ed2klsStr.shk[no]);
 			} else {
 				tb.style.display = "none";
 				exd.innerHTML = "[+]";
-				exd.setAttribute("title", ed2kls.exd[no]);
+				exd.setAttribute("title", ed2klsStr.exd[no]);
 			}
 		}
 		this.cb.init();
@@ -92,13 +88,13 @@ var els = {
 				load = true;
 			});
 			clip.addEventListener("mouseOver", function(client) {
-				var a = $n("el-s-chkbx-" + no);
+				var a = $nm("el-s-chkbx-" + no);
 				var n = a.length;
 				var txt = "";
 				for (var i = 0; i < n; i++)	{
 					if (a[i].checked) {
 						if (type == 1) {//name
-							txt += els.getName(a[i].value) + "\n";
+							txt += ed2kls.getName(a[i].value) + "\n";
 						} else if (type == 2) {//link
 							txt += a[i].value + "\n";
 						}
@@ -107,9 +103,9 @@ var els = {
 				clip.setText(txt);
 			});
 			clip.addEventListener("complete", function(client, text) {
-				var notespan = $("el-s-copied-" + no);
+				var notespan = $id("el-s-copied-" + no);
 				if (!load) {
-					alert(ed2kls.retry[no]);
+					alert(ed2klsStr.retry[no]);
 				} else {
 					notespan.style.display = "inline";
 					window.setTimeout(function(){
@@ -125,18 +121,18 @@ var els = {
 		},
 
 		init: function() {
-			var cbebd = $c("ZeroClipboard_ED2k", "embed");
+			var cbebd = $cl("ZeroClipboard_ED2k", "embed");
 			for (var j = 0; j < cbebd.length; j++) {
 				var me = cbebd[j].parentNode;
 				me.parentNode.removeChild(me);
 			}
-			var ed2ks = $c("el-s-copylinks", "div");
+			var ed2ks = $cl("el-s-copylinks", "div");
 			var n = ed2ks.length;
 			var no;
 			for (var i = 0; i < n; i++)	{
 				no = ed2ks[i].id;
 				no = no.substr(no.lastIndexOf("-")+1);
-				if ($("el-s-totsize-" + no)) {
+				if ($id("el-s-totsize-" + no)) {
 					this.main(1, no);
 				}
 				this.main(2, no);
@@ -146,34 +142,34 @@ var els = {
 		exe: function() {
 			if (window.addEventListener) {
 				window.addEventListener("load", function() {
-					els.cb.init();
+					ed2kls.cb.init();
 				}, false);
 			}
 		},
 
 		iecopy: function(type, no) {
 			if (!window.addEventListener) {
-				var a = $n("el-s-chkbx-" + no);
+				var a = $nm("el-s-chkbx-" + no);
 				var n = a.length;
 				var txt = "";
 				for (var i = 0; i < n; i++)	{
 					if (a[i].checked) {
 						if (type == 1) {//name
-							txt += els.getName(a[i].value) + "\n";
+							txt += ed2kls.getName(a[i].value) + "\n";
 						} else if (type == 2) {//link
 							txt += a[i].value + "\n";
 						}
 					}
 				}
 				window.clipboardData.setData("Text",txt);
-				var notespan = $("el-s-copied-" + no);
+				var notespan = $id("el-s-copied-" + no);
 				notespan.style.display = "inline";
 				window.setTimeout(function(){
 					notespan.style.display = "none";
 				}, 1000);
 			} else {
 				this.init();
-				alert(ed2kls.retry[no]);
+				alert(ed2klsStr.retry[no]);
 			}
 		}
 
@@ -181,19 +177,19 @@ var els = {
 
 	formatSize: function(val, no) {
 		var sep = 100;
-		var unit = ed2kls.bytes[no];
+		var unit = ed2klsStr.bytes[no];
 		if (val >= 1099511627776) {
 			val = Math.round( val / (1099511627776/sep) ) / sep;
-			unit  = ed2kls.tb[no];
+			unit  = ed2klsStr.tb[no];
 		} else if (val >= 1073741824) {
 			val = Math.round( val / (1073741824/sep) ) / sep;
-			unit  = ed2kls.gb[no];
+			unit  = ed2klsStr.gb[no];
 		} else if (val >= 1048576) {
 			val = Math.round( val / (1048576/sep) ) / sep;
-			unit  = ed2kls.mb[no];
+			unit  = ed2klsStr.mb[no];
 		} else if (val >= 1024) {
 			val = Math.round( val / (1024/sep) ) / sep;
-			unit  = ed2kls.kb[no];
+			unit  = ed2klsStr.kb[no];
 		}
 		return val + unit;
 	},
@@ -213,15 +209,15 @@ var els = {
 	},
 
 	clear: function(no) {
-		if ($("el-s-namefilter-" + no)) {
-			$("el-s-namefilter-" + no).value = "";
-			$("el-s-sizesymbol-" + no + "-1").selectedIndex = 0;
-			$("el-s-sizefilter-" + no + "-1").value = "";
-			$("el-s-sizeunit-" + no + "-1").selectedIndex = 0;
-			$("el-s-sizesymbol-" + no + "-2").selectedIndex = 0;
-			$("el-s-sizefilter-" + no + "-2").value = "";
-			$("el-s-sizeunit-" + no + "-2").selectedIndex = 0;
-			var chkts = $n("el-s-chktype-" + no);
+		if ($id("el-s-namefilter-" + no)) {
+			$id("el-s-namefilter-" + no).value = "";
+			$id("el-s-sizesymbol-" + no + "-1").selectedIndex = 0;
+			$id("el-s-sizefilter-" + no + "-1").value = "";
+			$id("el-s-sizeunit-" + no + "-1").selectedIndex = 0;
+			$id("el-s-sizesymbol-" + no + "-2").selectedIndex = 0;
+			$id("el-s-sizefilter-" + no + "-2").value = "";
+			$id("el-s-sizeunit-" + no + "-2").selectedIndex = 0;
+			var chkts = $nm("el-s-chktype-" + no);
 			var n = chkts.length;
 			for (var i=0; i<n; i++) {
 				chkts[i].checked = false;
@@ -230,14 +226,14 @@ var els = {
 	},
 
 	total: function(no) {
-		var isfile = ($("el-s-totsize-" + no))? true : false;
-		var a = $n("el-s-chkbx-" + no);
+		var isfile = ($id("el-s-totsize-" + no))? true : false;
+		var a = $nm("el-s-chkbx-" + no);
 		var n = a.length;
 		if (isfile) {
 			var totsize = 0;
 		}
 		var totnum = 0;
-		var chkall = $("el-s-chkall-" + no);
+		var chkall = $id("el-s-chkall-" + no);
 		for (var i=0; i<n; i++)	{
 			if (a[i].checked) {
 			if (isfile) {
@@ -248,9 +244,9 @@ var els = {
 		}
 		chkall.checked = (totnum == n) ? true : false;
 		if (isfile) {
-			$("el-s-totsize-" + no).innerHTML = this.formatSize(totsize, no);
+			$id("el-s-totsize-" + no).innerHTML = this.formatSize(totsize, no);
 		}
-		$("el-s-totnum-" + no).innerHTML = totnum;
+		$id("el-s-totnum-" + no).innerHTML = totnum;
 	},
 
 	initChk: -1,
@@ -264,7 +260,7 @@ var els = {
 		if (!evt.shiftKey) {
 			this.initChk = tarNum;
 		} else {
-			var cks = $n("el-s-chkbx-" + no);
+			var cks = $nm("el-s-chkbx-" + no);
 			var ckslen = cks.length;
 			var low = Math.min(tarNum, this.initChk);
 			var high = Math.max(tarNum, this.initChk);
@@ -277,7 +273,7 @@ var els = {
 	},
 
 	checkAll: function(no,chked) {
-		var a = $n("el-s-chkbx-" + no);
+		var a = $nm("el-s-chkbx-" + no);
 		var n = a.length;
 		for (var i=0; i<n; i++){
 			a[i].checked = chked;
@@ -287,7 +283,7 @@ var els = {
 	},
 
 	download: function(no){
-		var a = $n("el-s-chkbx-" + no);
+		var a = $nm("el-s-chkbx-" + no);
 		var n = a.length;
 		var linkarr = [];
 		for (var i=0; i<n; i++) {
@@ -374,25 +370,25 @@ var els = {
 	},
 
 	filterRun: function(no){
-		if ($("el-s-namefilter-" + no)) {
-			var namefilter = $("el-s-namefilter-" + no);
+		if ($id("el-s-namefilter-" + no)) {
+			var namefilter = $id("el-s-namefilter-" + no);
 			var str = namefilter.value;
 		}
-		if ($("el-s-sizesymbol-" + no + "-1")) {
-			var sizesymbol1 = $("el-s-sizesymbol-" + no + "-1");
+		if ($id("el-s-sizesymbol-" + no + "-1")) {
+			var sizesymbol1 = $id("el-s-sizesymbol-" + no + "-1");
 			sizesymbol1 = sizesymbol1.options[sizesymbol1.selectedIndex].value;
-			var sizefilter1 = $("el-s-sizefilter-" + no + "-1").value;
-			var sizeunit1 = $("el-s-sizeunit-" + no + "-1");
+			var sizefilter1 = $id("el-s-sizefilter-" + no + "-1").value;
+			var sizeunit1 = $id("el-s-sizeunit-" + no + "-1");
 			sizeunit1 = sizeunit1.options[sizeunit1.selectedIndex].value;
-			var sizesymbol2 = $("el-s-sizesymbol-" + no + "-2");
+			var sizesymbol2 = $id("el-s-sizesymbol-" + no + "-2");
 			sizesymbol2 = sizesymbol2.options[sizesymbol2.selectedIndex].value;
 
-			var sizefilter2 = $("el-s-sizefilter-" + no + "-2").value;
-			var sizeunit2 = $("el-s-sizeunit-" + no + "-2");
+			var sizefilter2 = $id("el-s-sizefilter-" + no + "-2").value;
+			var sizeunit2 = $id("el-s-sizeunit-" + no + "-2");
 			sizeunit2 = sizeunit2.options[sizeunit2.selectedIndex].value;
 		}
 
-		var a = $n("el-s-chkbx-" + no);
+		var a = $nm("el-s-chkbx-" + no);
 		var n = a.length;
 		for (var i=0; i<n; i++) {
 			a[i].checked = (
@@ -404,8 +400,8 @@ var els = {
 	},
 
 	setChktype: function(no){
-		var chkts = $n("el-s-chktype-" + no);
-		var query = $("el-s-namefilter-" + no).value;
+		var chkts = $nm("el-s-chktype-" + no);
+		var query = $id("el-s-namefilter-" + no).value;
 		var n = chkts.length;
 		var myextreg, str;
 		for (var i=0; i<n; i++) {
@@ -416,8 +412,8 @@ var els = {
 	},
 
 	typeFilter: function(no, str, chked){
-		var nfbox = $("el-s-namefilter-" + no);
-		var chkts = $n("el-s-chktype-" + no);
+		var nfbox = $id("el-s-namefilter-" + no);
+		var chkts = $nm("el-s-chktype-" + no);
 		var n = chkts.length;
 		var extreg = /(\.\S+?\$)(\|\.\S+?\$)*/gi;
 		var myextreg = new RegExp("\\|\\." + str + "\\$|\\." + str + "\\$\\||\\." + str +"\\$", "i");
@@ -438,14 +434,14 @@ var els = {
 
 	exe: function(){
 		if (window.addEventListener) {
-			window.addEventListener("load", els.init, false);
+			window.addEventListener("load", ed2kls.init, false);
 		} else if (window.attachEvent) {
-			window.attachEvent("onload", els.init);
+			window.attachEvent("onload", ed2kls.init);
 		}
 	},
 
 	init: function(){
-		var els = $c("el-s-namefilter", "input", document).concat($c("el-s-sizefilter", "input", document));
+		var els = $cl("el-s-namefilter", "input", document).concat($cl("el-s-sizefilter", "input", document));
 		for (var i=0; i<els.length; i++) {
 			els[i].value = "";
 		}
@@ -453,5 +449,5 @@ var els = {
 
 };
 
-els.cb.exe();
-els.exe();
+ed2kls.cb.exe();
+ed2kls.exe();

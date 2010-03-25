@@ -109,6 +109,10 @@
 	background: #EEF2F7;
 }
 
+.el-s-tr1:hover,.el-s-tr2:hover {
+	background: #FFF;
+}
+
 .el-s tbody,.el-s-infotr {
 	background: #E4EAF2;
 }

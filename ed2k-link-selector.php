@@ -4,7 +4,7 @@
  Plugin Name:  eD2k Link Selector
  Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
  Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
- Version:      1.1.0
+ Version:      1.1.1
  Author:       tomchen1989
  Author URI:   http://emule-fans.com/
  */
@@ -64,13 +64,15 @@ if(!class_exists('eD2kLinkSelector')) {
 				$cssUrl = get_bloginfo('template_url') . '/ed2kls.css';
 			}
 			echo '
+<!-- START of eD2k Link Selector -->
 <link rel="stylesheet" type="text/css" href="' . $cssUrl . '" />
 <script type="text/javascript">//<![CDATA[
 var ed2klsMoviePath="' . $ed2klsUrl . '/ZeroClipboard.swf";
-var ed2kls={exd:{},shk:{},retry:{},bytes:{},tb:{},gb:{},mb:{},kb:{}};
+var ed2klsStr={exd:{},shk:{},retry:{},bytes:{},tb:{},gb:{},mb:{},kb:{}};
 //]]></script>
 <script type="text/javascript" src="' . $ed2klsUrl . '/ZeroClipboard.js"></script>
 <script type="text/javascript" src="' . $ed2klsUrl . '/ed2kls.js"></script>
+<!-- END of eD2k Link Selector -->
 ';
 		}
 
@@ -130,21 +132,21 @@ var ed2kls={exd:{},shk:{},retry:{},bytes:{},tb:{},gb:{},mb:{},kb:{}};
 			$num = 0;
 			$extarray = array();
 			$newcontent = '
-<script type="text/javascript">//<![CDATA[
-ed2kls.retry["' . $myno . '"]="' . __('Loading not finished. Please retry.', 'ed2kls') . '";
-ed2kls.shk["' . $myno . '"]="' . __('Shrink', 'ed2kls') . '";
-ed2kls.exd["' . $myno . '"]="' . __('Expand', 'ed2kls') . '";
-ed2kls.bytes["' . $myno . '"]="' . __('Bytes', 'ed2kls') . '";
-ed2kls.tb["' . $myno . '"]="' . __('TB', 'ed2kls') . '";
-ed2kls.gb["' . $myno . '"]="' . __('GB', 'ed2kls') . '";
-ed2kls.mb["' . $myno . '"]="' . __('MB', 'ed2kls') . '";
-ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
-//]]></script>
+<script type="text/javascript">
+ed2klsStr.retry["' . $myno . '"]="' . __('Loading not finished. Please retry.', 'ed2kls') . '";
+ed2klsStr.shk["' . $myno . '"]="' . __('Shrink', 'ed2kls') . '";
+ed2klsStr.exd["' . $myno . '"]="' . __('Expand', 'ed2kls') . '";
+ed2klsStr.bytes["' . $myno . '"]="' . __('Bytes', 'ed2kls') . '";
+ed2klsStr.tb["' . $myno . '"]="' . __('TB', 'ed2kls') . '";
+ed2klsStr.gb["' . $myno . '"]="' . __('GB', 'ed2kls') . '";
+ed2klsStr.mb["' . $myno . '"]="' . __('MB', 'ed2kls') . '";
+ed2klsStr.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
+</script>
 <table class="el-s" id="el-s-' . $myno . '" border="0" cellpadding="0" cellspacing="0">
 	<thead>
 		<tr><td colspan="2">
 			<div class="el-s-titlebtn el-s-toright">
-				<a id="el-s-help-' . $myno . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="els.help(\'' . $myno . '\',0)">[?]</a><a id="el-s-exd-' . $myno . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Shrink', 'ed2kls') . '" onclick="els.close(\'' . $myno . '\')">[-]</a>
+				<a id="el-s-help-' . $myno . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',0)">[?]</a><a id="el-s-exd-' . $myno . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Shrink', 'ed2kls') . '" onclick="ed2kls.close(\'' . $myno . '\')">[-]</a>
 			</div>
 			<strong>' . $myatts['head'] . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
 		</td></tr>
@@ -152,7 +154,7 @@ ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 	<tfoot>
 		<tr class="el-s-infotr"><td colspan="2">
 			<div id="el-s-info-' . $myno . '" class="el-s-info" style="display: none;">
-				<a id="el-s-info-close-' . $myno . '" class="el-s-pseubtn el-s-info-close el-s-toright" title="' . __('Close help info', 'ed2kls') . '" onclick="els.closeinfo(\'' . $myno . '\')">[×]</a>
+				<a id="el-s-info-close-' . $myno . '" class="el-s-pseubtn el-s-info-close el-s-toright" title="' . __('Close help info', 'ed2kls') . '" onclick="ed2kls.closeinfo(\'' . $myno . '\')">[×]</a>
 				<div id="el-s-info-desc-' . $myno . '" class="el-s-info-desc">' . __('Help Info:', 'ed2kls') . '</div>
 				<div class="el-s-info-content">' . __('You can use <a href="http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download">eMule</a> or its mod (see <a href="http://www.emule-mods.de/?mods=start">Mod Page on emule-mods.de</a>) (Windows), <a href="http://www.amule.org/">aMule</a>(Win, Linux, Mac), etc. to download eD2k links.  Click and hold down SHIFT key to toggle multiple checkboxes. Use filters to select. View <a href="http://emule-fans.com/wordpress-ed2k-link-selector/">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author.', 'ed2kls') . '</div>
 				<div class="el-s-info-content">' . __('Name Filter helps you select files by their names or extensions. Case insensitive. Symbols Usage: AND: space(<code> </code>), <code>+</code>; NOT: <code>-</code>; OR: <code>|</code>; Escape: two quote marks(<code>""</code>); Match at the start: <code>^</code>; Match at the end: <code>$</code>. e.g. <code>emule|0.49c -exe</code> to select names that contain "eMule" and "0.49c" but not contain "exe"; <code>^emule 0.49c$</code> to select names started with "emule" and end with "0.49c"; <code>"emule 0.49c"</code> with quote marks to match exactly a "emule 0.49c", not a "eMule fake 0.49c".', 'ed2kls') . '</div>
@@ -160,7 +162,7 @@ ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 			</div>
 		</td></tr>
 		<tr class="el-s-bottom"><td colspan="2">
-			<a id="el-s-help2-' . $myno . '" title="' . __('Help', 'ed2kls') . '" onclick="els.help(\'' . $myno . '\',0)">' . __('Help', 'ed2kls') . '</a>
+			<a id="el-s-help2-' . $myno . '" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',0)">' . __('Help', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
 			<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
@@ -208,7 +210,7 @@ ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 					$newcontent .= '
 <tr class="el-s-tr' . $odd . '">
 	<td class="el-s-left">
-		<input type="checkbox" class="el-s-chkbx el-s-chkbx-ed2k" name="el-s-chkbx-' . $myno . '" id="el-s-chkbx-' . $myno . '-' . $num . '" value="' . $url . '" onclick="els.checkIt(\'' . $myno . '\',event);" checked="checked" /><a class="el-s-dl" href="' . $url . '" ed2k="' . $url . '">' . $name . '</a>';
+		<input type="checkbox" class="el-s-chkbx el-s-chkbx-ed2k" name="el-s-chkbx-' . $myno . '" id="el-s-chkbx-' . $myno . '-' . $num . '" value="' . $url . '" onclick="ed2kls.checkIt(\'' . $myno . '\',event);" checked="checked" /><a class="el-s-dl" href="' . $url . '" ed2k="' . $url . '">' . $name . '</a>';
 					if (strtolower($myatts['stat']) != "false") {
 						$newcontent .= '
 		<a class="el-s-viewsrc" href="' . $myatts['stat'] . $hash . '" target="_blank">' . __('Stat', 'ed2kls') . '</a>';
@@ -241,17 +243,17 @@ ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 			$newcontent .= '
 		<tr class="el-s-selecttr">
 			<td class="el-s-left">
-				<span class="el-s-area"><input type="checkbox" class="el-s-chkbx el-s-chkall" id="el-s-chkall-' . $myno . '" onclick="els.checkAll(\'' . $myno . '\',this.checked)" checked="checked" /><label class="el-s-chkall" for="el-s-chkall-' . $myno . '">' . __('All', 'ed2kls') . '</label></span>';
+				<span class="el-s-area"><input type="checkbox" class="el-s-chkbx el-s-chkall" id="el-s-chkall-' . $myno . '" onclick="ed2kls.checkAll(\'' . $myno . '\',this.checked)" checked="checked" /><label class="el-s-chkall" for="el-s-chkall-' . $myno . '">' . __('All', 'ed2kls') . '</label></span>';
 
 			if (strtolower($myatts['name']) == "true") {
 				$newcontent .= '
-				<span class="el-s-area el-s-area-label"><label class="el-s-namefilter" for="el-s-namefilter-' . $myno . '">' . __('Name Filter', 'ed2kls') . '</label><a id="el-s-namefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="els.help(\'' . $myno . '\',1)">[?]</a>:<input type="text" class="el-s-txt el-s-namefilter" id="el-s-namefilter-' . $myno . '" onkeyup="els.filter(\'' . $myno . '\')" />';
+				<span class="el-s-area el-s-area-label"><label class="el-s-namefilter" for="el-s-namefilter-' . $myno . '">' . __('Name Filter', 'ed2kls') . '</label><a id="el-s-namefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',1)">[?]</a>:<input type="text" class="el-s-txt el-s-namefilter" id="el-s-namefilter-' . $myno . '" onkeyup="ed2kls.filter(\'' . $myno . '\')" />';
 
 				$extarray = array_unique($extarray);
 
 				foreach ($extarray as $myext) {
 					$newcontent .= '
-				<input type="checkbox" value="' . $myext . '" name="el-s-chktype-' . $myno . '" class="el-s-chkbx el-s-chktype" id="el-s-chktype-' . $myext . '-' . $myno . '" onclick="els.typeFilter(\'' . $myno . '\',this.value,this.checked)" /><label class="filter" for="el-s-chktype-' . $myext . '-' . $myno . '">' . strtoupper($myext) . '</label>';
+				<input type="checkbox" value="' . $myext . '" name="el-s-chktype-' . $myno . '" class="el-s-chkbx el-s-chktype" id="el-s-chktype-' . $myext . '-' . $myno . '" onclick="ed2kls.typeFilter(\'' . $myno . '\',this.value,this.checked)" /><label class="filter" for="el-s-chktype-' . $myext . '-' . $myno . '">' . strtoupper($myext) . '</label>';
 				}
 
 				$newcontent .= '</span>';
@@ -259,19 +261,19 @@ ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 
 			if (strtolower($myatts['size']) == "true") {
 				$newcontent .= '
-				<span class="el-s-area el-s-area-label"><label class="el-s-sizefilter">' . __('Size Filter', 'ed2kls') . '</label><a id="el-s-sizefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="els.help(\'' . $myno . '\',2)">[?]</a>:<select id="el-s-sizesymbol-' . $myno . '-1" class="el-s-sel" onchange="els.filter(\'' . $myno . '\')">
+				<span class="el-s-area el-s-area-label"><label class="el-s-sizefilter">' . __('Size Filter', 'ed2kls') . '</label><a id="el-s-sizefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',2)">[?]</a>:<select id="el-s-sizesymbol-' . $myno . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
 					<option selected="selected" value="1">&gt;</option>
 					<option value="2">&lt;</option>
-				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $myno . '-1" onkeyup="els.filter(\'' . $myno . '\')" /><select id="el-s-sizeunit-' . $myno . '-1" class="el-s-sel" onchange="els.filter(\'' . $myno . '\')">
+				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $myno . '-1" onkeyup="ed2kls.filter(\'' . $myno . '\')" /><select id="el-s-sizeunit-' . $myno . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
 					<option selected="selected" value="1099511627776">' . __('TB', 'ed2kls') . '</option>
 					<option value="1073741824">' . __('GB', 'ed2kls') . '</option>
 					<option value="1048576">' . __('MB', 'ed2kls') . '</option>
 					<option value="1024">' . __('KB', 'ed2kls') . '</option>
 					<option value="1">' . __('Bytes', 'ed2kls') . '</option>
-				</select>,<select id="el-s-sizesymbol-' . $myno . '-2" class="el-s-sel" onchange="els.filter(\'' . $myno . '\')">
+				</select>,<select id="el-s-sizesymbol-' . $myno . '-2" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
 					<option selected="selected" value="1">&gt;</option>
 					<option value="2">&lt;</option>
-				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $myno . '-2" onkeyup="els.filter(\'' . $myno . '\')" /><select id="el-s-sizeunit-' . $myno . '-2" class="el-s-sel" onchange="els.filter(\'' . $myno . '\')">
+				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $myno . '-2" onkeyup="ed2kls.filter(\'' . $myno . '\')" /><select id="el-s-sizeunit-' . $myno . '-2" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
 					<option selected="selected" value="1099511627776">' . __('TB', 'ed2kls') . '</option>
 					<option value="1073741824">' . __('GB', 'ed2kls') . '</option>
 					<option value="1048576">' . __('MB', 'ed2kls') . '</option>
@@ -286,7 +288,7 @@ ed2kls.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 		</tr>
 		<tr class="el-s-buttontr">
 			<td class="el-s-left">
-				<div id="el-s-download-' . $myno . '" class="el-s-button el-s-download" onclick="els.download(\'' . $myno . '\')">' . __('Download Selected', 'ed2kls') . '</div><div id="el-s-copynames-' . $myno . '" class="el-s-button el-s-copynames" onclick="els.cb.iecopy(1,\'' . $myno . '\')">' . __('Copy Selected Names', 'ed2kls') . '</div><div id="el-s-copylinks-' . $myno . '" class="el-s-button el-s-copylinks" onclick="els.cb.iecopy(2,\'' . $myno . '\')">' . __('Copy Selected Links', 'ed2kls') . '</div><span class="el-s-copied" id="el-s-copied-' . $myno . '" style="display:none;"><span class="el-s-yes">√</span>' . __('Copyed', 'ed2kls') . '</span>
+				<div id="el-s-download-' . $myno . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $myno . '\')">' . __('Download Selected', 'ed2kls') . '</div><div id="el-s-copynames-' . $myno . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $myno . '\')">' . __('Copy Selected Names', 'ed2kls') . '</div><div id="el-s-copylinks-' . $myno . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $myno . '\')">' . __('Copy Selected Links', 'ed2kls') . '</div><span class="el-s-copied" id="el-s-copied-' . $myno . '" style="display:none;"><span class="el-s-yes">√</span>' . __('Copyed', 'ed2kls') . '</span>
 			</td>
 		</tr>
 	</tbody>
