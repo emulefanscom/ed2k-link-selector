@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: eD2k Link Selector 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-20 16:04+0100\n"
+"PO-Revision-Date: 2010-03-20 19:52+0100\n"
+"Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
+"Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ed2k-link-selector\n"
+
+#: ed2k-link-selector/ed2k-link-selector.php:79
+#: ed2k-link-selector/ed2k-link-selector.php:137
+#: ed2k-link-selector/ed2k-link-selector.php:270
+#: ed2k-link-selector/ed2k-link-selector.php:279
+msgid "Bytes"
+msgstr "字节"
+
+#: ed2k-link-selector/ed2k-link-selector.php:82
+#: ed2k-link-selector/ed2k-link-selector.php:138
+#: ed2k-link-selector/ed2k-link-selector.php:266
+#: ed2k-link-selector/ed2k-link-selector.php:275
+msgid "TB"
+msgstr "TB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:85
+#: ed2k-link-selector/ed2k-link-selector.php:139
+#: ed2k-link-selector/ed2k-link-selector.php:267
+#: ed2k-link-selector/ed2k-link-selector.php:276
+msgid "GB"
+msgstr "GB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:88
+#: ed2k-link-selector/ed2k-link-selector.php:140
+#: ed2k-link-selector/ed2k-link-selector.php:268
+#: ed2k-link-selector/ed2k-link-selector.php:277
+msgid "MB"
+msgstr "MB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:91
+#: ed2k-link-selector/ed2k-link-selector.php:141
+#: ed2k-link-selector/ed2k-link-selector.php:269
+#: ed2k-link-selector/ed2k-link-selector.php:278
+msgid "KB"
+msgstr "KB"
+
+#: ed2k-link-selector/ed2k-link-selector.php:110
+msgid "eD2k Links"
+msgstr "eD2k链接"
+
+#: ed2k-link-selector/ed2k-link-selector.php:134
+msgid "Loading not finished. Please retry."
+msgstr "载入未完成。请重试。"
+
+#: ed2k-link-selector/ed2k-link-selector.php:135
+#: ed2k-link-selector/ed2k-link-selector.php:147
+msgid "Shrink"
+msgstr "收缩"
+
+#: ed2k-link-selector/ed2k-link-selector.php:136
+msgid "Expand"
+msgstr "展开"
+
+#: ed2k-link-selector/ed2k-link-selector.php:147
+#: ed2k-link-selector/ed2k-link-selector.php:163
+#: ed2k-link-selector/ed2k-link-selector.php:248
+#: ed2k-link-selector/ed2k-link-selector.php:262
+msgid "Help"
+msgstr "帮助"
+
+#: ed2k-link-selector/ed2k-link-selector.php:149
+msgid "Please enable javascript in your browser to visit this page."
+msgstr "请开启浏览器的JavaScrip功能以访问该页面。"
+
+#: ed2k-link-selector/ed2k-link-selector.php:155
+msgid "Close help info"
+msgstr "关闭帮助信息"
+
+#: ed2k-link-selector/ed2k-link-selector.php:156
+msgid "Help Info:"
+msgstr "帮助信息："
+
+#: ed2k-link-selector/ed2k-link-selector.php:157
+msgid "You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods.de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links.  Click and hold down SHIFT key to toggle multiple checkboxes. Use filters to select. View <a href=\"http://emule-fans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author."
+msgstr "您可以使用<a href=\"http://www.emule-project.net/home/perl/general.cgi?l=42&rm=download\">eMule</a>或eMule Mod（参见<a href=\"http://emule-fans.com/category/news/emule/\">emule-fans.com的Mod页</a>、<a href=\"http://www.emule-mods.de/?mods=start\">emule-mods.de的Mod页</a>）（Windows）、<a href=\"http://www.amule.org/\">aMule</a>（Win、Linux、Mac）等软件下载eD2k链接。按住SHIFT键选择可以选中多个选择框。可用文件名和大小选择器来选择文件。查看<a href=\"http://emule-fans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress 插件主页</a>可以下载此插件或联系作者。"
+
+#: ed2k-link-selector/ed2k-link-selector.php:158
+msgid "Name Filter helps you select files by their names or extensions. Case insensitive. Symbols Usage: AND: space(<code> </code>), <code>+</code>; NOT: <code>-</code>; OR: <code>|</code>; Escape: two quote marks(<code>\"\"</code>); Match at the start: <code>^</code>; Match at the end: <code>$</code>. e.g. <code>emule|0.49c -exe</code> to select names that contain \"eMule\" and \"0.49c\" but not contain \"exe\"; <code>^emule 0.49c$</code> to select names started with \"emule\" and end with \"0.49c\"; <code>\"emule 0.49c\"</code> with quote marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
+msgstr "文件名选择器帮您根据文件名称或后缀来选择文件。不分大小写。符号使用：和：空格（<code> </code>）、<code>+</code>；不包含：<code>-</code>；或：<code>|</code>；转义：一对英文引号（<code>\"\"</code>）；匹配开头：<code>^</code>；匹配结尾：<code>$</code>。例如：选中所有名称中包含有“eMule”或“0.49c”字眼，但不包含有“exe”字眼的：<code>emule|0.49c -exe</code>；选中所有名称的开头是“eMule”，结尾是“0.49c”的：<code>^emule 0.49c$</code>；选中所有名称中带有“eMule 0.49c”的（必须是“eMule 0.49c”，中间没有别的字符，不能是“eMule fake 0.49c”），需要转义：<code>\"emule 0.49c\"</code>。"
+
+#: ed2k-link-selector/ed2k-link-selector.php:159
+msgid "Size Filter helps you select files by their sizes."
+msgstr "大小选择器帮您根据文件大小选择文件。"
+
+#: ed2k-link-selector/ed2k-link-selector.php:165
+msgid "eMule Official"
+msgstr "eMule官方网站"
+
+#: ed2k-link-selector/ed2k-link-selector.php:167
+msgid "eMule-fans.com [eMule Fans Chinese Blog]"
+msgstr "eMule-fans.com [电骡爱好者中文Blog]"
+
+#: ed2k-link-selector/ed2k-link-selector.php:167
+msgid "eMule-fans.com"
+msgstr "eMule-fans.com 电骡爱好者"
+
+#: ed2k-link-selector/ed2k-link-selector.php:169
+msgid "eMule-Mods.de [eMule Mods Site]"
+msgstr "eMule-Mods.de [eMule Mods站点]"
+
+#: ed2k-link-selector/ed2k-link-selector.php:171
+msgid "Homepage for eD2k Link Selector WordPress Plugin"
+msgstr "eD2k Link Selector（eD2k链接选择器）WordPress插件主页"
+
+#: ed2k-link-selector/ed2k-link-selector.php:171
+msgid "Plugin Home"
+msgstr "插件主页"
+
+#: ed2k-link-selector/ed2k-link-selector.php:214
+msgid "Stat"
+msgstr "查源"
+
+#: ed2k-link-selector/ed2k-link-selector.php:244
+msgid "All"
+msgstr "全选"
+
+#: ed2k-link-selector/ed2k-link-selector.php:248
+msgid "Name Filter"
+msgstr "文件名选择"
+
+#: ed2k-link-selector/ed2k-link-selector.php:262
+msgid "Size Filter"
+msgstr "大小选择"
+
+#: ed2k-link-selector/ed2k-link-selector.php:285
+msgid "Files"
+msgstr "文件"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Download Selected"
+msgstr "下载选中的文件"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Copy Selected Names"
+msgstr "复制选中文件名"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Copy Selected Links"
+msgstr "复制选中的链接"
+
+#: ed2k-link-selector/ed2k-link-selector.php:289
+msgid "Copyed"
+msgstr "已复制"
+
+#: ed2k-link-selector/ed2k-link-selector.php:337
+#: ed2k-link-selector/ed2k-link-selector.php:379
+msgid "Add eD2k Links"
+msgstr "插入eD2k链接"
+
+#: ed2k-link-selector/ed2k-link-selector.php:375
+msgid "Enter your eD2k links and intros:"
+msgstr "请输入eD2k链接和介绍文字："
+
+#: ed2k-link-selector/ed2k-link-selector.php:376
+msgid "OK"
+msgstr "确定"
+
+#: ed2k-link-selector/ed2k-link-selector.php:377
+msgid "Clean"
+msgstr "清理"
+
+#: ed2k-link-selector/ed2k-link-selector.php:378
+msgid "Cancel"
+msgstr "取消"
+
+#~ msgid "enter"
+#~ msgstr "输入"
+
