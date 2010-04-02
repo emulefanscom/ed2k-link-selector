@@ -157,10 +157,9 @@
 	background: #ADBEC6;
 	border: 1px solid #808080;
 	overflow: visible;
-	margin: 0 0.5em 0 0.2em !important; +
-	margin: 0 0.5em !important; /* ie 6 7 hack */
-	padding: 2px 5px !important; +
-	padding: 3px 5px 0 !important; /* ie 6 7 hack */
+	margin: 0 0.2em !important;
+	padding: 2px 5px !important;
+	+padding: 3px 5px 0 !important; /* ie 6 7 hack */
 	-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -174,7 +173,7 @@
 }
 
 .el-s-yes {
-	background-color: #3C0;
+	background: #3C0;
 	font-family: "Lucida Grande", Verdana, Tahoma;
 	font-weight: bold;
 }
@@ -198,13 +197,12 @@
 
 .el-s-info-content {
 	line-height: 1.6em;
-	text-indent: 2em;
 }
 
 .el-s-info-content code {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 110%;
-	background-color: #DDD;
+	background: #DDD;
 }
 
 .el-s-info-content a {
@@ -228,3 +226,24 @@
 	text-decoration: none;
 	color: #999 !important;
 }
+
+/*
+.el-s-red thead,.el-s-red .el-s-bottom {
+	background: #DFE2F4;
+}
+.el-s-red .el-s-tr1,.el-s-red .el-s-info {
+	background: #F5F9FD;
+}
+.el-s-red .el-s-tr2 {
+	background: #EEF2F7;
+}
+.el-s-red tbody,.el-s-red .el-s-infotr {
+	background: #E4EAF2;
+}
+.el-s-red .el-s-button {
+	background: #ADBEC6;
+}
+.el-s-red .el-s-button:hover,.el-s-red .el-s-button.hover {
+	background: #CBDCE4;
+}
+*/
