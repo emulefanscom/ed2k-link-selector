@@ -76,7 +76,7 @@ if(!class_exists('eD2kLinkSelector')) {
 		function addFooter() {
 			global $ed2klsnumber;
 			if ($ed2klsnumber >= 1) {
-				echo $ed2klsnumber.'
+				echo '
 <!-- START of eD2k Link Selector JavaScript -->
 <script type="text/javascript" src="' . constant('ED2KLS_URL') . '/ed2klsvar.js.php?v=' . constant('ED2KLS_VERSION') .'"></script>
 <script type="text/javascript" src="' . constant('ED2KLS_URL') . '/ed2kls.js?v=' . constant('ED2KLS_VERSION') .'"></script>
