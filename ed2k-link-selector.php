@@ -27,14 +27,18 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+define('ED2KLS_VERSION', '1.1.2');
+define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
+
+$ed2klsnumber = 0;
+
 if(!class_exists('eD2kLinkSelector')) {
 	class eD2kLinkSelector {
 
-		const ver = '1.1.1';
-
 		function eD2kLinkSelector() {
 			add_action('init', array(&$this, 'textdomain'));
-			add_action('wp_head', array(&$this, 'addHeader'));
+			add_action('wp_head', array(&$this, 'addHead'));
+			add_action('wp_footer', array(&$this, 'addFooter'));
 			add_filter('the_content', array(&$this, 'doShortcode'));
 		}
 
@@ -59,23 +63,26 @@ if(!class_exists('eD2kLinkSelector')) {
 			load_textdomain ($domain, dirname (__FILE__) . '/lang/' . $domain . '-' . $locale . '.mo');
 		}
 
-		function addHeader() {
-			$ed2klsUrl = WP_PLUGIN_URL . '/ed2k-link-selector';
-			$cssUrl = $ed2klsUrl . '/ed2kls.css?v=' . self::ver;
+		function addHead() {
+			$cssUrl = constant('ED2KLS_URL') . '/ed2kls.css?v=' . constant('ED2KLS_VERSION');
 			if ( file_exists(TEMPLATEPATH . '/ed2kls.css') ) {
 				$cssUrl = get_bloginfo('template_url') . '/ed2kls.css';
 			}
 			echo '
-<!-- START of eD2k Link Selector -->
-<link rel="stylesheet" type="text/css" href="' . $cssUrl . '" />
-<script type="text/javascript">//<![CDATA[
-var ed2klsPath="' . $ed2klsUrl . '";
-var ed2klsStr={exd:{},shk:{},retry:{},bytes:{},tb:{},gb:{},mb:{},kb:{}};
-//]]></script>
-<script type="text/javascript" src="' . $ed2klsUrl . '/ZeroClipboard.js?v=1.0.7"></script>
-<script type="text/javascript" src="' . $ed2klsUrl . '/ed2kls.js?v=' . self::ver .'"></script>
-<!-- END of eD2k Link Selector -->
+<link rel="stylesheet" type="text/css" href="' . $cssUrl . '" /><!-- eD2k Link Selector CSS -->
 ';
+		}
+
+		function addFooter() {
+			global $ed2klsnumber;
+			if ($ed2klsnumber >= 1) {
+				echo $ed2klsnumber.'
+<!-- START of eD2k Link Selector JavaScript -->
+<script type="text/javascript" src="' . constant('ED2KLS_URL') . '/ed2klsvar.js.php?v=' . constant('ED2KLS_VERSION') .'"></script>
+<script type="text/javascript" src="' . constant('ED2KLS_URL') . '/ed2kls.js?v=' . constant('ED2KLS_VERSION') .'"></script>
+<!-- END of eD2k Link Selector JavaScript -->
+';
+			}
 		}
 
 		function formatSize($val) {
@@ -113,15 +120,19 @@ var ed2klsStr={exd:{},shk:{},retry:{},bytes:{},tb:{},gb:{},mb:{},kb:{}};
 			$myatts = shortcode_atts( array(
 			'head' => __('eD2k Links', 'ed2kls'),
 			'stat' => 'http://ed2k.shortypower.org/?hash=',
-			'name' => 'true',
-			'size' => 'true',
+			'name' => 'auto',
+			'size' => 'auto',
 			'collection' => 'true',
 			'format' => '1',
 			'forall' => 'false',
 			//'lang' => 'zh_CN',//force to use another language
 			), $atts );
 
-			if ( !is_single() && !is_page() && $myatts['forall'] == 'false' || is_feed() || $myatts['format'] == '2' ) {
+			$mypermalink = get_permalink();
+			$mypermalink = split('://', $mypermalink, 2);
+			$mypermalink = $mypermalink[1];
+
+			if ( !is_single() && !is_page() && $myatts['forall'] == 'false' || is_feed() || $myatts['format'] == '2' || $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] != $mypermalink && (is_single() || is_page()) ) {
 				$content = preg_replace_callback(
 				"/ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
 				array(&$this, 'excerptRepCallback'),
@@ -130,21 +141,14 @@ var ed2klsStr={exd:{},shk:{},retry:{},bytes:{},tb:{},gb:{},mb:{},kb:{}};
 				return $content;
 			}
 
-			$myno = 'e' . strval(mt_rand());
+			global $ed2klsnumber;
+			$ed2klsnumber += 1;
+
+			$myno = strval($ed2klsnumber);
 			$sizetot = 0;
 			$num = 0;
 			$extarray = array();
 			$newcontent = '
-<script type="text/javascript">
-ed2klsStr.retry["' . $myno . '"]="' . __('Loading not finished. Please retry.', 'ed2kls') . '";
-ed2klsStr.shk["' . $myno . '"]="' . __('Hide', 'ed2kls') . '";
-ed2klsStr.exd["' . $myno . '"]="' . __('Show', 'ed2kls') . '";
-ed2klsStr.bytes["' . $myno . '"]="' . __('Bytes', 'ed2kls') . '";
-ed2klsStr.tb["' . $myno . '"]="' . __('TB', 'ed2kls') . '";
-ed2klsStr.gb["' . $myno . '"]="' . __('GB', 'ed2kls') . '";
-ed2klsStr.mb["' . $myno . '"]="' . __('MB', 'ed2kls') . '";
-ed2klsStr.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
-</script>
 <form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $myno . '" onsubmit="return ed2kls.emclChk(\'' . $myno . '\');">
 <table class="el-s" id="el-s-' . $myno . '" border="0" cellpadding="0" cellspacing="0">
 	<thead>
@@ -160,9 +164,7 @@ ed2klsStr.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 			<div id="el-s-info-' . $myno . '" class="el-s-info" style="display: none;">
 				<a id="el-s-info-close-' . $myno . '" class="el-s-pseubtn el-s-info-close el-s-toright" title="' . __('Close help info', 'ed2kls') . '" onclick="ed2kls.closeinfo(\'' . $myno . '\')">[×]</a>
 				<div id="el-s-info-desc-' . $myno . '" class="el-s-info-desc">' . __('Help Info:', 'ed2kls') . '</div>
-				<div class="el-s-info-content">' . __('You can use <a href="http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download">eMule</a> or its mod (see <a href="http://www.emule-mods.de/?mods=start">Mod Page on emule-mods.de</a>) (Windows), <a href="http://www.amule.org/">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. See <a href="http://wiki.amule.org/index.php/Ed2k_links_handling">eD2k Links Handling</a> for help.<br />eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br />Click and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to select.<br />View <a href="http://emule-fans.com/wordpress-ed2k-link-selector/">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author.', 'ed2kls') . '</div>
-				<div class="el-s-info-content">' . __('Name Filter helps you select files by their names or extensions. Case insensitive.<br />Symbols Usage:<br />AND: space(<code> </code>), <code>+</code>;<br />NOT: <code>-</code>;<br />OR: <code>|</code>;<br />Escape: two quote marks(<code>""</code>);<br />Match at the start: <code>^</code>;<br />Match at the end: <code>$</code>.<br />e.g.<br /><code>emule|0.49c -exe</code> to select names that contain "eMule" and "0.49c" but not contain "exe";<br /><code>^emule 0.49c$</code> to select names started with "emule" and end with "0.49c";<br /><code>"emule 0.49c"</code> with quote marks to match exactly a "emule 0.49c", not a "eMule fake 0.49c".', 'ed2kls') . '</div>
-				<div class="el-s-info-content">' . __('Size Filter helps you select files by their sizes.', 'ed2kls') . '</div>
+				<div id="el-s-info-content-' . $myno . '" class="el-s-info-content"></div>
 			</div>
 		</td></tr>
 		<tr class="el-s-bottom"><td colspan="2">
@@ -249,7 +251,7 @@ ed2klsStr.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 			<td class="el-s-left">
 				<span class="el-s-area"><input type="checkbox" class="el-s-chkbx el-s-chkall" id="el-s-chkall-' . $myno . '" onclick="ed2kls.checkAll(\'' . $myno . '\',this.checked)" checked="checked" /><label class="el-s-chkall" for="el-s-chkall-' . $myno . '">' . __('All', 'ed2kls') . '</label></span>';
 
-			if (strtolower($myatts['name']) != 'false') {
+			if ( (strtolower($myatts['name']) != 'false' && $num >= 2) || strtolower($myatts['name']) == 'true') {
 				$newcontent .= '
 				<span class="el-s-area el-s-area-label"><label class="el-s-namefilter" for="el-s-namefilter-' . $myno . '">' . __('Name Filter', 'ed2kls') . '</label><a id="el-s-namefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',1)">[?]</a>:<input type="text" class="el-s-txt el-s-namefilter" id="el-s-namefilter-' . $myno . '" onkeyup="ed2kls.filter(\'' . $myno . '\')" />';
 
@@ -263,7 +265,7 @@ ed2klsStr.kb["' . $myno . '"]="' . __('KB', 'ed2kls') . '";
 				$newcontent .= '</span>';
 			}
 
-			if (strtolower($myatts['size']) != 'false') {
+			if ( (strtolower($myatts['size']) != 'false' && $num >= 2) || strtolower($myatts['size']) == 'true') {
 				$newcontent .= '
 				<span class="el-s-area el-s-area-label"><label class="el-s-sizefilter">' . __('Size Filter', 'ed2kls') . '</label><a id="el-s-sizefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',2)">[?]</a>:<select id="el-s-sizesymbol-' . $myno . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
 					<option selected="selected" value="1">&gt;</option>
@@ -339,9 +341,6 @@ if(edButtons)edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n
 				add_filter('admin_head', array(&$this, 'addTinymceJsVars'));
 				add_filter('mce_external_plugins', array(&$this, 'addTinymcePlugin'));
 				add_filter('mce_buttons', array(&$this, 'addTinymceButton'));
-				add_filter('query_vars', array(&$this, 'initQueryvars'));
-				add_action('template_redirect', array(&$this, 'includeFile'));
-				$this->trans();
 			}
 		}
 
@@ -350,15 +349,14 @@ if(edButtons)edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n
 <script type="text/javascript">//<![CDATA[
 var elsMceVar = {
 	title : "' . __('Add eD2k Links', 'ed2kls') . '",
-	url : "' . get_bloginfo('url') . '"
+	url : "' . constant('ED2KLS_URL') . '"
 };
 //]]></script>
 ';
 		}
 
 		function addTinymcePlugin($plugin_array) {
-			$ed2klsUrl = WP_PLUGIN_URL . '/ed2k-link-selector';
-			$plugin_array['ed2kls'] = $ed2klsUrl . '/tinymce/editor_plugin.js';
+			$plugin_array['ed2kls'] = constant('ED2KLS_URL') . '/tinymce/editor_plugin.js';
 			return $plugin_array;
 		}
 
@@ -366,35 +364,6 @@ var elsMceVar = {
 			array_push($buttons, 'separator', 'ed2kls');
 			return $buttons;
 		}
-
-		function initQueryvars( $queryVars ) {
-			$queryVars[] = 'elsload';
-			return $queryVars;
-		}
-
-		function includeFile() {
-			$no = intval(get_query_var('elsload'));
-			$includeFile = '';
-			switch( $no ) {
-				case 1:
-					$includeFile = 'tinymce/dialog.php';
-					break;
-				default:
-					return;
-			}
-			include dirname(__FILE__) . '/' . $includeFile;
-			exit;
-		}
-
-		function trans() {
-			$this->str['enter'] = __('Enter your eD2k links and intros:', 'ed2kls');
-			$this->str['ok'] = __('OK', 'ed2kls');
-			$this->str['clean'] = __('Clean', 'ed2kls');
-			$this->str['cancel'] = __('Cancel', 'ed2kls');
-			$this->str['title'] = __('Add eD2k Links', 'ed2kls');
-		}
-
-		var $str = array();
 
 	}
 }

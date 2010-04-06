@@ -3,7 +3,7 @@
 		init : function(ed, url) {
 			ed.addCommand("ed2klsDialog", function() {
 				ed.windowManager.open({
-					file : elsMceVar.url + "?elsload=1",
+					file : elsMceVar.url + "/tinymce/dialog.php",
 					width : 700,
 					height : 450,
 					inline : 1
