@@ -39,7 +39,7 @@ CC-BY-NC-SA
 }
 
 .el-s thead,.el-s-bottom {
-	background: #DFE2F4;
+	background: #DFE2F4 !important;
 	text-align: center;
 }
 
@@ -108,19 +108,19 @@ CC-BY-NC-SA
 }
 
 .el-s-tr1,.el-s-info {
-	background: #F5F9FD;
+	background: #F5F9FD !important;
 }
 
 .el-s-tr2 {
-	background: #EEF2F7;
+	background: #EEF2F7 !important;
 }
 
 .el-s-tr1:hover,.el-s-tr2:hover {
-	background: #FFF;
+	background: #FFF !important;
 }
 
 .el-s tbody,.el-s-infotr {
-	background: #E4EAF2;
+	background: #E4EAF2 !important;
 }
 
 .el-s-right {
@@ -160,8 +160,9 @@ CC-BY-NC-SA
 	display: inline;
 	font-size: 100%;
 	cursor: pointer;
-	background: #ADBEC6;
-	border: 1px solid #808080;
+	background: #ADBEC6 !important;
+	border: 1px solid #808080 !important;
+	font-weight: normal !important;
 	overflow: visible;
 	margin: 0 0.2em !important;
 	padding: 2px 5px !important;
@@ -175,7 +176,7 @@ CC-BY-NC-SA
 }
 
 .el-s-button:hover,.el-s-button.hover {
-	background: #CBDCE4;
+	background: #CBDCE4 !important;
 }
 
 .el-s-yes {
@@ -208,7 +209,7 @@ CC-BY-NC-SA
 .el-s-info-content code {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 110%;
-	background: #DDD;
+	background: #DDD !important;
 }
 
 .el-s-info-content a {
@@ -235,21 +236,21 @@ CC-BY-NC-SA
 
 /*
 .el-s-red thead,.el-s-red .el-s-bottom {
-	background: #DFE2F4;
+	background: #DFE2F4 !important;
 }
 .el-s-red .el-s-tr1,.el-s-red .el-s-info {
-	background: #F5F9FD;
+	background: #F5F9FD !important;
 }
 .el-s-red .el-s-tr2 {
-	background: #EEF2F7;
+	background: #EEF2F7 !important;
 }
 .el-s-red tbody,.el-s-red .el-s-infotr {
-	background: #E4EAF2;
+	background: #E4EAF2 !important;
 }
 .el-s-red .el-s-button {
-	background: #ADBEC6;
+	background: #ADBEC6 !important;
 }
 .el-s-red .el-s-button:hover,.el-s-red .el-s-button.hover {
-	background: #CBDCE4;
+	background: #CBDCE4 !important;
 }
 */

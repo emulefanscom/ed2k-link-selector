@@ -52,7 +52,10 @@ var ed2kls = {
 	help: function(no, subno) {
 		var info = ed2kls.$("el-s-info-" + no);
 		var cont = ed2kls.$("el-s-info-content-" + no);
-		cont.innerHTML = ed2klsVar.helpinfo[subno];
+		cont.innerHTML = "";
+		var contStr = ed2kls.$("el-s-info-content-str-" + subno).cloneNode(true);
+		contStr.id = "";
+		cont.appendChild(contStr);
 		if (info.style.display == "none") {
 			if (typeof jQuery == "undefined") {
 				info.style.display = "block";
