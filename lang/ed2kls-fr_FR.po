@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: eD2k Link Selector 1.0.0\n"
+"Project-Id-Version: eD2k Link Selector 1.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-13 21:25+0100\n"
-"PO-Revision-Date: 2010-04-13 21:25+0100\n"
+"POT-Creation-Date: 2010-04-13 21:53+0100\n"
+"PO-Revision-Date: 2010-04-13 21:53+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -201,17 +201,17 @@ msgstr "Sélecteur de Lien eD2k"
 msgid "eD2k Links"
 msgstr "Liens eD2k"
 
-#: ed2k-link-selector/ed2k-link-selector.php:504
-#: ed2k-link-selector/options.php:130
-msgid "Settings"
-msgstr ""
-
-#: ed2k-link-selector/ed2k-link-selector.php:509
+#: ed2k-link-selector/ed2k-link-selector.php:508
 msgid "Disable and delete the saved settings in the database"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:509
+#: ed2k-link-selector/ed2k-link-selector.php:508
 msgid "Disable Cpltly"
+msgstr ""
+
+#: ed2k-link-selector/ed2k-link-selector.php:509
+#: ed2k-link-selector/options.php:130
+msgid "Settings"
 msgstr ""
 
 #: ed2k-link-selector/options.php:121
