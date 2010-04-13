@@ -4,7 +4,7 @@
  Plugin Name:  eD2k Link Selector
  Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
  Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
- Version:      1.1.2
+ Version:      1.1.3
  Author:       tomchen1989
  Author URI:   http://emule-fans.com/
  */
@@ -27,8 +27,9 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-define('ED2KLS_VERSION', '1.1.2');
+define('ED2KLS_VERSION', '1.1.3');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
+define('ED2KLS_DBVERSION', '1');
 
 $ed2klsnumber = 0;
 
@@ -53,10 +54,15 @@ if(!class_exists('eD2kLinkSelector')) {
 			return $content;
 		}
 
-		function textdomain() {
-			$locale = get_locale();
+		function textdomain($locale = null) {
 			if ( empty($locale) ) {
-				$locale = 'en_US';
+				global $eD2kLSOption;
+				$option = $eD2kLSOption->readOptions();
+				if ( !empty($option['lang']) ) {
+					$locale = $option['lang'];
+				} else {
+					$locale = 'en_US';
+				}
 			}
 			//$locale = 'en_US';
 			$domain = 'ed2kls';
@@ -126,6 +132,51 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			return $val . $unit;
 		}
 
+		function shortcodeEd2k( $atts = array(), $content = NULL, $code ) {
+
+			if ( $content === NULL ) {
+				return '';
+			}
+
+			global $eD2kLSOption;
+			$option = $eD2kLSOption->readOptions();
+			$myatts = shortcode_atts( $option, $atts );
+
+			$isprint = false;
+			if ( function_exists('wp_print') && is_singular() ) {
+				$myvlink = get_permalink();
+				$myvlink = split('://', $myvlink, 2);
+				$myvlink = $myvlink[1];
+				$myvlink = split($myvlink, $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], 2);
+				$myvlink = $myvlink[1];
+				$myvlink = substr($myvlink, 0, 5);
+				if ($myvlink == 'print' || ( isset($_GET['print']) && $_GET['print'] == "1" )) {
+					$isprint = true;
+				}
+			}
+
+			if ( ( !is_singular() && $myatts['forall'] == 'false' || is_feed() ) || $myatts['format'] == '2' || $isprint === true ) {
+				return $this->convert2anchor($content);
+			}
+
+			global $ed2klsnumber;
+			$ed2klsnumber += 1;
+
+			$myno = strval($ed2klsnumber);
+
+			return $this->convert2table($content, $myatts, $myno);
+
+		}
+
+		function convert2anchor($content) {
+			$content = preg_replace_callback(
+			"/ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
+			array(&$this, 'excerptRepCallback'),
+			$content
+			);
+			return $content;
+		}
+
 		function excerptRepCallback($matches) {
 			$url = $matches[0];
 			$pieces = explode("|", $matches[2]);
@@ -133,64 +184,32 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			return '<a href="' . $url . '">' . $name . '</a>';
 		}
 
-		function shortcodeEd2k( $atts = array(), $content = NULL, $code ) {
+		function convert2table($content, $atts, $no) {
 
-			if ( $content === NULL ) {
-				return '';
-			}
-
-			$myatts = shortcode_atts( array(
-			'head' => __('eD2k Links', 'ed2kls'),
-			'stat' => 'http://ed2k.shortypower.org/?hash=',
-			'name' => 'auto',
-			'size' => 'auto',
-			'collection' => 'true',
-			'format' => '1',
-			'forall' => 'false',
-			//'lang' => 'zh_CN',//force to use another language
-			), $atts );
-
-			$mypermalink = get_permalink();
-			$mypermalink = split('://', $mypermalink, 2);
-			$mypermalink = $mypermalink[1];
-
-			if ( !is_single() && !is_page() && $myatts['forall'] == 'false' || is_feed() || $myatts['format'] == '2' || $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] != $mypermalink && (is_single() || is_page()) ) {
-				$content = preg_replace_callback(
-				"/ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
-				array(&$this, 'excerptRepCallback'),
-				$content
-				);
-				return $content;
-			}
-
-			global $ed2klsnumber;
-			$ed2klsnumber += 1;
-
-			$myno = strval($ed2klsnumber);
 			$sizetot = 0;
 			$num = 0;
 			$extarray = array();
 			$newcontent = '
-<form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $myno . '" onsubmit="return ed2kls.emclChk(\'' . $myno . '\');">
-<table class="el-s" id="el-s-' . $myno . '" border="0" cellpadding="0" cellspacing="0">
-	<thead>
+<form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $no . '" onsubmit="return ed2kls.emclChk(\'' . $no . '\');">
+<table class="el-s" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $atts['width'] . ';">
+	<thead class="el-s-thead">
 		<tr><td colspan="2">
 			<div class="el-s-titlebtn el-s-toright">
-				<a id="el-s-help-' . $myno . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',0)">[?]</a><a id="el-s-exd-' . $myno . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Hide', 'ed2kls') . '" onclick="ed2kls.close(\'' . $myno . '\')">[-]</a>
+				<a id="el-s-help-' . $no . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',0)">[?]</a><a id="el-s-exd-' . $no . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Hide', 'ed2kls') . '" onclick="ed2kls.close(\'' . $no . '\')">[-]</a>
 			</div>
-			<strong>' . $myatts['head'] . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
+			<strong>' . $atts['head'] . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
 		</td></tr>
 	</thead>
 	<tfoot>
 		<tr class="el-s-infotr"><td colspan="2">
-			<div id="el-s-info-' . $myno . '" class="el-s-info" style="display: none;">
-				<a id="el-s-info-close-' . $myno . '" class="el-s-pseubtn el-s-info-close el-s-toright" title="' . __('Close help info', 'ed2kls') . '" onclick="ed2kls.closeinfo(\'' . $myno . '\')">[×]</a>
-				<div id="el-s-info-desc-' . $myno . '" class="el-s-info-desc">' . __('Help Info:', 'ed2kls') . '</div>
-				<div id="el-s-info-content-' . $myno . '" class="el-s-info-content"></div>
+			<div id="el-s-info-' . $no . '" class="el-s-info" style="display: none;">
+				<a id="el-s-info-close-' . $no . '" class="el-s-pseubtn el-s-info-close el-s-toright" title="' . __('Close help info', 'ed2kls') . '" onclick="ed2kls.closeinfo(\'' . $no . '\')">[×]</a>
+				<div id="el-s-info-desc-' . $no . '" class="el-s-info-desc">' . __('Help Info:', 'ed2kls') . '</div>
+				<div id="el-s-info-content-' . $no . '" class="el-s-info-content"></div>
 			</div>
 		</td></tr>
 		<tr class="el-s-bottom"><td colspan="2">
-			<a id="el-s-help2-' . $myno . '" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',0)">' . __('Help', 'ed2kls') . '</a>
+			<a id="el-s-help2-' . $no . '" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',0)">' . __('Help', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
 			<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
@@ -201,7 +220,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			<a href="http://emule-fans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
 		</td></tr>
 	</tfoot>
-	<tbody id="el-s-tb-' . $myno . '">
+	<tbody id="el-s-tb-' . $no . '">
 ';
 
 			preg_match_all (
@@ -238,10 +257,10 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 					$newcontent .= '
 <tr class="el-s-tr' . $odd . '">
 	<td class="el-s-left">
-		<input type="checkbox" class="el-s-chkbx el-s-chkbx-ed2k" name="el-s-chkbx-' . $myno . '[]" id="el-s-chkbx-' . $myno . '-' . $num . '" value="' . $url . '" onclick="ed2kls.checkIt(\'' . $myno . '\',event);" checked="checked" /><a class="el-s-dl" href="' . $url . '" ed2k="' . $url . '">' . $name . '</a>';
-					if (strtolower($myatts['stat']) != "false") {
+		<input type="checkbox" class="el-s-chkbx el-s-chkbx-ed2k" name="el-s-chkbx-' . $no . '[]" id="el-s-chkbx-' . $no . '-' . $num . '" value="' . $url . '" onclick="ed2kls.checkIt(\'' . $no . '\',event);" checked="checked" /><a class="el-s-dl" href="' . $url . '" ed2k="' . $url . '">' . $name . '</a>';
+					if (strtolower($atts['stat']) != "false") {
 						$newcontent .= '
-		<a class="el-s-viewsrc" href="' . $myatts['stat'] . $hash . '" target="_blank">' . __('Stat', 'ed2kls') . '</a>';
+		<a class="el-s-viewsrc" href="' . $atts['stat'] . $hash . '" target="_blank">' . __('Stat', 'ed2kls') . '</a>';
 					}
 					$newcontent .= '
 	</td>
@@ -271,37 +290,37 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			$newcontent .= '
 		<tr class="el-s-selecttr">
 			<td class="el-s-left">
-				<span class="el-s-area"><input type="checkbox" class="el-s-chkbx el-s-chkall" id="el-s-chkall-' . $myno . '" onclick="ed2kls.checkAll(\'' . $myno . '\',this.checked)" checked="checked" /><label class="el-s-chkall" for="el-s-chkall-' . $myno . '">' . __('All', 'ed2kls') . '</label></span>';
+				<span class="el-s-area"><input type="checkbox" class="el-s-chkbx el-s-chkall" id="el-s-chkall-' . $no . '" onclick="ed2kls.checkAll(\'' . $no . '\',this.checked)" checked="checked" /><label class="el-s-chkall" for="el-s-chkall-' . $no . '">' . __('All', 'ed2kls') . '</label></span>';
 
-			if ( (strtolower($myatts['name']) != 'false' && $num >= 2) || strtolower($myatts['name']) == 'true') {
+			if ( (strtolower($atts['name']) != 'false' && $num >= 2) || strtolower($atts['name']) == 'true') {
 				$newcontent .= '
-				<span class="el-s-area el-s-area-label"><label class="el-s-namefilter" for="el-s-namefilter-' . $myno . '">' . __('Name Filter', 'ed2kls') . '</label><a id="el-s-namefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',1)">[?]</a>:<input type="text" class="el-s-txt el-s-namefilter" id="el-s-namefilter-' . $myno . '" onkeyup="ed2kls.filter(\'' . $myno . '\')" />';
+				<span class="el-s-area el-s-area-label"><label class="el-s-namefilter" for="el-s-namefilter-' . $no . '">' . __('Name Filter', 'ed2kls') . '</label><a id="el-s-namefilterhelp-' . $no . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',1)">[?]</a>:<input type="text" class="el-s-txt el-s-namefilter" id="el-s-namefilter-' . $no . '" onkeyup="ed2kls.filter(\'' . $no . '\')" />';
 
 				$extarray = array_unique($extarray);
 
 				foreach ($extarray as $myext) {
 					$newcontent .= '
-				<input type="checkbox" value="' . $myext . '" name="el-s-chktype-' . $myno . '[]" class="el-s-chkbx el-s-chktype" id="el-s-chktype-' . $myext . '-' . $myno . '" onclick="ed2kls.typeFilter(\'' . $myno . '\',this.value,this.checked)" /><label class="filter" for="el-s-chktype-' . $myext . '-' . $myno . '">' . strtoupper($myext) . '</label>';
+				<input type="checkbox" value="' . $myext . '" name="el-s-chktype-' . $no . '[]" class="el-s-chkbx el-s-chktype" id="el-s-chktype-' . $myext . '-' . $no . '" onclick="ed2kls.typeFilter(\'' . $no . '\',this.value,this.checked)" /><label class="el-s-filter" for="el-s-chktype-' . $myext . '-' . $no . '">' . strtoupper($myext) . '</label>';
 				}
 
 				$newcontent .= '</span>';
 			}
 
-			if ( (strtolower($myatts['size']) != 'false' && $num >= 2) || strtolower($myatts['size']) == 'true') {
+			if ( (strtolower($atts['size']) != 'false' && $num >= 2) || strtolower($atts['size']) == 'true') {
 				$newcontent .= '
-				<span class="el-s-area el-s-area-label"><label class="el-s-sizefilter">' . __('Size Filter', 'ed2kls') . '</label><a id="el-s-sizefilterhelp-' . $myno . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $myno . '\',2)">[?]</a>:<select id="el-s-sizesymbol-' . $myno . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
+				<span class="el-s-area el-s-area-label"><label class="el-s-sizefilter">' . __('Size Filter', 'ed2kls') . '</label><a id="el-s-sizefilterhelp-' . $no . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',2)">[?]</a>:<select id="el-s-sizesymbol-' . $no . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $no . '\')">
 					<option selected="selected" value="1">&gt;</option>
 					<option value="2">&lt;</option>
-				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $myno . '-1" onkeyup="ed2kls.filter(\'' . $myno . '\')" /><select id="el-s-sizeunit-' . $myno . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
+				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $no . '-1" onkeyup="ed2kls.filter(\'' . $no . '\')" /><select id="el-s-sizeunit-' . $no . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $no . '\')">
 					<option selected="selected" value="1099511627776">' . __('TB', 'ed2kls') . '</option>
 					<option value="1073741824">' . __('GB', 'ed2kls') . '</option>
 					<option value="1048576">' . __('MB', 'ed2kls') . '</option>
 					<option value="1024">' . __('KB', 'ed2kls') . '</option>
 					<option value="1">' . __('Bytes', 'ed2kls') . '</option>
-				</select>,<select id="el-s-sizesymbol-' . $myno . '-2" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
+				</select>,<select id="el-s-sizesymbol-' . $no . '-2" class="el-s-sel" onchange="ed2kls.filter(\'' . $no . '\')">
 					<option selected="selected" value="1">&gt;</option>
 					<option value="2">&lt;</option>
-				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $myno . '-2" onkeyup="ed2kls.filter(\'' . $myno . '\')" /><select id="el-s-sizeunit-' . $myno . '-2" class="el-s-sel" onchange="ed2kls.filter(\'' . $myno . '\')">
+				</select><input type="text" class="el-s-txt el-s-sizefilter" id="el-s-sizefilter-' . $no . '-2" onkeyup="ed2kls.filter(\'' . $no . '\')" /><select id="el-s-sizeunit-' . $no . '-2" class="el-s-sel" onchange="ed2kls.filter(\'' . $no . '\')">
 					<option selected="selected" value="1099511627776">' . __('TB', 'ed2kls') . '</option>
 					<option value="1073741824">' . __('GB', 'ed2kls') . '</option>
 					<option value="1048576">' . __('MB', 'ed2kls') . '</option>
@@ -312,19 +331,19 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 
 			$newcontent .= '
 			</td>
-			<td rowspan="2" class="el-s-right"><span id="el-s-totsize-' . $myno . '">' . $sizetot .'</span><br />(<span id="el-s-totnum-' . $myno . '">' . $num . '</span>' . __('Files', 'ed2kls') . ')</td>
+			<td rowspan="2" class="el-s-right"><span id="el-s-totsize-' . $no . '">' . $sizetot .'</span><br />(<span id="el-s-totnum-' . $no . '">' . $num . '</span>' . __('Files', 'ed2kls') . ')</td>
 		</tr>
 		<tr class="el-s-buttontr">
 			<td class="el-s-left">
-				<input type="button" id="el-s-download-' . $myno . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $myno . '\')" value="' . __('Download', 'ed2kls') . '" />
-				<input type="button" id="el-s-copylinks-' . $myno . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $myno . '\')" value="' . __('Copy Links', 'ed2kls') . '" />
-				<input type="button" id="el-s-copynames-' . $myno . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $myno . '\')" value="' . __('Copy Names', 'ed2kls') . '" />';
-			if ( strtolower($myatts['collection']) != "false" ) {
+				<input type="button" id="el-s-download-' . $no . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $no . '\')" value="' . __('Download', 'ed2kls') . '" />
+				<input type="button" id="el-s-copylinks-' . $no . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $no . '\')" value="' . __('Copy Links', 'ed2kls') . '" />
+				<input type="button" id="el-s-copynames-' . $no . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $no . '\')" value="' . __('Copy Names', 'ed2kls') . '" />';
+			if ( strtolower($atts['collection']) != "false" ) {
 				$newcontent .= '
-				<input type="hidden" value="' . $myno . '" name="el-s-no"><input type="submit" id="el-s-submit-' . $myno . '" class="el-s-button el-s-emcl" value="' . __('eMuleCollection', 'ed2kls') . '" />';
+				<input type="hidden" value="' . $no . '" name="el-s-no"><input type="submit" id="el-s-submit-' . $no . '" class="el-s-button el-s-emcl" value="' . __('eMuleCollection', 'ed2kls') . '" />';
 			}
 			$newcontent .= '
-				<span class="el-s-copied" id="el-s-copied-' . $myno . '" style="display:none;"><span class="el-s-yes">√</span>' . __('Copyed', 'ed2kls') . '</span>
+				<span class="el-s-copied" id="el-s-copied-' . $no . '" style="display:none;"><span class="el-s-yes">√</span>' . __('Copyed', 'ed2kls') . '</span>
 			</td>
 		</tr>
 	</tbody>
@@ -350,7 +369,7 @@ if(!class_exists('eD2kLSButton')) {
 		function addQuicktag() {
 			echo '
 <script type="text/javascript">//<![CDATA[
-if(edButtons)edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
+if(typeof edButtons!=="undefined")edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
 //]]></script>
 ';
 		}
@@ -390,8 +409,117 @@ var elsMceVar = {
 	}
 }
 
+if(!class_exists('eD2kLSOption')) {
+	class eD2kLSOption {
+
+		function eD2kLSOption() {
+			add_action('init', array(&$this, 'updateOptions'), 9);
+			register_activation_hook(__FILE__, array(&$this, 'optionInit'));
+			register_deactivation_hook(__FILE__, array(&$this, 'deactive'));
+			add_action('admin_menu', array(&$this, 'addOptionPage'));
+			add_filter('plugin_action_links', array(&$this, 'addLinks'), 10, 2);
+		}
+
+		function addOptionPage() {
+			if (function_exists('add_options_page')) {
+				add_options_page(__('eD2k Link Selector Options', 'ed2kls'), __('eD2k Link Selector', 'ed2kls'), 'manage_options', 'ed2k-link-selector/options.php');
+			}
+		}
+
+		function readOptions() {
+			$options = get_option('ed2kls_options');
+			if (empty($options) || $options['dbversion'] != constant('ED2KLS_DBVERSION')) {
+				$options = $this->defaultOptions();
+			}
+			return $options;
+		}
+
+		function optionInit() {
+			$options = get_option('ed2kls_options');
+			if (empty($options) || $options['dbversion'] != constant('ED2KLS_DBVERSION')) {
+				$options = $this->setDefaultOptions();
+			}
+			return $options;
+		}
+
+		function defaultOptions() {
+			$defOptions = array();
+			$defOptions['dbversion'] = constant('ED2KLS_DBVERSION');
+			$defOptions['lang'] = get_locale();
+			$defOptions['head'] = __('eD2k Links', 'ed2kls');
+			$defOptions['stat'] = 'http://ed2k.shortypower.org/?hash=';
+			$defOptions['name'] = 'auto';
+			$defOptions['size'] = 'auto';
+			$defOptions['collection'] = 'true';
+			$defOptions['width'] = '100%';
+			$defOptions['format'] = '1';
+			$defOptions['forall'] = 'false';
+			return $defOptions;
+		}
+
+		function setDefaultOptions() {
+			load_plugin_textdomain('ed2kls', false, 'ed2k-link-selector/lang');
+			$newOptions = $this->defaultOptions();
+			if (get_option('ed2kls_options') === false) {
+				add_option('ed2kls_options', $newOptions);
+			} else {
+				update_option('ed2kls_options', $newOptions);
+			}
+			return $newOptions;
+		}
+
+		function updateOptions() {
+			if ( isset($_POST['elsopt-save']) ) {
+				$newOptions = array();
+				$defOptions = $this->defaultOptions();
+				$newOptions['dbversion'] = constant('ED2KLS_DBVERSION');
+				$newOptions['lang'] = $_POST['elsopt-lang'];
+				$newOptions['head'] = trim($_POST['elsopt-head']) ? trim($_POST['elsopt-head']) : $defOptions['head'];
+				if ( $_POST['elsopt-stat-if'] == 'true') {
+					$newOptions['stat'] = trim($_POST['elsopt-stat']) ? trim($_POST['elsopt-stat']) : $defOptions['stat'];
+				} else {
+					$newOptions['stat'] = 'false';
+				}
+				$newOptions['name'] = $_POST['elsopt-name'];
+				$newOptions['size'] = $_POST['elsopt-size'];
+				$newOptions['collection'] = $_POST['elsopt-collection'];
+				$newOptions['width'] = $_POST['elsopt-width'] ? $_POST['elsopt-width'] : $defOptions['width'];
+				$newOptions['format'] = $_POST['elsopt-format'];
+				$newOptions['forall'] = $_POST['elsopt-forall'];
+				update_option('ed2kls_options', $newOptions);
+			}
+			if ( isset($_POST['elsopt-default']) ) {
+				$this->setDefaultOptions();
+			}
+		}
+
+		function deactive() {
+			if ( isset($_GET['elsdeldata']) && $_GET['elsdeldata'] = 'yes' ) {
+				delete_option('ed2kls_options');
+			}
+		}
+
+		function addLinks($links, $file) {
+			if ( $file == 'ed2k-link-selector/ed2k-link-selector.php' ) {
+				$deactivateUrl = 'plugins.php?action=deactivate&amp;plugin=ed2k-link-selector/ed2k-link-selector.php';
+				if (function_exists('wp_nonce_url')) { 
+					$deactivateUrl = wp_nonce_url($deactivateUrl, 'deactivate-plugin_ed2k-link-selector/ed2k-link-selector.php');
+				}
+				$links[] = '<a href="' . $deactivateUrl . '&elsdeldata=yes" title="' . __('Disable and delete the saved settings in the database', 'ed2kls') . '">' . __('Disable Cpltly', 'ed2kls') . '</a>';
+				$links[] = '<a href="options-general.php?page=ed2k-link-selector/options.php">' . __('Settings', 'ed2kls') . '</a>';
+			}
+			return $links;
+		}
+
+	}
+}
+
 if(class_exists('eD2kLinkSelector')) {
 	$eD2kLinkSelector = new eD2kLinkSelector();
+}
+
+if(class_exists('eD2kLSOption')) {
+	$eD2kLSOption = new eD2kLSOption();
 }
 
 if(class_exists('eD2kLSButton')) {

@@ -4,7 +4,7 @@ Donate link: http://emule-fans.com/wordpress-ed2k-link-selector/
 Tags: ed2k, link, 电驴, 链接, eMule, 电骡, BBcode, selector
 Requires at least: 2.5
 Tested up to: 2.9.2
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
 
@@ -46,6 +46,7 @@ ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 
 1. Plugin screenshot
 2. Buttons for HTML (Quicktags) and TinyMCE editors
+3. Options page
 
 == Changelog ==
 
