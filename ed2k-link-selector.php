@@ -4,7 +4,7 @@
  Plugin Name:  eD2k Link Selector
  Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
  Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
- Version:      1.1.2
+ Version:      1.1.5
  Author:       tomchen1989
  Author URI:   http://emule-fans.com/
  */
@@ -27,9 +27,9 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-define('ED2KLS_VERSION', '1.1.2');
+define('ED2KLS_VERSION', '1.1.5');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
-define('ED2KLS_DBVERSION', '1');
+define('ED2KLS_DBVERSION', '2');
 
 $ed2klsnumber = 0;
 
