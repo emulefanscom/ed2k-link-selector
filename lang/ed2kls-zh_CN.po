@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eD2k Link Selector 1.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-13 21:52+0100\n"
-"PO-Revision-Date: 2010-04-13 21:53+0100\n"
+"POT-Creation-Date: 2010-04-14 20:15+0100\n"
+"PO-Revision-Date: 2010-04-14 20:18+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,8 @@ msgstr "KB"
 #: ed2k-link-selector/options.php:189
 #: ed2k-link-selector/options.php:199
 #: ed2k-link-selector/options.php:206
-#: ed2k-link-selector/options.php:216
+#: ed2k-link-selector/options.php:213
+#: ed2k-link-selector/options.php:223
 msgid "Help"
 msgstr "帮助"
 
@@ -201,15 +202,15 @@ msgstr "eD2k链接选择器"
 msgid "eD2k Links"
 msgstr "eD2k链接"
 
-#: ed2k-link-selector/ed2k-link-selector.php:508
+#: ed2k-link-selector/ed2k-link-selector.php:510
 msgid "Disable and delete the saved settings in the database"
 msgstr "停用并删除该插件在数据库中的选项设置"
 
-#: ed2k-link-selector/ed2k-link-selector.php:508
+#: ed2k-link-selector/ed2k-link-selector.php:510
 msgid "Disable Cpltly"
 msgstr "完全停用"
 
-#: ed2k-link-selector/ed2k-link-selector.php:509
+#: ed2k-link-selector/ed2k-link-selector.php:511
 #: ed2k-link-selector/options.php:130
 msgid "Settings"
 msgstr "设置"
@@ -221,7 +222,7 @@ msgstr "数据卸载成功。请点击<a href=\"%1$s\">此处</a>完全停用该
 
 #: ed2k-link-selector/options.php:121
 #: ed2k-link-selector/options.php:125
-#: ed2k-link-selector/options.php:233
+#: ed2k-link-selector/options.php:240
 msgid "Restore Default"
 msgstr "恢复默认"
 
@@ -242,8 +243,9 @@ msgstr "点击“[?]”按钮看帮助。这里的设置用于全部。您还可
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:195
 #: ed2k-link-selector/options.php:202
-#: ed2k-link-selector/options.php:212
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:209
+#: ed2k-link-selector/options.php:219
+#: ed2k-link-selector/options.php:229
 msgid "Tag Attribute"
 msgstr "标签属性"
 
@@ -254,8 +256,9 @@ msgstr "标签属性"
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:195
 #: ed2k-link-selector/options.php:202
-#: ed2k-link-selector/options.php:212
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:209
+#: ed2k-link-selector/options.php:219
+#: ed2k-link-selector/options.php:229
 msgid "Available Value(s)"
 msgstr "可用值"
 
@@ -290,7 +293,7 @@ msgstr "查源按钮"
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:192
 #: ed2k-link-selector/options.php:195
-#: ed2k-link-selector/options.php:209
+#: ed2k-link-selector/options.php:216
 msgid "Enable"
 msgstr "使用"
 
@@ -302,7 +305,7 @@ msgstr "使用"
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:193
 #: ed2k-link-selector/options.php:195
-#: ed2k-link-selector/options.php:210
+#: ed2k-link-selector/options.php:217
 msgid "Disable"
 msgstr "停用"
 
@@ -349,57 +352,69 @@ msgid "Width, in %, px, pt or em"
 msgstr "宽度，以%、px、pt或em为单位"
 
 #: ed2k-link-selector/options.php:206
+msgid "Font Size"
+msgstr "字号"
+
+#: ed2k-link-selector/options.php:209
+msgid "(For the \"Table\" format) Font size of the table."
+msgstr "（表格形式下）表格的字号。"
+
+#: ed2k-link-selector/options.php:209
+msgid "Font size, in %, px, pt or em"
+msgstr "字号，以%、px、pt或em为单位"
+
+#: ed2k-link-selector/options.php:213
 msgid "Format"
 msgstr "形式"
 
-#: ed2k-link-selector/options.php:212
+#: ed2k-link-selector/options.php:219
 msgid "Which format to use for content on single post and page."
 msgstr "在文章（single post）和页面（page）上输出的内容（content）使用何种形式。"
 
-#: ed2k-link-selector/options.php:212
+#: ed2k-link-selector/options.php:219
 msgid "Table"
 msgstr "表格形式"
 
-#: ed2k-link-selector/options.php:212
+#: ed2k-link-selector/options.php:219
 msgid "Anchor"
 msgstr "普通链接形式"
 
-#: ed2k-link-selector/options.php:216
+#: ed2k-link-selector/options.php:223
 msgid "For All"
 msgstr "应用于所有"
 
-#: ed2k-link-selector/options.php:219
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:226
+#: ed2k-link-selector/options.php:229
 msgid "Yes"
 msgstr "是"
 
-#: ed2k-link-selector/options.php:220
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:227
+#: ed2k-link-selector/options.php:229
 msgid "No"
 msgstr "否"
 
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:229
 msgid "Whether to apply on non-singular pages (pages which are not single posts or pages. Like front page and category pages)."
 msgstr "是否应用于除文章和页面外的页（例如首页和分类页等）。"
 
-#: ed2k-link-selector/options.php:227
+#: ed2k-link-selector/options.php:234
 msgid "Save Options"
 msgstr "保存设置"
 
-#: ed2k-link-selector/options.php:240
+#: ed2k-link-selector/options.php:247
 msgid "Demo"
 msgstr "预览"
 
-#: ed2k-link-selector/options.php:259
-#: ed2k-link-selector/options.php:263
+#: ed2k-link-selector/options.php:266
+#: ed2k-link-selector/options.php:270
 msgid "Uninstall"
 msgstr "卸载"
 
-#: ed2k-link-selector/options.php:260
+#: ed2k-link-selector/options.php:267
 msgid "Click uninstall button to delete the saved settings in the database."
 msgstr "点击卸载按钮将删除该插件在数据库中的选项设置。"
 
-#: ed2k-link-selector/options.php:264
+#: ed2k-link-selector/options.php:271
 msgid "Confirm"
 msgstr "确认"
 

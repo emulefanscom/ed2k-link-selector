@@ -4,7 +4,7 @@
  Plugin Name:  eD2k Link Selector
  Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
  Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
- Version:      1.1.3
+ Version:      1.1.2
  Author:       tomchen1989
  Author URI:   http://emule-fans.com/
  */
@@ -27,7 +27,7 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-define('ED2KLS_VERSION', '1.1.3');
+define('ED2KLS_VERSION', '1.1.2');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
 define('ED2KLS_DBVERSION', '1');
 
@@ -191,7 +191,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			$extarray = array();
 			$newcontent = '
 <form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $no . '" onsubmit="return ed2kls.emclChk(\'' . $no . '\');">
-<table class="el-s" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $atts['width'] . ';">
+<table class="el-s" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $atts['width'] . ';font-size:' . $atts['fontsize'] . ';">
 	<thead class="el-s-thead">
 		<tr><td colspan="2">
 			<div class="el-s-titlebtn el-s-toright">
@@ -452,6 +452,7 @@ if(!class_exists('eD2kLSOption')) {
 			$defOptions['size'] = 'auto';
 			$defOptions['collection'] = 'true';
 			$defOptions['width'] = '100%';
+			$defOptions['fontsize'] = '13px';
 			$defOptions['format'] = '1';
 			$defOptions['forall'] = 'false';
 			return $defOptions;
@@ -484,6 +485,7 @@ if(!class_exists('eD2kLSOption')) {
 				$newOptions['size'] = $_POST['elsopt-size'];
 				$newOptions['collection'] = $_POST['elsopt-collection'];
 				$newOptions['width'] = $_POST['elsopt-width'] ? $_POST['elsopt-width'] : $defOptions['width'];
+				$newOptions['fontsize'] = $_POST['elsopt-fontsize'] ? $_POST['elsopt-fontsize'] : $defOptions['fontsize'];
 				$newOptions['format'] = $_POST['elsopt-format'];
 				$newOptions['forall'] = $_POST['elsopt-forall'];
 				update_option('ed2kls_options', $newOptions);

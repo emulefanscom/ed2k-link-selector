@@ -14,7 +14,7 @@
 input.elsopt-txt {
 	width: 32em;
 }
-#elsopt-width {
+#elsopt-width, #elsopt-fontsize {
 	width: 10em;
 }
 #elsopt-opt-all select {
@@ -200,6 +200,13 @@ if ($condition == 1) {
 					<td>
 						<input type="text" id="elsopt-width" name="elsopt-width" value="<?php echo $oldOptions['width']; ?>" class="elsopt-opt elsopt-txt" />
 						<div id="elsopt-info-width" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Width of the table.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>width</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>[<?php echo __('Width, in %, px, pt or em', 'ed2kls'); ?>]</code></li></ul></li></ul></div>
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Font Size', 'ed2kls'); ?><a class="elsopt-help" title="<?php echo __('Help', 'ed2kls'); ?>" onclick="elsInfoToggle('fontsize');">[?]</a></th>
+					<td>
+						<input type="text" id="elsopt-fontsize" name="elsopt-fontsize" value="<?php echo $oldOptions['fontsize']; ?>" class="elsopt-opt elsopt-txt" />
+						<div id="elsopt-info-fontsize" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Font size of the table.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>fontsize</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>[<?php echo __('Font size, in %, px, pt or em', 'ed2kls'); ?>]</code></li></ul></li></ul></div>
 					</td>
 				</tr>
 				<tr>

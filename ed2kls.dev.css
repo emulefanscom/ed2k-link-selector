@@ -19,6 +19,7 @@ CC-BY-NC-SA
 .el-s {
 	border: 1px solid #ADBEC6 !important;
 	border-collapse: separate !important;
+	margin: 0 auto!important;
 	clear: both;
 	width: 100%;
 	table-layout: auto;
@@ -28,6 +29,10 @@ CC-BY-NC-SA
 	-khtml-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
+}
+
+.el-s td {
+	font-size: inherit;
 }
 
 .el-s a {

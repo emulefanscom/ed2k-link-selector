@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eD2k Link Selector 1.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-13 21:53+0100\n"
-"PO-Revision-Date: 2010-04-13 21:53+0100\n"
+"POT-Creation-Date: 2010-04-14 20:18+0100\n"
+"PO-Revision-Date: 2010-04-14 20:18+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,8 @@ msgstr "KB"
 #: ed2k-link-selector/options.php:189
 #: ed2k-link-selector/options.php:199
 #: ed2k-link-selector/options.php:206
-#: ed2k-link-selector/options.php:216
+#: ed2k-link-selector/options.php:213
+#: ed2k-link-selector/options.php:223
 msgid "Help"
 msgstr "Aide"
 
@@ -201,15 +202,15 @@ msgstr "Sélecteur de Lien eD2k"
 msgid "eD2k Links"
 msgstr "Liens eD2k"
 
-#: ed2k-link-selector/ed2k-link-selector.php:508
+#: ed2k-link-selector/ed2k-link-selector.php:510
 msgid "Disable and delete the saved settings in the database"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:508
+#: ed2k-link-selector/ed2k-link-selector.php:510
 msgid "Disable Cpltly"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:509
+#: ed2k-link-selector/ed2k-link-selector.php:511
 #: ed2k-link-selector/options.php:130
 msgid "Settings"
 msgstr ""
@@ -221,7 +222,7 @@ msgstr ""
 
 #: ed2k-link-selector/options.php:121
 #: ed2k-link-selector/options.php:125
-#: ed2k-link-selector/options.php:233
+#: ed2k-link-selector/options.php:240
 msgid "Restore Default"
 msgstr ""
 
@@ -242,8 +243,9 @@ msgstr ""
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:195
 #: ed2k-link-selector/options.php:202
-#: ed2k-link-selector/options.php:212
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:209
+#: ed2k-link-selector/options.php:219
+#: ed2k-link-selector/options.php:229
 msgid "Tag Attribute"
 msgstr ""
 
@@ -254,8 +256,9 @@ msgstr ""
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:195
 #: ed2k-link-selector/options.php:202
-#: ed2k-link-selector/options.php:212
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:209
+#: ed2k-link-selector/options.php:219
+#: ed2k-link-selector/options.php:229
 msgid "Available Value(s)"
 msgstr ""
 
@@ -290,7 +293,7 @@ msgstr ""
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:192
 #: ed2k-link-selector/options.php:195
-#: ed2k-link-selector/options.php:209
+#: ed2k-link-selector/options.php:216
 msgid "Enable"
 msgstr ""
 
@@ -302,7 +305,7 @@ msgstr ""
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:193
 #: ed2k-link-selector/options.php:195
-#: ed2k-link-selector/options.php:210
+#: ed2k-link-selector/options.php:217
 msgid "Disable"
 msgstr ""
 
@@ -349,57 +352,69 @@ msgid "Width, in %, px, pt or em"
 msgstr ""
 
 #: ed2k-link-selector/options.php:206
+msgid "Font Size"
+msgstr ""
+
+#: ed2k-link-selector/options.php:209
+msgid "(For the \"Table\" format) Font size of the table."
+msgstr ""
+
+#: ed2k-link-selector/options.php:209
+msgid "Font size, in %, px, pt or em"
+msgstr ""
+
+#: ed2k-link-selector/options.php:213
 msgid "Format"
 msgstr ""
 
-#: ed2k-link-selector/options.php:212
+#: ed2k-link-selector/options.php:219
 msgid "Which format to use for content on single post and page."
 msgstr ""
 
-#: ed2k-link-selector/options.php:212
+#: ed2k-link-selector/options.php:219
 msgid "Table"
 msgstr "Tableau"
 
-#: ed2k-link-selector/options.php:212
+#: ed2k-link-selector/options.php:219
 msgid "Anchor"
 msgstr ""
 
-#: ed2k-link-selector/options.php:216
+#: ed2k-link-selector/options.php:223
 msgid "For All"
 msgstr "Pour Tous"
 
-#: ed2k-link-selector/options.php:219
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:226
+#: ed2k-link-selector/options.php:229
 msgid "Yes"
 msgstr ""
 
-#: ed2k-link-selector/options.php:220
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:227
+#: ed2k-link-selector/options.php:229
 msgid "No"
 msgstr ""
 
-#: ed2k-link-selector/options.php:222
+#: ed2k-link-selector/options.php:229
 msgid "Whether to apply on non-singular pages (pages which are not single posts or pages. Like front page and category pages)."
 msgstr ""
 
-#: ed2k-link-selector/options.php:227
+#: ed2k-link-selector/options.php:234
 msgid "Save Options"
 msgstr ""
 
-#: ed2k-link-selector/options.php:240
+#: ed2k-link-selector/options.php:247
 msgid "Demo"
 msgstr ""
 
-#: ed2k-link-selector/options.php:259
-#: ed2k-link-selector/options.php:263
+#: ed2k-link-selector/options.php:266
+#: ed2k-link-selector/options.php:270
 msgid "Uninstall"
 msgstr ""
 
-#: ed2k-link-selector/options.php:260
+#: ed2k-link-selector/options.php:267
 msgid "Click uninstall button to delete the saved settings in the database."
 msgstr ""
 
-#: ed2k-link-selector/options.php:264
+#: ed2k-link-selector/options.php:271
 msgid "Confirm"
 msgstr ""
 
