@@ -33,6 +33,9 @@ CC-BY-NC-SA
 
 .el-s td {
 	font-size: inherit;
+	padding: 0.2em !important;
+	border: none !important;
+	border-collapse: collapse;
 }
 
 .el-s a {
@@ -46,7 +49,7 @@ CC-BY-NC-SA
 
 .el-s thead, .el-s thead td, .el-s-bottom, .el-s-bottom td{
 	background: #DFE2F4 !important;
-	text-align: center;
+	text-align: center !important;;
 }
 
 .el-s thead td {
@@ -76,12 +79,6 @@ CC-BY-NC-SA
 
 .el-s thead, .el-s tfoot {
 	line-height: 2em;
-}
-
-.el-s td {
-	padding: 0.2em !important;
-	border: none;
-	border-collapse: collapse;
 }
 
 .el-s-chkbx {

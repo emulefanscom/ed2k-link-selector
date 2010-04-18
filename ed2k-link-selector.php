@@ -41,16 +41,29 @@ if(!class_exists('eD2kLinkSelector')) {
 			add_action('wp_head', array(&$this, 'addHead'));
 			add_action('wp_footer', array(&$this, 'addFooter'));
 			add_filter('the_content', array(&$this, 'doShortcode'));
+			add_filter('comment_text', array(&$this, 'doShortcodeCmt'));
 		}
 
 		function doShortcode($content) {
-			if ( function_exists('remove_shortcode') ) {
+			if ( function_exists('add_shortcode') ) {
 				add_shortcode( 'ed2k' , array(&$this, 'shortcodeEd2k') );
 				add_shortcode( 'emule' , array(&$this, 'shortcodeEd2k') );
 				$content = do_shortcode($content);
 				remove_shortcode('ed2k');
 				remove_shortcode('emule');
 			}
+			return $content;
+		}
+
+		function doShortcodeCmt($content) {
+			if ( function_exists('add_shortcode') ) {
+				add_shortcode( 'ed2k' , array(&$this, 'shortcodeEd2kCmt') );
+				add_shortcode( 'emule' , array(&$this, 'shortcodeEd2kCmt') );
+				$content = do_shortcode($content);
+				remove_shortcode('ed2k');
+				remove_shortcode('emule');
+			}
+			$content = $this->convert2anchor($content);
 			return $content;
 		}
 
@@ -132,7 +145,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			return $val . $unit;
 		}
 
-		function shortcodeEd2k( $atts = array(), $content = NULL, $code ) {
+		function shortcodeEd2k( $atts = array(), $content = NULL, $code = 'ed2k' ) {
 
 			if ( $content === NULL ) {
 				return '';
@@ -168,9 +181,16 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 
 		}
 
-		function convert2anchor($content) {
+		function shortcodeEd2kCmt( $atts = array(), $content = NULL, $code = 'ed2k' ) {
+			if ( $content === NULL ) {
+				return '';
+			}
+			return $this->convert2anchor($content);
+		}
+
+		function convert2anchor( $content ) {
 			$content = preg_replace_callback(
-			"/ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
+			"/(?<!href=[\"\'])ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
 			array(&$this, 'excerptRepCallback'),
 			$content
 			);
@@ -181,7 +201,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			$url = $matches[0];
 			$pieces = explode("|", $matches[2]);
 			$name = urldecode($pieces[0]);
-			return '<a href="' . $url . '">' . $name . '</a>';
+			return 'ed2k: <a href="' . $url . '">' . $name . '</a>';
 		}
 
 		function convert2table($content, $atts, $no) {
@@ -268,7 +288,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 </tr>';
 				} else {
 					$myline = preg_replace (
-					"/<p>|<\/p>|<br\s\/>|<br>/i",
+					"/<p>|<\/p>|<br\s\/>|<br\/>|<br>/i",
 					"",
 					$myline
 					);
@@ -436,8 +456,10 @@ if(!class_exists('eD2kLSOption')) {
 
 		function optionInit() {
 			$options = get_option('ed2kls_options');
-			if (empty($options) || $options['dbversion'] != constant('ED2KLS_DBVERSION')) {
+			if (empty($options)) {
 				$options = $this->setDefaultOptions();
+			} elseif ($options['dbversion'] != constant('ED2KLS_DBVERSION')) {
+				$options = $this->mergeOptions();
 			}
 			return $options;
 		}
@@ -456,6 +478,24 @@ if(!class_exists('eD2kLSOption')) {
 			$defOptions['format'] = '1';
 			$defOptions['forall'] = 'false';
 			return $defOptions;
+		}
+
+		function mergeOptions() {
+			load_plugin_textdomain('ed2kls', false, 'ed2k-link-selector/lang');
+			$newOptions = $this->defaultOptions();
+			$oldOptions = get_option('ed2kls_options');
+			if (empty($oldOptions)) {
+				add_option('ed2kls_options', $newOptions);
+			} else {
+				foreach ($newOptions as $name => $myNewOption) {
+					$myOldOption = $oldOptions[$name];
+					if (!empty($myOldOption)) {
+						$newOptions[$name] = $myOldOption;
+					}
+				}
+				update_option('ed2kls_options', $newOptions);
+			}
+			return $newOptions;
 		}
 
 		function setDefaultOptions() {
