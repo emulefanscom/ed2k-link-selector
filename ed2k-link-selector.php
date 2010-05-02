@@ -190,7 +190,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 
 		function convert2anchor( $content ) {
 			$content = preg_replace_callback(
-			"/(?<!href=[\"\'])ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
+			"/(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
 			array(&$this, 'excerptRepCallback'),
 			$content
 			);
@@ -242,6 +242,12 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 	</tfoot>
 	<tbody id="el-s-tb-' . $no . '">
 ';
+
+			$content = preg_replace (
+			"/ed2k:\/\/\|file\|.+?\|\/(?!\|)/i",
+			"\n\\0\n",
+			$content
+			);
 
 			preg_match_all (
 			"/^.+$/m",

@@ -251,12 +251,10 @@ var ed2kls = {
 	},
 
 	total: function(no) {
-		var isfile = (ed2kls.$("el-s-totsize-" + no))? true : false;
+		var isfile = (ed2kls.$("el-s-totsize-" + no)) ? true : false;
 		var a = ed2kls.$n("el-s-chkbx-" + no + "[]");
 		var n = a.length;
-		if (isfile) {
-			var totsize = 0;
-		}
+		var totsize = 0;
 		var totnum = 0;
 		var chkall = ed2kls.$("el-s-chkall-" + no);
 		for (var i=0; i<n; i++)	{
@@ -369,7 +367,7 @@ var ed2kls = {
 	},
 
 	testSize: function(size, symbol, filter, unit){
-		if ( filter === "" ) {
+		if ( filter === "" || filter === undefined ) {
 			return true;
 		} else {
 			var str = filter*unit;
@@ -398,21 +396,22 @@ var ed2kls = {
 	},
 
 	filterRun: function(no){
+		var namefilter, str, sizesymbol1, sizefilter1, sizeunit1, sizesymbol2, sizefilter2, sizeunit2;
 		if (ed2kls.$("el-s-namefilter-" + no)) {
-			var namefilter = ed2kls.$("el-s-namefilter-" + no);
-			var str = namefilter.value;
+			namefilter = ed2kls.$("el-s-namefilter-" + no);
+			str = namefilter.value;
 		}
 		if (ed2kls.$("el-s-sizesymbol-" + no + "-1")) {
-			var sizesymbol1 = ed2kls.$("el-s-sizesymbol-" + no + "-1");
+			sizesymbol1 = ed2kls.$("el-s-sizesymbol-" + no + "-1");
 			sizesymbol1 = sizesymbol1.options[sizesymbol1.selectedIndex].value;
-			var sizefilter1 = ed2kls.$("el-s-sizefilter-" + no + "-1").value;
-			var sizeunit1 = ed2kls.$("el-s-sizeunit-" + no + "-1");
+			sizefilter1 = ed2kls.$("el-s-sizefilter-" + no + "-1").value;
+			sizeunit1 = ed2kls.$("el-s-sizeunit-" + no + "-1");
 			sizeunit1 = sizeunit1.options[sizeunit1.selectedIndex].value;
-			var sizesymbol2 = ed2kls.$("el-s-sizesymbol-" + no + "-2");
+			sizesymbol2 = ed2kls.$("el-s-sizesymbol-" + no + "-2");
 			sizesymbol2 = sizesymbol2.options[sizesymbol2.selectedIndex].value;
 
-			var sizefilter2 = ed2kls.$("el-s-sizefilter-" + no + "-2").value;
-			var sizeunit2 = ed2kls.$("el-s-sizeunit-" + no + "-2");
+			sizefilter2 = ed2kls.$("el-s-sizefilter-" + no + "-2").value;
+			sizeunit2 = ed2kls.$("el-s-sizeunit-" + no + "-2");
 			sizeunit2 = sizeunit2.options[sizeunit2.selectedIndex].value;
 		}
 
@@ -428,14 +427,17 @@ var ed2kls = {
 	},
 
 	setChktype: function(no){
-		var chkts = ed2kls.$n("el-s-chktype-" + no + "[]");
-		var query = ed2kls.$("el-s-namefilter-" + no).value;
-		var n = chkts.length;
-		var myextreg, str;
-		for (var i=0; i<n; i++) {
-			str = chkts[i].value;
-			myextreg = new RegExp("\\." + str +"\\$", "i");
-			chkts[i].checked = myextreg.test(query) ? true : false;
+		var namefilterInput = ed2kls.$("el-s-namefilter-" + no);
+		if (namefilterInput) {
+			var chkts = ed2kls.$n("el-s-chktype-" + no + "[]");
+			var query = ed2kls.$("el-s-namefilter-" + no).value;
+			var n = chkts.length;
+			var myextreg, str;
+			for (var i=0; i<n; i++) {
+				str = chkts[i].value;
+				myextreg = new RegExp("\\." + str +"\\$", "i");
+				chkts[i].checked = myextreg.test(query) ? true : false;
+			}
 		}
 	},
 
@@ -448,7 +450,7 @@ var ed2kls = {
 			if (extreg.test(nfbox.value)) {
 				nfbox.value = nfbox.value.replace(extreg, "$&|." + str + "$");
 			} else {
-				if (nfbox.value !== "" && nfbox.value.substr(nfbox.value.length-1, 1) != " " ) {
+				if (nfbox.value !== "" && nfbox.value.substr(nfbox.value.length-1, 1) !== " " ) {
 					nfbox.value += " ";
 				}
 				nfbox.value += "." + str + "$";
@@ -482,17 +484,18 @@ var ed2kls = {
 		for (var i=0, l=els.length; i<l; i++) {
 			els[i].value = "";
 		}
-		var chkalls = ed2kls.$c('el-s-chkall', "input");
-		for (var j=0, jl=chkalls.length; j<jl; j++) {
-			chkalls[j].checked = true;
+		var chks = ed2kls.$c("el-s-chkbx", "input");
+		for (var j=0, jl=chks.length; j<jl; j++) {
+			var mychk = chks[j];
+			if (/el-s-chktype/.test(mychk.className)) {
+				mychk.checked = false;
+			} else {
+				mychk.checked = true;
+			}
 		}
 	}
 
 };
 
-try {
-	ed2kls.cb.exe();
-	ed2kls.exe();
-} catch (a) {
-//	alert(a);
-}
+ed2kls.cb.exe();
+ed2kls.exe();
