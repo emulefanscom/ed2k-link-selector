@@ -129,7 +129,7 @@ if ($condition == 1) {
 	<div id="elsopt-opt-all">
 		<h3><?php echo __('Settings', 'ed2kls'); ?></h3>
 <?php if ($condition == 0) { ?>
-		<p><?php printf(__('Click "[?]" button for help. The settings below will apply globally. You can also set "%2$s" and "%3$s" for specific %1$s tag.', 'ed2kls'), '<code>&lt;ed2k&gt;</code>', __('Tag Attribute', 'ed2kls'), __('Available Value(s)', 'ed2kls')); ?></p>
+		<p><?php printf(__('Click "[?]" button for help. The settings below will apply globally. You can also set "%2$s" and "%3$s" for specific %1$s tag in the post.', 'ed2kls'), '<code>[ed2k]</code>', __('Tag Attribute', 'ed2kls'), __('Available Value(s)', 'ed2kls')); ?></p>
 		<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<table>
 				<tr>
@@ -210,11 +210,22 @@ if ($condition == 1) {
 					</td>
 				</tr>
 				<tr>
+					<th><?php echo __('Button Style', 'ed2kls'); ?><a class="elsopt-help" title="<?php echo __('Help', 'ed2kls'); ?>" onclick="elsInfoToggle('buttonstyle');">[?]</a></th>
+					<td>
+						<select id="elsopt-buttonstyle" name="elsopt-buttonstyle" class="elsopt-opt">
+							<option value="0"<?php if($oldOptions['buttonstyle'] == '0'){echo ' selected="selected"';} ?>><?php echo __('Text only', 'ed2kls'); ?></option>
+							<option value="1"<?php if($oldOptions['buttonstyle'] == '1'){echo ' selected="selected"';} ?>><?php echo __('Image and text', 'ed2kls'); ?></option>
+							<option value="2"<?php if($oldOptions['buttonstyle'] == '2'){echo ' selected="selected"';} ?>><?php echo __('Image only', 'ed2kls'); ?></option>
+						</select>
+						<div id="elsopt-info-buttonstyle" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Style of buttons.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>buttonstyle</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>0</code>: <?php echo __('Text only', 'ed2kls'); ?>;</li><li><code>1</code>: <?php echo __('Image and text', 'ed2kls'); ?>;</li><li><code>2</code>: <?php echo __('Image only', 'ed2kls'); ?></li></ul></li></ul></div>
+					</td>
+				</tr>
+				<tr>
 					<th><?php echo __('Format', 'ed2kls'); ?><a class="elsopt-help" title="<?php echo __('Help', 'ed2kls'); ?>" onclick="elsInfoToggle('format');">[?]</a></th>
 					<td>
 						<select id="elsopt-format" name="elsopt-format" class="elsopt-opt">
-							<option value="true"<?php if($oldOptions['format'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enable', 'ed2kls'); ?></option>
-							<option value="false"<?php if($oldOptions['format'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disable', 'ed2kls'); ?></option>
+							<option value="1"<?php if($oldOptions['format'] == '1'){echo ' selected="selected"';} ?>><?php echo __('Table', 'ed2kls'); ?></option>
+							<option value="2"<?php if($oldOptions['format'] == '2'){echo ' selected="selected"';} ?>><?php echo __('Anchor', 'ed2kls'); ?></option>
 						</select>
 						<div id="elsopt-info-format" class="elsopt-info" style="display:none;"><?php echo __('Which format to use for content on single post and page.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>format</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>1</code>: <?php echo __('Table', 'ed2kls'); ?>;</li><li><code>2</code>: <?php echo __('Anchor', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>

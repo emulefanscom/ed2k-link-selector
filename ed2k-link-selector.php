@@ -29,7 +29,7 @@
 
 define('ED2KLS_VERSION', '115');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
-define('ED2KLS_DBVERSION', '2');
+define('ED2KLS_DBVERSION', '3');
 
 $ed2klsnumber = 0;
 
@@ -209,9 +209,19 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			$sizetot = 0;
 			$num = 0;
 			$extarray = array();
-			$newcontent = '
-<form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $no . '" onsubmit="return ed2kls.emclChk(\'' . $no . '\');">
-<table class="el-s" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $atts['width'] . ';font-size:' . $atts['fontsize'] . ';">
+			$newcontent = '';
+			if ( strtolower($atts['collection']) != "false" ) {
+				$newcontent .= '
+<form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $no . '" onsubmit="return ed2kls.emclChk(\'' . $no . '\');">';
+			}
+			$newcontent .= '
+<table class="el-s';
+			if ( $atts['buttonstyle'] == 1 ) {
+				$newcontent .= ' el-s-buttonimg';
+			} else if ( $atts['buttonstyle'] == 2 ) {
+				$newcontent .= ' el-s-buttonimg el-s-buttonimg2';
+			}
+			$newcontent .= '" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $atts['width'] . ';font-size:' . $atts['fontsize'] . ';">
 	<thead class="el-s-thead">
 		<tr><td colspan="2">
 			<div class="el-s-titlebtn el-s-toright">
@@ -361,22 +371,23 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 		</tr>
 		<tr class="el-s-buttontr">
 			<td class="el-s-left">
-				<input type="button" id="el-s-download-' . $no . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $no . '\')" value="' . __('Download', 'ed2kls') . '" />
-				<input type="button" id="el-s-copylinks-' . $no . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $no . '\')" value="' . __('Copy Links', 'ed2kls') . '" />
-				<input type="button" id="el-s-copynames-' . $no . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $no . '\')" value="' . __('Copy Names', 'ed2kls') . '" />';
+				<input type="button" id="el-s-download-' . $no . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $no . '\')" title="' . __('Download', 'ed2kls') . '" value="' . __('Download', 'ed2kls') . '" />
+				<input type="button" id="el-s-copylinks-' . $no . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $no . '\')" title="' . __('Copy Links', 'ed2kls') . '" value="' . __('Copy Links', 'ed2kls') . '" />
+				<input type="button" id="el-s-copynames-' . $no . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $no . '\')" title="' . __('Copy Names', 'ed2kls') . '" value="' . __('Copy Names', 'ed2kls') . '" />';
 			if ( strtolower($atts['collection']) != "false" ) {
 				$newcontent .= '
-				<input type="hidden" value="' . $no . '" name="el-s-no"><input type="submit" id="el-s-submit-' . $no . '" class="el-s-button el-s-emcl" value="' . __('eMuleCollection', 'ed2kls') . '" />';
+				<input type="hidden" value="' . $no . '" name="el-s-no"><input type="submit" id="el-s-submit-' . $no . '" class="el-s-button el-s-emcl" title="' . __('eMuleCollection', 'ed2kls') . '" value="' . __('eMuleCollection', 'ed2kls') . '" />';
 			}
 			$newcontent .= '
 				<span class="el-s-copied" id="el-s-copied-' . $no . '" style="display:none;"><span class="el-s-yes">√</span>' . __('Copyed', 'ed2kls') . '</span>
 			</td>
 		</tr>
 	</tbody>
-</table>
-</form>
-';
-
+</table>';
+			if ( strtolower($atts['collection']) != "false" ) {
+				$newcontent .= '
+</form>';
+			}
 			return $newcontent;
 
 		}
@@ -481,6 +492,7 @@ if(!class_exists('eD2kLSOption')) {
 			$defOptions['collection'] = 'true';
 			$defOptions['width'] = '100%';
 			$defOptions['fontsize'] = '13px';
+			$defOptions['buttonstyle'] = '0';
 			$defOptions['format'] = '1';
 			$defOptions['forall'] = 'false';
 			return $defOptions;
@@ -533,6 +545,7 @@ if(!class_exists('eD2kLSOption')) {
 				$newOptions['width'] = $_POST['elsopt-width'] ? $_POST['elsopt-width'] : $defOptions['width'];
 				$newOptions['fontsize'] = $_POST['elsopt-fontsize'] ? $_POST['elsopt-fontsize'] : $defOptions['fontsize'];
 				$newOptions['format'] = $_POST['elsopt-format'];
+				$newOptions['buttonstyle'] = $_POST['elsopt-buttonstyle'];
 				$newOptions['forall'] = $_POST['elsopt-forall'];
 				update_option('ed2kls_options', $newOptions);
 			}

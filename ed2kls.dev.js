@@ -236,17 +236,19 @@ var ed2kls = {
 	clear: function(no) {
 		if (ed2kls.$("el-s-namefilter-" + no)) {
 			ed2kls.$("el-s-namefilter-" + no).value = "";
+			var chkts = ed2kls.$n("el-s-chktype-" + no + "[]");
+			var n = chkts.length;
+			for (var i=0; i<n; i++) {
+				chkts[i].checked = false;
+			}
+		}
+		if (ed2kls.$("el-s-sizesymbol-" + no + "-1")) {
 			ed2kls.$("el-s-sizesymbol-" + no + "-1").selectedIndex = 0;
 			ed2kls.$("el-s-sizefilter-" + no + "-1").value = "";
 			ed2kls.$("el-s-sizeunit-" + no + "-1").selectedIndex = 0;
 			ed2kls.$("el-s-sizesymbol-" + no + "-2").selectedIndex = 0;
 			ed2kls.$("el-s-sizefilter-" + no + "-2").value = "";
 			ed2kls.$("el-s-sizeunit-" + no + "-2").selectedIndex = 0;
-			var chkts = ed2kls.$n("el-s-chktype-" + no + "[]");
-			var n = chkts.length;
-			for (var i=0; i<n; i++) {
-				chkts[i].checked = false;
-			}
 		}
 	},
 
@@ -497,5 +499,9 @@ var ed2kls = {
 
 };
 
-ed2kls.cb.exe();
-ed2kls.exe();
+try {
+	ed2kls.cb.exe();
+	ed2kls.exe();
+} catch (a) {
+//	alert(a);
+}

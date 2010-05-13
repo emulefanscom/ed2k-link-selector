@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eD2k Link Selector 1.1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-14 20:15+0100\n"
-"PO-Revision-Date: 2010-04-14 21:12+0100\n"
+"POT-Creation-Date: 2010-05-13 21:47+0100\n"
+"PO-Revision-Date: 2010-05-13 21:49+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,70 +17,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ed2k-link-selector\n"
 
-#: ed2k-link-selector/ed2k-link-selector.php:89
+#: ed2k-link-selector/ed2k-link-selector.php:102
 msgid "You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods.de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. See <a href=\"http://wiki.amule.org/index.php/Ed2k_links_handling\">eD2k Links Handling</a> for help.<br />eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br />Click and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to select.<br />View <a href=\"http://emule-fans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author."
 msgstr "您可以使用<a href=\"http://www.emule-project.net/home/perl/general.cgi?l=42&rm=download\">eMule</a>或eMule Mod（参见<a href=\"http://emule-fans.com/category/news/emule/\">emule-fans.com的Mod页</a>、<a href=\"http://www.emule-mods.de/?mods=start\">emule-mods.de的Mod页</a>）（Windows）、<a href=\"http://www.amule.org/\">aMule</a>（Win、Linux、Mac）等软件下载eD2k链接。可以参考这里的<a href=\"http://emule-fans.com/ed2k-links-handle/\">修复、关联eD2k协议链接方法</a>。<br />eMule收藏集（.emulecollection）文件是您选中的所有链接的列表文件。eMule可以直接下载它们。<br />按住SHIFT键选择可以选中多个选择框。<br />可用文件名和大小选择器来选择文件。<br />查看<a href=\"http://emule-fans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress 插件主页</a>可以下载此插件或联系作者。"
 
-#: ed2k-link-selector/ed2k-link-selector.php:92
+#: ed2k-link-selector/ed2k-link-selector.php:105
 msgid "Name Filter helps you select files by their names or extensions. Case insensitive.<br />Symbols Usage:<br />AND: space(<code> </code>), <code>+</code>;<br />NOT: <code>-</code>;<br />OR: <code>|</code>;<br />Escape: two quote marks(<code>\"\"</code>);<br />Match at the start: <code>^</code>;<br />Match at the end: <code>$</code>.<br />e.g.<br /><code>emule|0.49c -exe</code> to select names that contain \"eMule\" and \"0.49c\" but not contain \"exe\";<br /><code>^emule 0.49c$</code> to select names started with \"emule\" and end with \"0.49c\";<br /><code>\"emule 0.49c\"</code> with quote marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
 msgstr "文件名选择器帮您根据文件名称或后缀来选择文件。不分大小写。<br />符号使用：<br />和：空格（<code> </code>）、<code>+</code>；<br />不包含：<code>-</code>；<br />或：<code>|</code>；<br />转义：一对英文引号（<code>\"\"</code>）；<br />匹配开头：<code>^</code>；<br />匹配结尾：<code>$</code>。<br />例如：<br />选中所有名称中包含有“eMule”或“0.49c”字眼，但不包含有“exe”字眼的：<code>emule|0.49c -exe</code>；<br />选中所有名称的开头是“eMule”，结尾是“0.49c”的：<code>^emule 0.49c$</code>；<br />选中所有名称中带有“eMule 0.49c”的（必须是“eMule 0.49c”，中间没有别的字符，不能是“eMule fake 0.49c”），需要转义：<code>\"emule 0.49c\"</code>。"
 
-#: ed2k-link-selector/ed2k-link-selector.php:95
+#: ed2k-link-selector/ed2k-link-selector.php:108
 msgid "Size Filter helps you select files by their sizes."
 msgstr "大小选择器帮您根据文件大小选择文件。"
 
-#: ed2k-link-selector/ed2k-link-selector.php:101
+#: ed2k-link-selector/ed2k-link-selector.php:114
 msgid "Loading not finished. Please retry."
 msgstr "载入未完成。请重试。"
 
-#: ed2k-link-selector/ed2k-link-selector.php:102
-#: ed2k-link-selector/ed2k-link-selector.php:198
+#: ed2k-link-selector/ed2k-link-selector.php:115
+#: ed2k-link-selector/ed2k-link-selector.php:224
 msgid "Hide"
 msgstr "隐藏"
 
-#: ed2k-link-selector/ed2k-link-selector.php:103
+#: ed2k-link-selector/ed2k-link-selector.php:116
 msgid "Show"
 msgstr "显示"
 
-#: ed2k-link-selector/ed2k-link-selector.php:104
-#: ed2k-link-selector/ed2k-link-selector.php:118
-#: ed2k-link-selector/ed2k-link-selector.php:319
-#: ed2k-link-selector/ed2k-link-selector.php:328
+#: ed2k-link-selector/ed2k-link-selector.php:117
+#: ed2k-link-selector/ed2k-link-selector.php:131
+#: ed2k-link-selector/ed2k-link-selector.php:351
+#: ed2k-link-selector/ed2k-link-selector.php:360
 msgid "Bytes"
 msgstr "字节"
 
-#: ed2k-link-selector/ed2k-link-selector.php:105
-#: ed2k-link-selector/ed2k-link-selector.php:121
-#: ed2k-link-selector/ed2k-link-selector.php:315
-#: ed2k-link-selector/ed2k-link-selector.php:324
+#: ed2k-link-selector/ed2k-link-selector.php:118
+#: ed2k-link-selector/ed2k-link-selector.php:134
+#: ed2k-link-selector/ed2k-link-selector.php:347
+#: ed2k-link-selector/ed2k-link-selector.php:356
 msgid "TB"
 msgstr "TB"
 
-#: ed2k-link-selector/ed2k-link-selector.php:106
-#: ed2k-link-selector/ed2k-link-selector.php:124
-#: ed2k-link-selector/ed2k-link-selector.php:316
-#: ed2k-link-selector/ed2k-link-selector.php:325
+#: ed2k-link-selector/ed2k-link-selector.php:119
+#: ed2k-link-selector/ed2k-link-selector.php:137
+#: ed2k-link-selector/ed2k-link-selector.php:348
+#: ed2k-link-selector/ed2k-link-selector.php:357
 msgid "GB"
 msgstr "GB"
 
-#: ed2k-link-selector/ed2k-link-selector.php:107
-#: ed2k-link-selector/ed2k-link-selector.php:127
-#: ed2k-link-selector/ed2k-link-selector.php:317
-#: ed2k-link-selector/ed2k-link-selector.php:326
+#: ed2k-link-selector/ed2k-link-selector.php:120
+#: ed2k-link-selector/ed2k-link-selector.php:140
+#: ed2k-link-selector/ed2k-link-selector.php:349
+#: ed2k-link-selector/ed2k-link-selector.php:358
 msgid "MB"
 msgstr "MB"
 
-#: ed2k-link-selector/ed2k-link-selector.php:108
-#: ed2k-link-selector/ed2k-link-selector.php:130
-#: ed2k-link-selector/ed2k-link-selector.php:318
-#: ed2k-link-selector/ed2k-link-selector.php:327
+#: ed2k-link-selector/ed2k-link-selector.php:121
+#: ed2k-link-selector/ed2k-link-selector.php:143
+#: ed2k-link-selector/ed2k-link-selector.php:350
+#: ed2k-link-selector/ed2k-link-selector.php:359
 msgid "KB"
 msgstr "KB"
 
-#: ed2k-link-selector/ed2k-link-selector.php:198
-#: ed2k-link-selector/ed2k-link-selector.php:212
-#: ed2k-link-selector/ed2k-link-selector.php:297
-#: ed2k-link-selector/ed2k-link-selector.php:311
+#: ed2k-link-selector/ed2k-link-selector.php:224
+#: ed2k-link-selector/ed2k-link-selector.php:238
+#: ed2k-link-selector/ed2k-link-selector.php:329
+#: ed2k-link-selector/ed2k-link-selector.php:343
 #: ed2k-link-selector/options.php:136
 #: ed2k-link-selector/options.php:148
 #: ed2k-link-selector/options.php:155
@@ -90,127 +90,128 @@ msgstr "KB"
 #: ed2k-link-selector/options.php:199
 #: ed2k-link-selector/options.php:206
 #: ed2k-link-selector/options.php:213
-#: ed2k-link-selector/options.php:223
+#: ed2k-link-selector/options.php:224
+#: ed2k-link-selector/options.php:234
 msgid "Help"
 msgstr "帮助"
 
-#: ed2k-link-selector/ed2k-link-selector.php:200
+#: ed2k-link-selector/ed2k-link-selector.php:226
 msgid "Please enable javascript in your browser to visit this page."
 msgstr "请开启浏览器的JavaScript功能以访问该页面。"
 
-#: ed2k-link-selector/ed2k-link-selector.php:206
+#: ed2k-link-selector/ed2k-link-selector.php:232
 msgid "Close help info"
 msgstr "关闭帮助信息"
 
-#: ed2k-link-selector/ed2k-link-selector.php:207
+#: ed2k-link-selector/ed2k-link-selector.php:233
 msgid "Help Info:"
 msgstr "帮助信息："
 
-#: ed2k-link-selector/ed2k-link-selector.php:214
+#: ed2k-link-selector/ed2k-link-selector.php:240
 #: ed2k-link-selector/options.php:95
 msgid "eMule Official Site"
 msgstr "eMule官方网站"
 
-#: ed2k-link-selector/ed2k-link-selector.php:214
+#: ed2k-link-selector/ed2k-link-selector.php:240
 #: ed2k-link-selector/options.php:95
 msgid "eMule Official"
 msgstr "eMule官方"
 
-#: ed2k-link-selector/ed2k-link-selector.php:216
+#: ed2k-link-selector/ed2k-link-selector.php:242
 #: ed2k-link-selector/options.php:97
 msgid "eMule-fans.com [eMule Fans Chinese Blog]"
 msgstr "eMule-fans.com [电骡爱好者中文Blog]"
 
-#: ed2k-link-selector/ed2k-link-selector.php:216
+#: ed2k-link-selector/ed2k-link-selector.php:242
 #: ed2k-link-selector/options.php:97
 msgid "eMule-fans.com"
 msgstr "eMule fans 电骡爱好者"
 
-#: ed2k-link-selector/ed2k-link-selector.php:218
+#: ed2k-link-selector/ed2k-link-selector.php:244
 #: ed2k-link-selector/options.php:99
 msgid "eMule-Mods.de [eMule Mods Site]"
 msgstr "eMule-Mods.de [eMule Mods站点]"
 
-#: ed2k-link-selector/ed2k-link-selector.php:220
+#: ed2k-link-selector/ed2k-link-selector.php:246
 #: ed2k-link-selector/options.php:93
 msgid "Homepage for eD2k Link Selector WordPress Plugin"
 msgstr "eD2k Link Selector（eD2k链接选择器）WordPress插件主页"
 
-#: ed2k-link-selector/ed2k-link-selector.php:220
+#: ed2k-link-selector/ed2k-link-selector.php:246
 #: ed2k-link-selector/options.php:93
 msgid "Plugin Home"
 msgstr "插件主页"
 
-#: ed2k-link-selector/ed2k-link-selector.php:263
+#: ed2k-link-selector/ed2k-link-selector.php:295
 msgid "Stat"
 msgstr "查源"
 
-#: ed2k-link-selector/ed2k-link-selector.php:293
+#: ed2k-link-selector/ed2k-link-selector.php:325
 msgid "All"
 msgstr "全选"
 
-#: ed2k-link-selector/ed2k-link-selector.php:297
+#: ed2k-link-selector/ed2k-link-selector.php:329
 #: ed2k-link-selector/options.php:167
 msgid "Name Filter"
 msgstr "文件名选择"
 
-#: ed2k-link-selector/ed2k-link-selector.php:311
+#: ed2k-link-selector/ed2k-link-selector.php:343
 #: ed2k-link-selector/options.php:178
 msgid "Size Filter"
 msgstr "大小选择"
 
-#: ed2k-link-selector/ed2k-link-selector.php:334
+#: ed2k-link-selector/ed2k-link-selector.php:366
 msgid "Files"
 msgstr "文件"
 
-#: ed2k-link-selector/ed2k-link-selector.php:338
+#: ed2k-link-selector/ed2k-link-selector.php:370
 msgid "Download"
 msgstr "下载选中文件"
 
-#: ed2k-link-selector/ed2k-link-selector.php:339
+#: ed2k-link-selector/ed2k-link-selector.php:371
 msgid "Copy Links"
 msgstr "复制选中链接"
 
-#: ed2k-link-selector/ed2k-link-selector.php:340
+#: ed2k-link-selector/ed2k-link-selector.php:372
 msgid "Copy Names"
-msgstr "复制选中文件名"
+msgstr "复制选中名称"
 
-#: ed2k-link-selector/ed2k-link-selector.php:343
+#: ed2k-link-selector/ed2k-link-selector.php:375
 #: ed2k-link-selector/options.php:189
 msgid "eMuleCollection"
 msgstr "eMule收藏集"
 
-#: ed2k-link-selector/ed2k-link-selector.php:346
+#: ed2k-link-selector/ed2k-link-selector.php:378
 msgid "Copyed"
 msgstr "已复制"
 
-#: ed2k-link-selector/ed2k-link-selector.php:392
+#: ed2k-link-selector/ed2k-link-selector.php:424
 #: ed2k-link-selector/tinymce/dialog.php:6
 msgid "Add eD2k Links"
 msgstr "插入eD2k链接"
 
-#: ed2k-link-selector/ed2k-link-selector.php:425
+#: ed2k-link-selector/ed2k-link-selector.php:457
 #: ed2k-link-selector/options.php:92
 msgid "eD2k Link Selector Options"
 msgstr "eD2k链接选择器设置"
 
-#: ed2k-link-selector/ed2k-link-selector.php:425
+#: ed2k-link-selector/ed2k-link-selector.php:457
 msgid "eD2k Link Selector"
 msgstr "eD2k链接选择器"
 
-#: ed2k-link-selector/ed2k-link-selector.php:449
+#: ed2k-link-selector/ed2k-link-selector.php:483
 msgid "eD2k Links"
 msgstr "eD2k链接"
 
-#: ed2k-link-selector/ed2k-link-selector.php:510
+#: ed2k-link-selector/ed2k-link-selector.php:564
 msgid "Disable and delete the saved settings in the database"
 msgstr "停用并删除该插件在数据库中的选项设置"
 
-#: ed2k-link-selector/ed2k-link-selector.php:510
+#: ed2k-link-selector/ed2k-link-selector.php:564
 msgid "Disable Cpltly"
 msgstr "完全停用"
 
-#: ed2k-link-selector/ed2k-link-selector.php:511
+#: ed2k-link-selector/ed2k-link-selector.php:565
 #: ed2k-link-selector/options.php:130
 msgid "Settings"
 msgstr "设置"
@@ -222,7 +223,7 @@ msgstr "数据卸载成功。请点击<a href=\"%1$s\">此处</a>完全停用该
 
 #: ed2k-link-selector/options.php:121
 #: ed2k-link-selector/options.php:125
-#: ed2k-link-selector/options.php:240
+#: ed2k-link-selector/options.php:251
 msgid "Restore Default"
 msgstr "恢复默认"
 
@@ -233,8 +234,8 @@ msgstr "从数据库中读取本插件数据失败。请去<a href=\"%1$s\">插�
 
 #: ed2k-link-selector/options.php:132
 #, php-format
-msgid "Click \"[?]\" button for help. The settings below will apply globally. You can also set \"%2$s\" and \"%3$s\" for specific %1$s tag."
-msgstr "点击“[?]”按钮看帮助。这里的设置用于全部。您还可对于指定某个%1$s标签设置单独的“%2$s”及“%3$s”。"
+msgid "Click \"[?]\" button for help. The settings below will apply globally. You can also set \"%2$s\" and \"%3$s\" for specific %1$s tag in the post."
+msgstr "点击“[?]”按钮看帮助。这里的设置用于全部。您还可以在文章中对于指定的某个%1$s标签设置单独的“%2$s”及“%3$s”。"
 
 #: ed2k-link-selector/options.php:132
 #: ed2k-link-selector/options.php:151
@@ -244,8 +245,9 @@ msgstr "点击“[?]”按钮看帮助。这里的设置用于全部。您还可
 #: ed2k-link-selector/options.php:195
 #: ed2k-link-selector/options.php:202
 #: ed2k-link-selector/options.php:209
-#: ed2k-link-selector/options.php:219
-#: ed2k-link-selector/options.php:229
+#: ed2k-link-selector/options.php:220
+#: ed2k-link-selector/options.php:230
+#: ed2k-link-selector/options.php:240
 msgid "Tag Attribute"
 msgstr "标签属性"
 
@@ -257,8 +259,9 @@ msgstr "标签属性"
 #: ed2k-link-selector/options.php:195
 #: ed2k-link-selector/options.php:202
 #: ed2k-link-selector/options.php:209
-#: ed2k-link-selector/options.php:219
-#: ed2k-link-selector/options.php:229
+#: ed2k-link-selector/options.php:220
+#: ed2k-link-selector/options.php:230
+#: ed2k-link-selector/options.php:240
 msgid "Available Value(s)"
 msgstr "可用值"
 
@@ -293,7 +296,6 @@ msgstr "查源按钮"
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:192
 #: ed2k-link-selector/options.php:195
-#: ed2k-link-selector/options.php:216
 msgid "Enable"
 msgstr "使用"
 
@@ -305,7 +307,6 @@ msgstr "使用"
 #: ed2k-link-selector/options.php:185
 #: ed2k-link-selector/options.php:193
 #: ed2k-link-selector/options.php:195
-#: ed2k-link-selector/options.php:217
 msgid "Disable"
 msgstr "停用"
 
@@ -364,57 +365,82 @@ msgid "Font size, in %, px, pt or em"
 msgstr "字号，以%、px、pt或em为单位"
 
 #: ed2k-link-selector/options.php:213
+msgid "Button Style"
+msgstr "按钮样式"
+
+#: ed2k-link-selector/options.php:216
+#: ed2k-link-selector/options.php:220
+msgid "Text only"
+msgstr "仅文字"
+
+#: ed2k-link-selector/options.php:217
+#: ed2k-link-selector/options.php:220
+msgid "Image and text"
+msgstr "图片与文字"
+
+#: ed2k-link-selector/options.php:218
+#: ed2k-link-selector/options.php:220
+msgid "Image only"
+msgstr "仅图片"
+
+#: ed2k-link-selector/options.php:220
+msgid "(For the \"Table\" format) Style of buttons."
+msgstr "（表格形式下）按钮样式。"
+
+#: ed2k-link-selector/options.php:224
 msgid "Format"
 msgstr "形式"
 
-#: ed2k-link-selector/options.php:219
-msgid "Which format to use for content on single post and page."
-msgstr "在文章（single post）和页面（page）上输出的内容（content）使用何种形式。"
-
-#: ed2k-link-selector/options.php:219
+#: ed2k-link-selector/options.php:227
+#: ed2k-link-selector/options.php:230
 msgid "Table"
 msgstr "表格形式"
 
-#: ed2k-link-selector/options.php:219
+#: ed2k-link-selector/options.php:228
+#: ed2k-link-selector/options.php:230
 msgid "Anchor"
 msgstr "普通链接形式"
 
-#: ed2k-link-selector/options.php:223
+#: ed2k-link-selector/options.php:230
+msgid "Which format to use for content on single post and page."
+msgstr "在文章（single post）和页面（page）上输出的内容（content）使用何种形式。"
+
+#: ed2k-link-selector/options.php:234
 msgid "For All"
 msgstr "应用于所有"
 
-#: ed2k-link-selector/options.php:226
-#: ed2k-link-selector/options.php:229
+#: ed2k-link-selector/options.php:237
+#: ed2k-link-selector/options.php:240
 msgid "Yes"
 msgstr "是"
 
-#: ed2k-link-selector/options.php:227
-#: ed2k-link-selector/options.php:229
+#: ed2k-link-selector/options.php:238
+#: ed2k-link-selector/options.php:240
 msgid "No"
 msgstr "否"
 
-#: ed2k-link-selector/options.php:229
+#: ed2k-link-selector/options.php:240
 msgid "Whether to apply on non-singular pages (pages which are not single posts or pages. Like front page and category pages)."
 msgstr "是否应用于除文章和页面外的页（例如首页和分类页等）。"
 
-#: ed2k-link-selector/options.php:234
+#: ed2k-link-selector/options.php:245
 msgid "Save Options"
 msgstr "保存设置"
 
-#: ed2k-link-selector/options.php:247
+#: ed2k-link-selector/options.php:258
 msgid "Demo"
 msgstr "预览"
 
-#: ed2k-link-selector/options.php:266
-#: ed2k-link-selector/options.php:270
+#: ed2k-link-selector/options.php:277
+#: ed2k-link-selector/options.php:281
 msgid "Uninstall"
 msgstr "卸载"
 
-#: ed2k-link-selector/options.php:267
+#: ed2k-link-selector/options.php:278
 msgid "Click uninstall button to delete the saved settings in the database."
 msgstr "点击卸载按钮将删除该插件在数据库中的选项设置。"
 
-#: ed2k-link-selector/options.php:271
+#: ed2k-link-selector/options.php:282
 msgid "Confirm"
 msgstr "确认"
 
