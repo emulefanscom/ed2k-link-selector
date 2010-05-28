@@ -499,9 +499,5 @@ var ed2kls = {
 
 };
 
-try {
-	ed2kls.cb.exe();
-	ed2kls.exe();
-} catch (a) {
-//	alert(a);
-}
+ed2kls.cb.exe();
+ed2kls.exe();

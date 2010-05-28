@@ -68,9 +68,17 @@ function elsInfoToggle(str) {
 		return false;
 	}
 	if (target.style.display == "block") {
-		target.style.display = "none";
+		if (typeof jQuery == "undefined") {
+			target.style.display = "none";
+		} else {
+			jQuery(target).slideUp(300);
+		}
 	} else {
-		target.style.display = "block";
+		if (typeof jQuery == "undefined") {
+			target.style.display = "block";
+		} else {
+			jQuery(target).slideDown(300);
+		}
 	}
 	return false;
 }

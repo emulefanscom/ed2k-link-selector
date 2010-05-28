@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: eD2k Link Selector 1.1.5\n"
+"Project-Id-Version: eD2k Link Selector 1.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-13 21:49+0100\n"
-"PO-Revision-Date: 2010-05-13 21:49+0100\n"
+"POT-Creation-Date: 2010-05-16 22:11+0100\n"
+"PO-Revision-Date: 2010-05-16 22:11+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgid "Loading not finished. Please retry."
 msgstr ""
 
 #: ed2k-link-selector/ed2k-link-selector.php:115
-#: ed2k-link-selector/ed2k-link-selector.php:224
+#: ed2k-link-selector/ed2k-link-selector.php:228
 msgid "Hide"
 msgstr ""
 
@@ -44,43 +44,43 @@ msgstr ""
 
 #: ed2k-link-selector/ed2k-link-selector.php:117
 #: ed2k-link-selector/ed2k-link-selector.php:131
-#: ed2k-link-selector/ed2k-link-selector.php:351
-#: ed2k-link-selector/ed2k-link-selector.php:360
+#: ed2k-link-selector/ed2k-link-selector.php:355
+#: ed2k-link-selector/ed2k-link-selector.php:364
 msgid "Bytes"
 msgstr ""
 
 #: ed2k-link-selector/ed2k-link-selector.php:118
 #: ed2k-link-selector/ed2k-link-selector.php:134
-#: ed2k-link-selector/ed2k-link-selector.php:347
-#: ed2k-link-selector/ed2k-link-selector.php:356
+#: ed2k-link-selector/ed2k-link-selector.php:351
+#: ed2k-link-selector/ed2k-link-selector.php:360
 msgid "TB"
 msgstr ""
 
 #: ed2k-link-selector/ed2k-link-selector.php:119
 #: ed2k-link-selector/ed2k-link-selector.php:137
-#: ed2k-link-selector/ed2k-link-selector.php:348
-#: ed2k-link-selector/ed2k-link-selector.php:357
+#: ed2k-link-selector/ed2k-link-selector.php:352
+#: ed2k-link-selector/ed2k-link-selector.php:361
 msgid "GB"
 msgstr ""
 
 #: ed2k-link-selector/ed2k-link-selector.php:120
 #: ed2k-link-selector/ed2k-link-selector.php:140
-#: ed2k-link-selector/ed2k-link-selector.php:349
-#: ed2k-link-selector/ed2k-link-selector.php:358
+#: ed2k-link-selector/ed2k-link-selector.php:353
+#: ed2k-link-selector/ed2k-link-selector.php:362
 msgid "MB"
 msgstr ""
 
 #: ed2k-link-selector/ed2k-link-selector.php:121
 #: ed2k-link-selector/ed2k-link-selector.php:143
-#: ed2k-link-selector/ed2k-link-selector.php:350
-#: ed2k-link-selector/ed2k-link-selector.php:359
+#: ed2k-link-selector/ed2k-link-selector.php:354
+#: ed2k-link-selector/ed2k-link-selector.php:363
 msgid "KB"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:224
-#: ed2k-link-selector/ed2k-link-selector.php:238
-#: ed2k-link-selector/ed2k-link-selector.php:329
-#: ed2k-link-selector/ed2k-link-selector.php:343
+#: ed2k-link-selector/ed2k-link-selector.php:228
+#: ed2k-link-selector/ed2k-link-selector.php:242
+#: ed2k-link-selector/ed2k-link-selector.php:333
+#: ed2k-link-selector/ed2k-link-selector.php:347
 #: ed2k-link-selector/options.php:136
 #: ed2k-link-selector/options.php:148
 #: ed2k-link-selector/options.php:155
@@ -95,123 +95,123 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:226
+#: ed2k-link-selector/ed2k-link-selector.php:230
 msgid "Please enable javascript in your browser to visit this page."
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:232
+#: ed2k-link-selector/ed2k-link-selector.php:236
 msgid "Close help info"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:233
+#: ed2k-link-selector/ed2k-link-selector.php:237
 msgid "Help Info:"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:240
+#: ed2k-link-selector/ed2k-link-selector.php:244
 #: ed2k-link-selector/options.php:95
 msgid "eMule Official Site"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:240
+#: ed2k-link-selector/ed2k-link-selector.php:244
 #: ed2k-link-selector/options.php:95
 msgid "eMule Official"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:242
+#: ed2k-link-selector/ed2k-link-selector.php:246
 #: ed2k-link-selector/options.php:97
 msgid "eMule-fans.com [eMule Fans Chinese Blog]"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:242
+#: ed2k-link-selector/ed2k-link-selector.php:246
 #: ed2k-link-selector/options.php:97
 msgid "eMule-fans.com"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:244
+#: ed2k-link-selector/ed2k-link-selector.php:248
 #: ed2k-link-selector/options.php:99
 msgid "eMule-Mods.de [eMule Mods Site]"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:246
+#: ed2k-link-selector/ed2k-link-selector.php:250
 #: ed2k-link-selector/options.php:93
 msgid "Homepage for eD2k Link Selector WordPress Plugin"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:246
+#: ed2k-link-selector/ed2k-link-selector.php:250
 #: ed2k-link-selector/options.php:93
 msgid "Plugin Home"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:295
+#: ed2k-link-selector/ed2k-link-selector.php:299
 msgid "Stat"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:325
+#: ed2k-link-selector/ed2k-link-selector.php:329
 msgid "All"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:329
+#: ed2k-link-selector/ed2k-link-selector.php:333
 #: ed2k-link-selector/options.php:167
 msgid "Name Filter"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:343
+#: ed2k-link-selector/ed2k-link-selector.php:347
 #: ed2k-link-selector/options.php:178
 msgid "Size Filter"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:366
+#: ed2k-link-selector/ed2k-link-selector.php:370
 msgid "Files"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:370
+#: ed2k-link-selector/ed2k-link-selector.php:374
 msgid "Download"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:371
+#: ed2k-link-selector/ed2k-link-selector.php:375
 msgid "Copy Links"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:372
+#: ed2k-link-selector/ed2k-link-selector.php:376
 msgid "Copy Names"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:375
+#: ed2k-link-selector/ed2k-link-selector.php:379
 #: ed2k-link-selector/options.php:189
 msgid "eMuleCollection"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:378
+#: ed2k-link-selector/ed2k-link-selector.php:382
 msgid "Copyed"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:424
+#: ed2k-link-selector/ed2k-link-selector.php:429
 #: ed2k-link-selector/tinymce/dialog.php:6
 msgid "Add eD2k Links"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:457
+#: ed2k-link-selector/ed2k-link-selector.php:462
 #: ed2k-link-selector/options.php:92
 msgid "eD2k Link Selector Options"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:457
+#: ed2k-link-selector/ed2k-link-selector.php:462
 msgid "eD2k Link Selector"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:483
+#: ed2k-link-selector/ed2k-link-selector.php:488
 msgid "eD2k Links"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:564
+#: ed2k-link-selector/ed2k-link-selector.php:569
 msgid "Disable and delete the saved settings in the database"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:564
+#: ed2k-link-selector/ed2k-link-selector.php:569
 msgid "Disable Cpltly"
 msgstr ""
 
-#: ed2k-link-selector/ed2k-link-selector.php:565
+#: ed2k-link-selector/ed2k-link-selector.php:570
 #: ed2k-link-selector/options.php:130
 msgid "Settings"
 msgstr ""

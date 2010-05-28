@@ -1,37 +1,38 @@
 <?php
 
 /*
- Plugin Name:  eD2k Link Selector
- Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
- Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
- Version:      1.1.5
- Author:       tomchen1989
- Author URI:   http://emule-fans.com/
- */
+Plugin Name:  eD2k Link Selector
+Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
+Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
+Version:      1.1.6
+Author:       tomchen1989
+Author URI:   http://emule-fans.com/
+*/
 
 /*
- Copyright 2010 tomchen1989/emule-fans.com  (email : emulefanscom@gmail.com)
+Copyright 2010 tomchen1989/emule-fans.com  (email : emulefanscom@gmail.com)
 
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
- You should have received a copy of the GNU General Public License
- along with this program; if not, write to the Free Software
- Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- */
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
 
-define('ED2KLS_VERSION', '115');
+define('ED2KLS_VERSION', '116');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
 define('ED2KLS_DBVERSION', '3');
 
 $ed2klsnumber = 0;
+$ed2klspage = 0;
 
 if(!class_exists('eD2kLinkSelector')) {
 	class eD2kLinkSelector {
@@ -63,7 +64,6 @@ if(!class_exists('eD2kLinkSelector')) {
 				remove_shortcode('ed2k');
 				remove_shortcode('emule');
 			}
-			$content = $this->convert2anchor($content);
 			return $content;
 		}
 
@@ -83,6 +83,8 @@ if(!class_exists('eD2kLinkSelector')) {
 		}
 
 		function addHead() {
+			global $ed2klspage;
+			$ed2klspage = 1;
 			$cssUrl = constant('ED2KLS_URL') . '/ed2kls.css?v=' . constant('ED2KLS_VERSION');
 			if ( file_exists(TEMPLATEPATH . '/ed2kls.css') ) {
 				$cssUrl = get_bloginfo('template_url') . '/ed2kls.css';
@@ -151,24 +153,11 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 				return '';
 			}
 
-			global $eD2kLSOption;
+			global $eD2kLSOption, $ed2klspage;
 			$option = $eD2kLSOption->readOptions();
 			$myatts = shortcode_atts( $option, $atts );
 
-			$isprint = false;
-			if ( function_exists('wp_print') && is_singular() ) {
-				$myvlink = get_permalink();
-				$myvlink = split('://', $myvlink, 2);
-				$myvlink = $myvlink[1];
-				$myvlink = split($myvlink, $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], 2);
-				$myvlink = $myvlink[1];
-				$myvlink = substr($myvlink, 0, 5);
-				if ($myvlink == 'print' || ( isset($_GET['print']) && $_GET['print'] == "1" )) {
-					$isprint = true;
-				}
-			}
-
-			if ( ( !is_singular() && $myatts['forall'] == 'false' || is_feed() ) || $myatts['format'] == '2' || $isprint === true ) {
+			if ( !is_singular() && $myatts['forall'] == 'false' || $myatts['format'] == '2' || $ed2klspage === 0 ) {
 				return $this->convert2anchor($content);
 			}
 
@@ -189,19 +178,47 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 		}
 
 		function convert2anchor( $content ) {
-			$content = preg_replace_callback(
-			"/(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
-			array(&$this, 'excerptRepCallback'),
+			$newcontent = '';
+
+			$content = preg_replace (
+			"/(?<!ed2k=)(?<!ed2k=[\"\'])(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|file\|.+?\|\/(?!\|)/i",
+			"\n\\0\n",
 			$content
 			);
-			return $content;
-		}
 
-		function excerptRepCallback($matches) {
-			$url = $matches[0];
-			$pieces = explode("|", $matches[2]);
-			$name = urldecode($pieces[0]);
-			return 'ed2k: <a href="' . $url . '">' . $name . '</a>';
+			preg_match_all (
+			"/^.+$/m",
+			$content,
+			$lines
+			);
+
+			foreach ($lines[0] as $myline) {
+				preg_match (
+				"/(?<!ed2k=)(?<!ed2k=[\"\'])(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
+				$myline,
+				$matches
+				);
+				if (count($matches) != 0) {
+					$url = $matches[0];
+					$pieces = explode("|", $matches[2]);
+					$name = urldecode($pieces[0]);
+					$newcontent .= '<span class="el-s-linkline">ed2k: <a class="el-s-link" href="' . $url . '">' . $name . '</a></span><br />
+';
+				} else {
+					$myline = preg_replace (
+					"/<p>|<\/p>|<br\s\/>|<br\/>|<br>/i",
+					"",
+					$myline
+					);
+					$myline = trim($myline);
+					if ($myline !== "") {
+						$newcontent .= '<span class="el-s-desc">' . $myline . '</span><br />
+';
+					}
+				}
+			}
+
+			return $newcontent;
 		}
 
 		function convert2table($content, $atts, $no) {
@@ -254,7 +271,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 ';
 
 			$content = preg_replace (
-			"/ed2k:\/\/\|file\|.+?\|\/(?!\|)/i",
+			"/(?<!ed2k=)(?<!ed2k=[\"\'])(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|file\|.+?\|\/(?!\|)/i",
 			"\n\\0\n",
 			$content
 			);
@@ -267,7 +284,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 
 			foreach ($lines[0] as $myline) {
 				preg_match (
-				"/ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
+				"/(?<!ed2k=)(?<!ed2k=[\"\'])(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|(file)\|(.+?)\|\/(?!\|)/i",
 				$myline,
 				$matches
 				);
