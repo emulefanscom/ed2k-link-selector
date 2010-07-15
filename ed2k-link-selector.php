@@ -2,15 +2,15 @@
 
 /*
 Plugin Name:  eD2k Link Selector
-Plugin URI:   http://emule-fans.com/wordpress-ed2k-link-selector/
+Plugin URI:   http://emulefans.com/wordpress-ed2k-link-selector/
 Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
 Version:      1.1.6
 Author:       tomchen1989
-Author URI:   http://emule-fans.com/
+Author URI:   http://emulefans.com/
 */
 
 /*
-Copyright 2010 tomchen1989/emule-fans.com  (email : emulefanscom@gmail.com)
+Copyright 2010 tomchen1989/emulefans.com  (email : admin@emulefans.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -101,7 +101,7 @@ if(!class_exists('eD2kLinkSelector')) {
 <!-- START of eD2k Link Selector -->
 <div style="display:none;">
 <div id="el-s-info-content-str-0" class="el-s-info-content-str">
-' . __('You can use <a href="http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download">eMule</a> or its mod (see <a href="http://www.emule-mods.de/?mods=start">Mod Page on emule-mods.de</a>) (Windows), <a href="http://www.amule.org/">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. See <a href="http://wiki.amule.org/index.php/Ed2k_links_handling">eD2k Links Handling</a> for help.<br />eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br />Click and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to select.<br />View <a href="http://emule-fans.com/wordpress-ed2k-link-selector/">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author.', 'ed2kls') . '
+' . __('You can use <a href="http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download">eMule</a> or its mod (see <a href="http://www.emule-mods.de/?mods=start">Mod Page on emule-mods.de</a>) (Windows), <a href="http://www.amule.org/">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. See <a href="http://wiki.amule.org/index.php/Ed2k_links_handling">eD2k Links Handling</a> for help.<br />eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br />Click and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to select.<br />View <a href="http://emulefans.com/wordpress-ed2k-link-selector/">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author.', 'ed2kls') . '
 </div>
 <div id="el-s-info-content-str-1" class="el-s-info-content-str">
 ' . __('Name Filter helps you select files by their names or extensions. Case insensitive.<br />Symbols Usage:<br />AND: space(<code> </code>), <code>+</code>;<br />NOT: <code>-</code>;<br />OR: <code>|</code>;<br />Escape: two quote marks(<code>""</code>);<br />Match at the start: <code>^</code>;<br />Match at the end: <code>$</code>.<br />e.g.<br /><code>emule|0.49c -exe</code> to select names that contain "eMule" and "0.49c" but not contain "exe";<br /><code>^emule 0.49c$</code> to select names started with "emule" and end with "0.49c";<br /><code>"emule 0.49c"</code> with quote marks to match exactly a "emule 0.49c", not a "eMule fake 0.49c".', 'ed2kls') . '
@@ -260,11 +260,11 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			<span class="el-s-sep">|</span>
 			<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
-			<a href="http://emule-fans.com/" target="_blank" title="' . __('eMule-fans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('eMule-fans.com', 'ed2kls') . '</a>
+			<a href="http://emulefans.com/" target="_blank" title="' . __('emulefans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('emulefans.com', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
 			<a href="http://www.emule-mods.de/" target="_blank" title="' . __('eMule-Mods.de [eMule Mods Site]', 'ed2kls') . '">eMule-Mods.de</a>
 			<span class="el-s-sep">|</span>
-			<a href="http://emule-fans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
+			<a href="http://emulefans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
 		</td></tr>
 	</tfoot>
 	<tbody id="el-s-tb-' . $no . '">

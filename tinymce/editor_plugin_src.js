@@ -31,8 +31,8 @@
 			return {
 				longname : "eD2k Link Selector",
 				author : "tomchen1989",
-				authorurl : "http://emule-fans.com",
-				infourl : "http://emule-fans.com/wordpress-ed2k-link-selector/",
+				authorurl : "http://emulefans.com",
+				infourl : "http://emulefans.com/wordpress-ed2k-link-selector/",
 				version : "1.0.0"
 			};
 		}

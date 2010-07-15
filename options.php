@@ -98,11 +98,11 @@ function ed2klsUninstall(checked) {
 <div class="wrap elsopt-wrap">
 	<?php screen_icon('ed2k'); ?>
 	<h2><?php echo __('eD2k Link Selector Options', 'ed2kls'); ?></h2>
-	<?php echo '<a href="http://emule-fans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
+	<?php echo '<a href="http://emulefans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
 	<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
-	<a href="http://emule-fans.com/" target="_blank" title="' . __('eMule-fans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('eMule-fans.com', 'ed2kls') . '</a>
+	<a href="http://emulefans.com/" target="_blank" title="' . __('emulefans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('emulefans.com', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
 	<a href="http://www.emule-mods.de/" target="_blank" title="' . __('eMule-Mods.de [eMule Mods Site]', 'ed2kls') . '">eMule-Mods.de</a>'; ?>
 <?php

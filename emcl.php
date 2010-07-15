@@ -5,7 +5,7 @@ function downloadEmcl($content, $name) {
 	header('Cache-Control: no-cache, must-revalidate');
 	header('Content-Type: application/octetstream');
 	header('Content-Disposition: attachment; filename="' . $name . '.emulecollection"');
-	echo '# eMule Collection (Simple Text Format). Created by eD2k Link Selector WordPress Plugin (emule-fans.com)
+	echo '# eMule Collection (Simple Text Format). Created by eD2k Link Selector WordPress Plugin (emulefans.com)
 ';
 	echo $content;
     ob_end_flush();
