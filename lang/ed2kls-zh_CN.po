@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: eD2k Link Selector 1.1.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-01 19:59+0100\n"
-"PO-Revision-Date: 2010-06-29 02:40+0100\n"
+"PO-Revision-Date: 2010-07-16 08:13+0800\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -125,7 +125,7 @@ msgstr "emulefans.com [电骡爱好者中文Blog]"
 #: ../ed2k-link-selector.php:263
 #: ../options.php:105
 msgid "emulefans.com"
-msgstr "eMule fans 电骡爱好者"
+msgstr "eMule Fans 电骡爱好者"
 
 #: ../ed2k-link-selector.php:265
 #: ../options.php:107

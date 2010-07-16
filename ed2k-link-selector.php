@@ -180,6 +180,8 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 		function convert2anchor( $content ) {
 			$newcontent = '';
 
+			$newcontent .= '<p class="el-s-wrapper">';
+
 			$content = preg_replace (
 			"/(?<!ed2k=)(?<!ed2k=[\"\'])(?<!href=)(?<!href=[\"\'])ed2k:\/\/\|file\|.+?\|\/(?!\|)/i",
 			"\n\\0\n",
@@ -217,6 +219,8 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 					}
 				}
 			}
+
+			$newcontent .= '</p>';
 
 			return $newcontent;
 		}
