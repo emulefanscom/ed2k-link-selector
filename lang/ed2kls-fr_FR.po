@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: eD2k Link Selector 1.1.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-01 19:59+0100\n"
-"PO-Revision-Date: 2010-06-29 02:40+0100\n"
+"PO-Revision-Date: 2010-10-07 22:38+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -119,13 +119,13 @@ msgstr "eMule Officiel"
 
 #: ../ed2k-link-selector.php:263
 #: ../options.php:105
-msgid "emulefans.com [eMule Fans Chinese Blog]"
-msgstr "emulefans.com [Blog Chinois d'eMule Fans]"
+msgid "eMuleFans.com [eMule Fans Chinese Blog]"
+msgstr "eMuleFans.com [Blog Chinois d'eMule Fans]"
 
 #: ../ed2k-link-selector.php:263
 #: ../options.php:105
-msgid "emulefans.com"
-msgstr "emulefans.com"
+msgid "eMuleFans.com"
+msgstr "eMuleFans.com"
 
 #: ../ed2k-link-selector.php:265
 #: ../options.php:107

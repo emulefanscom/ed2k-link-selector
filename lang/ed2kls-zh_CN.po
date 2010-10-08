@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: eD2k Link Selector 1.1.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-01 19:59+0100\n"
-"PO-Revision-Date: 2010-07-16 08:13+0800\n"
+"PO-Revision-Date: 2010-10-07 22:39+0100\n"
 "Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
 "Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../ed2k-link-selector.php:104
 msgid "You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods.de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. See <a href=\"http://wiki.amule.org/index.php/Ed2k_links_handling\">eD2k Links Handling</a> for help.<br />eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br />Click and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to select.<br />View <a href=\"http://emulefans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author."
-msgstr "您可以使用<a href=\"http://www.emule-project.net/home/perl/general.cgi?l=42&rm=download\">eMule</a>或eMule Mod（参见<a href=\"http://emulefans.com/news/emule/\">emulefans.com的Mod页</a>、<a href=\"http://www.emule-mods.de/?mods=start\">emule-mods.de的Mod页</a>）（Windows）、<a href=\"http://www.amule.org/\">aMule</a>（Win、Linux、Mac）等软件下载eD2k链接。可以参考这里的<a href=\"http://emulefans.com/ed2k-links-handle/\">修复、关联eD2k协议链接方法</a>。<br />eMule收藏集（.emulecollection）文件是您选中的所有链接的列表文件。eMule可以直接下载它们。<br />按住SHIFT键选择可以选中多个选择框。<br />可用文件名和大小选择器来选择文件。<br />查看<a href=\"http://emulefans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress 插件主页</a>可以下载此插件或联系作者。"
+msgstr "您可以使用<a href=\"http://www.emule-project.net/home/perl/general.cgi?l=42&rm=download\">eMule</a>或eMule Mod（参见<a href=\"http://emulefans.com/news/emule/\">eMuleFans.com的Mod页</a>、<a href=\"http://www.emule-mods.de/?mods=start\">emule-mods.de的Mod页</a>）（Windows）、<a href=\"http://www.amule.org/\">aMule</a>（Win、Linux、Mac）等软件下载eD2k链接。可以参考这里的<a href=\"http://emulefans.com/ed2k-links-handle/\">修复、关联eD2k协议链接方法</a>。<br />eMule收藏集（.emulecollection）文件是您选中的所有链接的列表文件。eMule可以直接下载它们。<br />按住SHIFT键选择可以选中多个选择框。<br />可用文件名和大小选择器来选择文件。<br />查看<a href=\"http://emulefans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress 插件主页</a>可以下载此插件或联系作者。"
 
 #: ../ed2k-link-selector.php:107
 msgid "Name Filter helps you select files by their names or extensions. Case insensitive.<br />Symbols Usage:<br />AND: space(<code> </code>), <code>+</code>;<br />NOT: <code>-</code>;<br />OR: <code>|</code>;<br />Escape: two quote marks(<code>\"\"</code>);<br />Match at the start: <code>^</code>;<br />Match at the end: <code>$</code>.<br />e.g.<br /><code>emule|0.49c -exe</code> to select names that contain \"eMule\" and \"0.49c\" but not contain \"exe\";<br /><code>^emule 0.49c$</code> to select names started with \"emule\" and end with \"0.49c\";<br /><code>\"emule 0.49c\"</code> with quote marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
@@ -119,12 +119,12 @@ msgstr "eMule官方"
 
 #: ../ed2k-link-selector.php:263
 #: ../options.php:105
-msgid "emulefans.com [eMule Fans Chinese Blog]"
-msgstr "emulefans.com [电骡爱好者中文Blog]"
+msgid "eMuleFans.com [eMule Fans Chinese Blog]"
+msgstr "eMuleFans.com [电骡爱好者中文Blog]"
 
 #: ../ed2k-link-selector.php:263
 #: ../options.php:105
-msgid "emulefans.com"
+msgid "eMuleFans.com"
 msgstr "eMule Fans 电骡爱好者"
 
 #: ../ed2k-link-selector.php:265

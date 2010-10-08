@@ -102,7 +102,7 @@ function ed2klsUninstall(checked) {
 	<span class="el-s-sep">|</span>
 	<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
-	<a href="http://emulefans.com/" target="_blank" title="' . __('emulefans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('emulefans.com', 'ed2kls') . '</a>
+	<a href="http://emulefans.com/" target="_blank" title="' . __('eMuleFans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('eMuleFans.com', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
 	<a href="http://www.emule-mods.de/" target="_blank" title="' . __('eMule-Mods.de [eMule Mods Site]', 'ed2kls') . '">eMule-Mods.de</a>'; ?>
 <?php

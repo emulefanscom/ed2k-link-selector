@@ -4,13 +4,13 @@
 Plugin Name:  eD2k Link Selector
 Plugin URI:   http://emulefans.com/wordpress-ed2k-link-selector/
 Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
-Version:      1.1.6
+Version:      1.1.7
 Author:       tomchen1989
 Author URI:   http://emulefans.com/
 */
 
 /*
-Copyright 2010 tomchen1989/emulefans.com  (email : admin@emulefans.com)
+Copyright 2010 tomchen1989/emulefans.com  (email: admin@emulefans.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('ED2KLS_VERSION', '116');
+define('ED2KLS_VERSION', '117');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
 define('ED2KLS_DBVERSION', '3');
 
@@ -128,25 +128,6 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			}
 		}
 
-		function formatSize($val) {
-			$sep = 100;
-			$unit = __('Bytes', 'ed2kls');
-			if ($val >= 1099511627776) {
-				$val = round($val / (1099511627776 / $sep)) / $sep;
-				$unit = __('TB', 'ed2kls');
-			} else if ($val >= 1073741824) {
-				$val = round($val / (1073741824 / $sep)) / $sep;
-				$unit = __('GB', 'ed2kls');
-			} else if ($val >= 1048576) {
-				$val = round($val / (1048576 / $sep)) / $sep;
-				$unit = __('MB', 'ed2kls');
-			} else if ($val >= 1024) {
-				$val = round($val / (1024 / $sep)) / $sep;
-				$unit = __('KB', 'ed2kls');
-			}
-			return $val . $unit;
-		}
-
 		function shortcodeEd2k( $atts = array(), $content = NULL, $code = 'ed2k' ) {
 
 			if ( $content === NULL ) {
@@ -226,29 +207,63 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 		}
 
 		function convert2table($content, $atts, $no) {
+			global $elsConvert;
+			return $elsConvert->convert($content, $no, $atts['head'], $atts['stat'], $atts['name'], $atts['size'], $atts['collection'], $atts['width'], $atts['fontsize'], $atts['buttonstyle']);
+		}
+
+	}
+}
+
+/*
+Get the php class "elsConvert" here:
+http://emulefans.com/php-class-ed2k-link-selector/
+*/
+if(!class_exists('elsConvert')) {
+	class elsConvert {
+
+		function formatSize($val) {
+			$sep = 100;
+			$unit = __('Bytes', 'ed2kls');
+			if ($val >= 1099511627776) {
+				$val = round($val / (1099511627776 / $sep)) / $sep;
+				$unit = __('TB', 'ed2kls');
+			} else if ($val >= 1073741824) {
+				$val = round($val / (1073741824 / $sep)) / $sep;
+				$unit = __('GB', 'ed2kls');
+			} else if ($val >= 1048576) {
+				$val = round($val / (1048576 / $sep)) / $sep;
+				$unit = __('MB', 'ed2kls');
+			} else if ($val >= 1024) {
+				$val = round($val / (1024 / $sep)) / $sep;
+				$unit = __('KB', 'ed2kls');
+			}
+			return $val . $unit;
+		}
+
+		function convert($content, $no = 1, $head = "eD2k链接", $stat = "http://ed2k.shortypower.org/?hash=", $name = "auto", $size = "auto", $collection = "true", $width = "100%", $fontsize = "13px", $buttonstyle = "0") {
 
 			$sizetot = 0;
 			$num = 0;
 			$extarray = array();
 			$newcontent = '';
-			if ( strtolower($atts['collection']) != "false" ) {
+			if ( strtolower($collection) != "false" ) {
 				$newcontent .= '
-<form action="' . WP_PLUGIN_URL . '/ed2k-link-selector/emcl.php" method="POST" id="el-s-form-' . $no . '" onsubmit="return ed2kls.emclChk(\'' . $no . '\');">';
+<form action="' . constant('ED2KLS_URL') . '/emcl.php" method="POST" id="el-s-form-' . $no . '" onsubmit="return ed2kls.emclChk(\'' . $no . '\');">';
 			}
 			$newcontent .= '
 <table class="el-s';
-			if ( $atts['buttonstyle'] == 1 ) {
+			if ( $buttonstyle == 1 ) {
 				$newcontent .= ' el-s-buttonimg';
-			} else if ( $atts['buttonstyle'] == 2 ) {
+			} else if ( $buttonstyle == 2 ) {
 				$newcontent .= ' el-s-buttonimg el-s-buttonimg2';
 			}
-			$newcontent .= '" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $atts['width'] . ';font-size:' . $atts['fontsize'] . ';">
+			$newcontent .= '" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $width . ';font-size:' . $fontsize . ';">
 	<thead class="el-s-thead">
 		<tr><td colspan="2">
 			<div class="el-s-titlebtn el-s-toright">
 				<a id="el-s-help-' . $no . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',0)">[?]</a><a id="el-s-exd-' . $no . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Hide', 'ed2kls') . '" onclick="ed2kls.close(\'' . $no . '\')">[-]</a>
 			</div>
-			<strong>' . $atts['head'] . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
+			<strong>' . $head . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
 		</td></tr>
 	</thead>
 	<tfoot>
@@ -264,7 +279,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			<span class="el-s-sep">|</span>
 			<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
-			<a href="http://emulefans.com/" target="_blank" title="' . __('emulefans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('emulefans.com', 'ed2kls') . '</a>
+			<a href="http://emulefans.com/" target="_blank" title="' . __('eMuleFans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('eMuleFans.com', 'ed2kls') . '</a>
 			<span class="el-s-sep">|</span>
 			<a href="http://www.emule-mods.de/" target="_blank" title="' . __('eMule-Mods.de [eMule Mods Site]', 'ed2kls') . '">eMule-Mods.de</a>
 			<span class="el-s-sep">|</span>
@@ -302,26 +317,26 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 					$url = $matches[0];
 					//$type = $matches[1];
 					$pieces = explode("|", $matches[2]);
-					$name = urldecode($pieces[0]);
-					if (strrchr($name, '.')) {
-						$ext = strtolower(trim(substr(strrchr($name, '.'), 1, 15)));
+					$myname = urldecode($pieces[0]);
+					if (strrchr($myname, '.')) {
+						$ext = strtolower(trim(substr(strrchr($myname, '.'), 1, 15)));
 						array_push($extarray, $ext);
 					}
-					$size = $pieces[1];
-					$sizetot += $size;
-					$size = $this->formatSize($size);
+					$mysize = $pieces[1];
+					$sizetot += $mysize;
+					$mysize = $this->formatSize($mysize);
 					$hash = $pieces[2];
 					$newcontent .= '
 <tr class="el-s-tr' . $odd . '">
 	<td class="el-s-left">
-		<input type="checkbox" class="el-s-chkbx el-s-chkbx-ed2k" name="el-s-chkbx-' . $no . '[]" id="el-s-chkbx-' . $no . '-' . $num . '" value="' . $url . '" onclick="ed2kls.checkIt(\'' . $no . '\',event);" checked="checked" /><a class="el-s-dl" href="' . $url . '" ed2k="' . $url . '">' . $name . '</a>';
-					if (strtolower($atts['stat']) != "false") {
+		<input type="checkbox" class="el-s-chkbx el-s-chkbx-ed2k" name="el-s-chkbx-' . $no . '[]" id="el-s-chkbx-' . $no . '-' . $num . '" value="' . $url . '" onclick="ed2kls.checkIt(\'' . $no . '\',event);" checked="checked" /><a class="el-s-dl" href="' . $url . '" ed2k="' . $url . '">' . $myname . '</a>';
+					if (strtolower($stat) != "false") {
 						$newcontent .= '
-		<a class="el-s-viewsrc" href="' . $atts['stat'] . $hash . '" target="_blank">' . __('Stat', 'ed2kls') . '</a>';
+		<a class="el-s-viewsrc" href="' . $stat . $hash . '" target="_blank">' . __('Stat', 'ed2kls') . '</a>';
 					}
 					$newcontent .= '
 	</td>
-	<td class="el-s-right">' . $size . '</td>
+	<td class="el-s-right">' . $mysize . '</td>
 </tr>';
 				} else {
 					$myline = preg_replace (
@@ -349,7 +364,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 			<td class="el-s-left">
 				<span class="el-s-area"><input type="checkbox" class="el-s-chkbx el-s-chkall" id="el-s-chkall-' . $no . '" onclick="ed2kls.checkAll(\'' . $no . '\',this.checked)" checked="checked" /><label class="el-s-chkall" for="el-s-chkall-' . $no . '">' . __('All', 'ed2kls') . '</label></span>';
 
-			if ( (strtolower($atts['name']) != 'false' && $num >= 2) || strtolower($atts['name']) == 'true') {
+			if ( (strtolower($name) != 'false' && $num >= 2) || strtolower($name) == 'true') {
 				$newcontent .= '
 				<span class="el-s-area el-s-area-label"><label class="el-s-namefilter" for="el-s-namefilter-' . $no . '">' . __('Name Filter', 'ed2kls') . '</label><a id="el-s-namefilterhelp-' . $no . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',1)">[?]</a>:<input type="text" class="el-s-txt el-s-namefilter" id="el-s-namefilter-' . $no . '" onkeyup="ed2kls.filter(\'' . $no . '\')" />';
 
@@ -363,7 +378,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 				$newcontent .= '</span>';
 			}
 
-			if ( (strtolower($atts['size']) != 'false' && $num >= 2) || strtolower($atts['size']) == 'true') {
+			if ( (strtolower($size) != 'false' && $num >= 2) || strtolower($size) == 'true') {
 				$newcontent .= '
 				<span class="el-s-area el-s-area-label"><label class="el-s-sizefilter">' . __('Size Filter', 'ed2kls') . '</label><a id="el-s-sizefilterhelp-' . $no . '" class="el-s-pseubtn el-s-hlp" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',2)">[?]</a>:<select id="el-s-sizesymbol-' . $no . '-1" class="el-s-sel" onchange="ed2kls.filter(\'' . $no . '\')">
 					<option selected="selected" value="1">&gt;</option>
@@ -395,7 +410,7 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 				<input type="button" id="el-s-download-' . $no . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $no . '\')" title="' . __('Download', 'ed2kls') . '" value="' . __('Download', 'ed2kls') . '" />
 				<input type="button" id="el-s-copylinks-' . $no . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $no . '\')" title="' . __('Copy Links', 'ed2kls') . '" value="' . __('Copy Links', 'ed2kls') . '" />
 				<input type="button" id="el-s-copynames-' . $no . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $no . '\')" title="' . __('Copy Names', 'ed2kls') . '" value="' . __('Copy Names', 'ed2kls') . '" />';
-			if ( strtolower($atts['collection']) != "false" ) {
+			if ( strtolower($collection) != "false" ) {
 				$newcontent .= '
 				<input type="hidden" value="' . $no . '" name="el-s-no"><input type="submit" id="el-s-submit-' . $no . '" class="el-s-button el-s-emcl" title="' . __('eMuleCollection', 'ed2kls') . '" value="' . __('eMuleCollection', 'ed2kls') . '" />';
 			}
@@ -405,14 +420,13 @@ ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
 		</tr>
 	</tbody>
 </table>';
-			if ( strtolower($atts['collection']) != "false" ) {
+			if ( strtolower($collection) != "false" ) {
 				$newcontent .= '
 </form>';
 			}
 			return $newcontent;
 
 		}
-
 	}
 }
 
@@ -594,6 +608,10 @@ if(!class_exists('eD2kLSOption')) {
 		}
 
 	}
+}
+
+if(class_exists('elsConvert')) {
+	$elsConvert = new elsConvert();
 }
 
 if(class_exists('eD2kLinkSelector')) {

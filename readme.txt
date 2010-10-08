@@ -3,8 +3,8 @@ Contributors: tomchen1989
 Donate link: http://emulefans.com/wordpress-ed2k-link-selector/
 Tags: ed2k, link, 电驴, 链接, eMule, 电骡, BBcode, selector
 Requires at least: 2.5
-Tested up to: 3.0
-Stable tag: 1.1.6
+Tested up to: 3.0.1
+Stable tag: 1.1.7
 
 Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
 
@@ -14,7 +14,7 @@ Convert `[ed2k]` and `[emule]` tags that contain eD2k (eMule) links or other tex
 
 更多用法、功能的介绍与讨论（中文）、插件效果演示，请至[插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看。
 
-You can download eMule from [eMule official site](http://www.emule-project.net/ "eMule official site") or [emule-mods.de](http://www.emule-mods.de/?mods=start "Mods page on emule-mods.de"), or use other client like [aMule](http://www.amule.org/ "amule official site"). [VeryCD](http://en.wikipedia.org/wiki/VeryCD "VeryCD - wikipedia") and its easyMule are fake eMule, don't use them. 您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[emulefans.com电骡爱好者blog](http://emulefans.com/news/emule/ "emulefans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如[aMule](http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn、dianlv.com站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E2%80%9C%E7%94%B5%E9%A9%B4%E2%80%9D%E5%90%8D%E7%A7%B0%E4%BA%89%E8%AE%AE "维基百科“‘电驴’名称争议”")官方无关，不推荐使用VeryCD的软件。
+You can download eMule from [eMule official site](http://www.emule-project.net/ "eMule official site") or [emule-mods.de](http://www.emule-mods.de/?mods=start "Mods page on emule-mods.de"), or use other client like [aMule](http://www.amule.org/ "amule official site"). [VeryCD](http://en.wikipedia.org/wiki/VeryCD "VeryCD - wikipedia") and its easyMule are fake eMules, don't use them. 您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[eMuleFans.com电骡爱好者blog](http://emulefans.com/news/emule/ "eMuleFans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如[aMule](http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn、dianlv.com站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E2%80%9C%E7%94%B5%E9%A9%B4%E2%80%9D%E5%90%8D%E7%A7%B0%E4%BA%89%E8%AE%AE "维基百科“‘电驴’名称争议”")官方无关，不推荐使用VeryCD的软件。
 
 = I18n =
 
@@ -27,7 +27,7 @@ The plugin is available in 插件可用语言:
 
 == Frequently Asked Questions ==
 
-Sorry, now the FAQ and documentation are only available in Chinese. 更多用法、功能的介绍与讨论（中文），请至[插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看。
+(See [插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") for Chinese.)
 
 == Installation ==
 
@@ -51,6 +51,11 @@ ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
 == Changelog ==
 
 (See [插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") in Chinese.)
+
+= 1.1.7 =
+
+* Compatible up to WordPress 3
+* Small fix
 
 = 1.1.6 =
 
