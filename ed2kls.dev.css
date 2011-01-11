@@ -2,11 +2,10 @@
 ed2k link selector css
 by tomchen1989
 http://emulefans.com/wordpress-ed2k-link-selector/
-CC-BY-NC-SA
 */
 
 .el-s {
-	font: 13px/1.6em "Lucida Grande", Verdana, "Times New Roman", Times;
+	font: 13px/1.6em "Lucida Grande", Verdana, "Times New Roman", Times, sans-serif;
 }
 
 .el-s, .el-s * {
@@ -220,7 +219,7 @@ CC-BY-NC-SA
 
 .el-s-yes {
 	background: #3C0;
-	font-family: "Lucida Grande", Verdana, Tahoma;
+	font-family: "Lucida Grande", Verdana, Tahoma, sans-serif;
 	font-weight: bold;
 }
 
