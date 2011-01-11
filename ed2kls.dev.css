@@ -5,7 +5,7 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 */
 
 .el-s {
-	font: 13px/1.6em "Lucida Grande", Verdana, Arial, sans-serif;
+	font: 13px/1.6em Verdana, Arial, sans-serif;
 }
 
 .el-s, .el-s * {
@@ -219,7 +219,7 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 
 .el-s-yes {
 	background: #3C0;
-	font-family: "Lucida Grande", Verdana, Tahoma, sans-serif;
+	font-family: Verdana, Tahoma, sans-serif;
 	font-weight: bold;
 }
 
