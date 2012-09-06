@@ -3,22 +3,26 @@ Contributors: tomchen1989
 Donate link: http://emulefans.com/wordpress-ed2k-link-selector/
 Tags: ed2k, link, 电驴, 链接, eMule, 电骡, BBcode, selector
 Requires at least: 2.5
-Tested up to: 3.0.1
-Stable tag: 1.1.7
+Tested up to: 3.4.1
+Stable tag: 1.2.0
 
 Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
 
 == Description ==
 
-Convert `[ed2k]` and `[emule]` tags that contain eD2k (eMule) links or other text to a nice table to display them with filter makes it easy to select. 
+eD2k Link Selector plugin may convert BBCode tags `[ed2k][/ed2k]` and `[emule][/emule]` that contain eD2k (eMule) links or other text to a nice table to display them with some filters which make it easy to select.
 
-更多用法、功能的介绍与讨论（中文）、插件效果演示，请至[插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件")查看。
+You can download eMule from [eMule official site](http://www.emule-project.net/ "eMule official site") or [emule-mods.de](http://www.emule-mods.de/?mods=start "Mods page on emule-mods.de"), or use other clients like [aMule](http://www.amule.org/ "amule official site").
 
-You can download eMule from [eMule official site](http://www.emule-project.net/ "eMule official site") or [emule-mods.de](http://www.emule-mods.de/?mods=start "Mods page on emule-mods.de"), or use other client like [aMule](http://www.amule.org/ "amule official site"). [VeryCD](http://en.wikipedia.org/wiki/VeryCD "VeryCD - wikipedia") and its easyMule are fake eMules, don't use them. 您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[eMuleFans.com电骡爱好者blog](http://emulefans.com/news/emule/ "eMuleFans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如[aMule](http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn、dianlv.com站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E2%80%9C%E7%94%B5%E9%A9%B4%E2%80%9D%E5%90%8D%E7%A7%B0%E4%BA%89%E8%AE%AE "维基百科“‘电驴’名称争议”")官方无关，不推荐使用VeryCD的软件。
+If you read Chinese (Simplified or Traditional), you may find [Chinese introductions about eD2k Link Selector plugin](http://emulefans.com/wordpress-ed2k-link-selector/ "Home page of eD2k Link Selector plugin") and a [eMule/eDonkey softwares' list](http://emulefans.com/news/ "List of eMule/eDonkeys") from [eMuleFans.com](http://emulefans.com/ "eMule Fans 电骡爱好者"). [VeryCD](http://en.wikipedia.org/wiki/VeryCD "VeryCD - wikipedia") and its easyMule are fake eMules, don't use them.
 
-= I18n =
+如果您阅读中文，请至[eD2k Link Selector插件发布页（中文）](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector（eD2k电驴链接选择器插件）")查看中文的用法、功能的介绍与讨论、插件效果演示。
 
-The plugin is available in 插件可用语言:
+您可在[eMule官方网站](http://www.emule-project.net/ "eMule官方网站")下载官方eMule，或在[eMuleFans.com电骡爱好者blog](http://emulefans.com/news/emule/ "eMuleFans.com电骡爱好者blog的Mod页")和[emule-mods.de](http://www.emule-mods.de/?mods=start "emule-mods.de的Mod页")上找到适合您使用的eMule Mod，或用诸如[aMule](http://www.amule.org/ "amule官方网站")等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn站点都与eMule或[电驴](http://zh.wikipedia.org/wiki/%E2%80%9C%E7%94%B5%E9%A9%B4%E2%80%9D%E5%90%8D%E7%A7%B0%E4%BA%89%E8%AE%AE "维基百科“‘电驴’名称争议”")官方无关，不推荐使用VeryCD的软件。
+
+= Languages =
+
+The plugin is available in:
 
 * English (en_US)
 * Simplified Chinese (简体中文 zh_CN)
@@ -27,67 +31,25 @@ The plugin is available in 插件可用语言:
 
 == Frequently Asked Questions ==
 
-(See [插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") for Chinese.)
+English: [README.html (English instruction)](http://plugins.svn.wordpress.org/ed2k-link-selector/trunk/README.html#advanced-usage "README.html (English instruction)")
+
+Chinese: [eD2k Link Selector插件发布页（中文）](http://emulefans.com/wordpress-ed2k-link-selector/#toc-1 "eD2k Link Selector（eD2k电驴链接选择器插件）")
 
 == Installation ==
 
-(See [插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") for Chinese.)
+English: [README.html (English instruction)](http://plugins.svn.wordpress.org/ed2k-link-selector/trunk/README.html#installation "README.html (English instruction)")
 
-Decompress the file. Upload `ed2k-link-selector` folder to the `/wp-content/plugins/` directory. Activate the plugin through the 'Plugins' menu in WordPress. Then use `[ed2k]` or `[emule]` tag like this:
-
-`[ed2k]
-ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
-ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
-intro
-ed2k://|file|filename|1111111|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA|/
-[/ed2k]`
+Chinese: [eD2k Link Selector插件发布页（中文）](http://emulefans.com/wordpress-ed2k-link-selector/#toc- "eD2k Link Selector（eD2k电驴链接选择器插件）")
 
 == Screenshots ==
 
-1. Plugin screenshot
+1. Basic selector table
 2. Buttons for HTML (Quicktags) and TinyMCE editors
 3. Options page
+4. "Image and text" style of buttons
 
 == Changelog ==
 
-(See [插件发布页](http://emulefans.com/wordpress-ed2k-link-selector/ "eD2k Link Selector/eD2k电驴链接选择器插件") in Chinese.)
+English: [README.html (English instruction)](http://plugins.svn.wordpress.org/ed2k-link-selector/trunk/README.html#changelog "README.html (English instruction)")
 
-= 1.1.7 =
-
-* Compatible up to WordPress 3
-* Small fix
-
-= 1.1.6 =
-
-* Fix database update problem
-* Use in comment
-* Auto detect ed2k links in complex text
-* Fix format option bug
-* Add button style option
-
-= 1.1.5 =
-
-* Add Options page
-* Fix conflicts with wp-print plugin
-* Optimize HTML and JavaScript
-* Add width and font size options
-* Prevent from browsing the directory
-
-= 1.1.2 =
-
-* Add eMuleCollection
-* Optimize javascript code and fix some bugs
-
-= 1.1.1 =
-
-* Avoid javascript conflicts
-
-= 1.1.0 =
-
-* Add buttons to Visual editor (TinyMCE) and HTML editor (Quicktags)
-* Fix javascript i18n bug
-* Allow to check multiple file extension checkboxs
-
-= 1.0.0 =
-
-* Initial release
+Chinese: [eD2k Link Selector插件发布页（中文）](http://emulefans.com/wordpress-ed2k-link-selector/#toc-8 "eD2k Link Selector（eD2k电驴链接选择器插件）")

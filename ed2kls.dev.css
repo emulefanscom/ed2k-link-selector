@@ -17,17 +17,18 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 
 .el-s {
 	border: 1px solid #ADBEC6 !important;
+	border-top: none !important;
 	border-collapse: separate !important;
 	margin: 0 auto !important;
 	clear: both;
 	width: 100%;
-	table-layout: auto;
+	table-layout: fixed;
 	text-align: left !important;
 	vertical-align: middle;
-	-moz-border-radius: 6px;
-	-khtml-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
+	-moz-border-radius: 0 0 6px 6px;
+	-khtml-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
 }
 
 .el-s * {
@@ -49,17 +50,20 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	text-decoration: underline !important;
 }
 
-.el-s thead, .el-s thead td, .el-s-bottom, .el-s-bottom td{
+.el-s caption, .el-s caption td, .el-s-bottom, .el-s-bottom td {
 	background: #DFE2F4 !important;
 	text-align: center !important;
 }
 
-.el-s thead td {
+.el-s caption {
+	padding: 0.2em !important;
 	-moz-border-radius: 0 0 6px 6px;
 	-khtml-border-radius-topleft: 6px;
 	-khtml-border-radius-topright: 6px;
 	-webkit-border-top-left-radius: 6px 6px;
 	-webkit-border-top-right-radius: 6px 6px;
+	border: 1px solid #ADBEC6 !important;
+	border-bottom: 1px dotted #ADBEC6 !important;
 	border-top-left-radius: 6px 6px;
 	border-top-right-radius: 6px 6px;
 }
@@ -74,12 +78,12 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	border-bottom-right-radius: 6px 6px;
 }
 
-.el-s thead strong {
+.el-s caption strong {
 	font-size: 110%;
 	margin: 0 0 0 5em !important;
 }
 
-.el-s thead, .el-s tfoot {
+.el-s caption, .el-s tfoot {
 	line-height: 2em;
 }
 
@@ -97,10 +101,6 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 
 .el-s-desctr td, .el-s-selecttr td, .el-s-bottom td {
 	border-top: 1px dotted #ADBEC6 !important;
-}
-
-.el-s thead td {
-	border-bottom: 1px dotted #ADBEC6 !important;
 }
 
 .el-s-viewsrc {
@@ -128,7 +128,15 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	background: #FFF !important;
 }
 
+.el-s-left {
+	white-space: normal;   
+	word-break: break-all;
+	word-wrap: break-word;
+	width: auto;
+}
+
 .el-s-right {
+	white-space: nowrap;
 	width: 7em;
 }
 
@@ -161,6 +169,10 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	width: 2.4em;
 }
 
+.el-s-button-container {
+	position: relative;
+}
+
 .el-s-button {
 	display: inline;
 	font-size: 100%;
@@ -171,7 +183,7 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	overflow: visible;
 	margin: 0 0.2em !important;
 	padding: 2px 5px !important;
-	+padding: 3px 5px 0 !important; /* ie 6 7 hack */
+	+padding: 3px 5px 0 !important; /* IE 6 7 hack */
 	-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;

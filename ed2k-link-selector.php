@@ -4,13 +4,13 @@
 Plugin Name:  eD2k Link Selector
 Plugin URI:   http://emulefans.com/wordpress-ed2k-link-selector/
 Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
-Version:      1.1.7
+Version:      1.2.0
 Author:       tomchen1989
 Author URI:   http://emulefans.com/
 */
 
 /*
-Copyright 2010 tomchen1989/emulefans.com  (email: admin@emulefans.com)
+Copyright 2012 tomchen1989/emulefans.com  (email: admin@emulefans.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('ED2KLS_VERSION', '117');
+define('ED2KLS_VERSION', '120');
 define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
 define('ED2KLS_DBVERSION', '3');
 
@@ -258,14 +258,12 @@ if(!class_exists('elsConvert')) {
 				$newcontent .= ' el-s-buttonimg el-s-buttonimg2';
 			}
 			$newcontent .= '" id="el-s-' . $no . '" border="0" cellpadding="0" cellspacing="0" style="width:' . $width . ';font-size:' . $fontsize . ';">
-	<thead class="el-s-thead">
-		<tr><td colspan="2">
-			<div class="el-s-titlebtn el-s-toright">
-				<a id="el-s-help-' . $no . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',0)">[?]</a><a id="el-s-exd-' . $no . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Hide', 'ed2kls') . '" onclick="ed2kls.close(\'' . $no . '\')">[-]</a>
-			</div>
-			<strong>' . $head . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
-		</td></tr>
-	</thead>
+	<caption class="el-s-caption">
+		<div class="el-s-titlebtn el-s-toright">
+			<a id="el-s-help-' . $no . '" class="el-s-pseubtn el-s-hlp el-s-toright" title="' . __('Help', 'ed2kls') . '" onclick="ed2kls.help(\'' . $no . '\',0)">[?]</a><a id="el-s-exd-' . $no . '" class="el-s-pseubtn el-s-exd el-s-toright" title="' . __('Hide', 'ed2kls') . '" onclick="ed2kls.close(\'' . $no . '\')">[-]</a>
+		</div>
+		<strong>' . $head . '</strong><noscript><br /><span style="color:red!important;">' . __('Please enable javascript in your browser to visit this page.', 'ed2kls') . '</span></noscript>
+	</caption>
 	<tfoot>
 		<tr class="el-s-infotr"><td colspan="2">
 			<div id="el-s-info-' . $no . '" class="el-s-info" style="display: none;">
@@ -408,8 +406,12 @@ if(!class_exists('elsConvert')) {
 		<tr class="el-s-buttontr">
 			<td class="el-s-left">
 				<input type="button" id="el-s-download-' . $no . '" class="el-s-button el-s-download" onclick="ed2kls.download(\'' . $no . '\')" title="' . __('Download', 'ed2kls') . '" value="' . __('Download', 'ed2kls') . '" />
-				<input type="button" id="el-s-copylinks-' . $no . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.iecopy(2,\'' . $no . '\')" title="' . __('Copy Links', 'ed2kls') . '" value="' . __('Copy Links', 'ed2kls') . '" />
-				<input type="button" id="el-s-copynames-' . $no . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.iecopy(1,\'' . $no . '\')" title="' . __('Copy Names', 'ed2kls') . '" value="' . __('Copy Names', 'ed2kls') . '" />';
+				<span id="el-s-copylinks-container-' . $no . '" class="el-s-button-container">
+					<input type="button" id="el-s-copylinks-' . $no . '" class="el-s-button el-s-copylinks" onclick="ed2kls.cb.noflashcopy(2,\'' . $no . '\')" title="' . __('Copy Links', 'ed2kls') . '" value="' . __('Copy Links', 'ed2kls') . '" />
+				</span>
+				<span id="el-s-copynames-container-' . $no . '" class="el-s-button-container">
+					<input type="button" id="el-s-copynames-' . $no . '" class="el-s-button el-s-copynames" onclick="ed2kls.cb.noflashcopy(1,\'' . $no . '\')" title="' . __('Copy Names', 'ed2kls') . '" value="' . __('Copy Names', 'ed2kls') . '" />
+				</span>';
 			if ( strtolower($collection) != "false" ) {
 				$newcontent .= '
 				<input type="hidden" value="' . $no . '" name="el-s-no"><input type="submit" id="el-s-submit-' . $no . '" class="el-s-button el-s-emcl" title="' . __('eMuleCollection', 'ed2kls') . '" value="' . __('eMuleCollection', 'ed2kls') . '" />';
@@ -435,13 +437,25 @@ if(!class_exists('eD2kLSButton')) {
 
 		function eD2kLSButton() {
 			add_action('init', array(&$this, 'addTinymce'));
-			add_filter('admin_head', array(&$this, 'addQuicktag'));
+			if (get_bloginfo('version') >= 3.3) {
+				add_filter('admin_print_footer_scripts', array(&$this, 'addQuicktag'), 100);
+			} else {
+				add_filter('admin_head', array(&$this, 'addQuicktagOld'));
+			}
 		}
 
 		function addQuicktag() {
 			echo '
 <script type="text/javascript">//<![CDATA[
-if(typeof edButtons!=="undefined")edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
+if(typeof QTags!="undefined")QTags.addButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
+//]]></script>
+';
+		}
+
+		function addQuicktagOld() {
+			echo '
+<script type="text/javascript">//<![CDATA[
+if(typeof edButtons!="undefined")edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
 //]]></script>
 ';
 		}
@@ -601,7 +615,7 @@ if(!class_exists('eD2kLSOption')) {
 				if (function_exists('wp_nonce_url')) { 
 					$deactivateUrl = wp_nonce_url($deactivateUrl, 'deactivate-plugin_ed2k-link-selector/ed2k-link-selector.php');
 				}
-				$links[] = '<a href="' . $deactivateUrl . '&elsdeldata=yes" title="' . __('Disable and delete the saved settings in the database', 'ed2kls') . '">' . __('Disable Cpltly', 'ed2kls') . '</a>';
+				$links[] = '<a href="' . $deactivateUrl . '&elsdeldata=yes" title="' . __('Disable and delete the saved settings in the database', 'ed2kls') . '">' . __('Disable Forever', 'ed2kls') . '</a>';
 				$links[] = '<a href="options-general.php?page=ed2k-link-selector/options.php">' . __('Settings', 'ed2kls') . '</a>';
 			}
 			return $links;

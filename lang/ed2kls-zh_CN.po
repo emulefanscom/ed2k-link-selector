@@ -1,29 +1,68 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: eD2k Link Selector 1.1.6\n"
+"Project-Id-Version: eD2k Link Selector 1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-01 19:59+0100\n"
-"PO-Revision-Date: 2010-10-07 22:39+0100\n"
-"Last-Translator: tomchen1989 <tomchen1989@gmail.com>\n"
-"Language-Team: tomchen1989 <tomchen1989@gmail.com>\n"
+"POT-Creation-Date: 2012-09-06 15:38+0800\n"
+"PO-Revision-Date: 2012-09-06 15:38+0800\n"
+"Last-Translator: tomchen1989 <tomchen1989@yahoo.com.cn>\n"
+"Language-Team: tomchen1989 <tomchen1989@yahoo.com.cn>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../ed2k-link-selector.php:104
-msgid "You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods.de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. See <a href=\"http://wiki.amule.org/index.php/Ed2k_links_handling\">eD2k Links Handling</a> for help.<br />eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br />Click and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to select.<br />View <a href=\"http://emulefans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this plugin or contact the author."
-msgstr "您可以使用<a href=\"http://www.emule-project.net/home/perl/general.cgi?l=42&rm=download\">eMule</a>或eMule Mod（参见<a href=\"http://emulefans.com/news/emule/\">eMuleFans.com的Mod页</a>、<a href=\"http://www.emule-mods.de/?mods=start\">emule-mods.de的Mod页</a>）（Windows）、<a href=\"http://www.amule.org/\">aMule</a>（Win、Linux、Mac）等软件下载eD2k链接。可以参考这里的<a href=\"http://emulefans.com/ed2k-links-handle/\">修复、关联eD2k协议链接方法</a>。<br />eMule收藏集（.emulecollection）文件是您选中的所有链接的列表文件。eMule可以直接下载它们。<br />按住SHIFT键选择可以选中多个选择框。<br />可用文件名和大小选择器来选择文件。<br />查看<a href=\"http://emulefans.com/wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress 插件主页</a>可以下载此插件或联系作者。"
+msgid ""
+"You can use <a href=\"http://www.emule-project.net/home/perl/general.cgi?"
+"l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods."
+"de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://"
+"www.amule.org/\">aMule</a>(Win, Linux, Mac), etc. to download eD2k links. "
+"See <a href=\"http://wiki.amule.org/index.php/Ed2k_links_handling\">eD2k "
+"Links Handling</a> for help.<br />eMuleCollection files contain a set of "
+"links intended to be downloaded. They can be managed by eMule.<br />Click "
+"and hold down SHIFT key to toggle multiple checkboxes.<br />Use filters to "
+"select.<br />View <a href=\"http://emulefans.com/wordpress-ed2k-link-"
+"selector/\">eD2k Link Selector WordPress plugin HomePage</a> to find this "
+"plugin or contact the author."
+msgstr ""
+"您可以使用<a href=\"http://www.emule-project.net/home/perl/general.cgi?"
+"l=42&rm=download\">eMule</a>或eMule Mod（参见<a href=\"http://emulefans.com/"
+"news/emule/\">eMuleFans.com的Mod页</a>、<a href=\"http://www.emule-mods.de/?"
+"mods=start\">emule-mods.de的Mod页</a>）（Windows）、<a href=\"http://www."
+"amule.org/\">aMule</a>（Win、Linux、Mac）等软件下载eD2k链接。可以参考这里的"
+"<a href=\"http://emulefans.com/ed2k-links-handle/\">修复、关联eD2k协议链接方"
+"法</a>。<br />eMule收藏集（.emulecollection）文件是您选中的所有链接的列表文"
+"件。eMule可以直接下载它们。<br />按住SHIFT键选择可以选中多个选择框。<br />可"
+"用文件名和大小选择器来选择文件。<br />查看<a href=\"http://emulefans.com/"
+"wordpress-ed2k-link-selector/\">eD2k Link Selector WordPress 插件主页</a>可以"
+"下载此插件或联系作者。"
 
 #: ../ed2k-link-selector.php:107
-msgid "Name Filter helps you select files by their names or extensions. Case insensitive.<br />Symbols Usage:<br />AND: space(<code> </code>), <code>+</code>;<br />NOT: <code>-</code>;<br />OR: <code>|</code>;<br />Escape: two quote marks(<code>\"\"</code>);<br />Match at the start: <code>^</code>;<br />Match at the end: <code>$</code>.<br />e.g.<br /><code>emule|0.49c -exe</code> to select names that contain \"eMule\" and \"0.49c\" but not contain \"exe\";<br /><code>^emule 0.49c$</code> to select names started with \"emule\" and end with \"0.49c\";<br /><code>\"emule 0.49c\"</code> with quote marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
-msgstr "文件名选择器帮您根据文件名称或后缀来选择文件。不分大小写。<br />符号使用：<br />和：空格（<code> </code>）、<code>+</code>；<br />不包含：<code>-</code>；<br />或：<code>|</code>；<br />转义：一对英文引号（<code>\"\"</code>）；<br />匹配开头：<code>^</code>；<br />匹配结尾：<code>$</code>。<br />例如：<br />选中所有名称中包含有“eMule”或“0.49c”字眼，但不包含有“exe”字眼的：<code>emule|0.49c -exe</code>；<br />选中所有名称的开头是“eMule”，结尾是“0.49c”的：<code>^emule 0.49c$</code>；<br />选中所有名称中带有“eMule 0.49c”的（必须是“eMule 0.49c”，中间没有别的字符，不能是“eMule fake 0.49c”），需要转义：<code>\"emule 0.49c\"</code>。"
+msgid ""
+"Name Filter helps you select files by their names or extensions. Case "
+"insensitive.<br />Symbols Usage:<br />AND: space(<code> </code>), <code>+</"
+"code>;<br />NOT: <code>-</code>;<br />OR: <code>|</code>;<br />Escape: two "
+"quote marks(<code>\"\"</code>);<br />Match at the start: <code>^</code>;<br /"
+">Match at the end: <code>$</code>.<br />e.g.<br /><code>emule|0.49c -exe</"
+"code> to select names that contain \"eMule\" and \"0.49c\" but not contain "
+"\"exe\";<br /><code>^emule 0.49c$</code> to select names started with \"emule"
+"\" and end with \"0.49c\";<br /><code>\"emule 0.49c\"</code> with quote "
+"marks to match exactly a \"emule 0.49c\", not a \"eMule fake 0.49c\"."
+msgstr ""
+"文件名选择器帮您根据文件名称或后缀来选择文件。不分大小写。<br />符号使用："
+"<br />和：空格（<code> </code>）、<code>+</code>；<br />不包含：<code>-</"
+"code>；<br />或：<code>|</code>；<br />转义：一对英文引号（<code>\"\"</"
+"code>）；<br />匹配开头：<code>^</code>；<br />匹配结尾：<code>$</code>。"
+"<br />例如：<br />选中所有名称中包含有“eMule”或“0.49c”字眼，但不包含有“exe”字"
+"眼的：<code>emule|0.49c -exe</code>；<br />选中所有名称的开头是“eMule”，结尾"
+"是“0.49c”的：<code>^emule 0.49c$</code>；<br />选中所有名称中带有“eMule "
+"0.49c”的（必须是“eMule 0.49c”，中间没有别的字符，不能是“eMule fake 0.49c”），"
+"需要转义：<code>\"emule 0.49c\"</code>。"
 
 #: ../ed2k-link-selector.php:110
 msgid "Size Filter helps you select files by their sizes."
@@ -33,8 +72,7 @@ msgstr "大小选择器帮您根据文件大小选择文件。"
 msgid "Loading not finished. Please retry."
 msgstr "载入未完成。请重试。"
 
-#: ../ed2k-link-selector.php:117
-#: ../ed2k-link-selector.php:245
+#: ../ed2k-link-selector.php:117 ../ed2k-link-selector.php:263
 msgid "Hide"
 msgstr "隐藏"
 
@@ -42,226 +80,188 @@ msgstr "隐藏"
 msgid "Show"
 msgstr "显示"
 
-#: ../ed2k-link-selector.php:119
-#: ../ed2k-link-selector.php:133
-#: ../ed2k-link-selector.php:372
-#: ../ed2k-link-selector.php:381
+#: ../ed2k-link-selector.php:119 ../ed2k-link-selector.php:226
+#: ../ed2k-link-selector.php:389 ../ed2k-link-selector.php:398
 msgid "Bytes"
 msgstr "字节"
 
-#: ../ed2k-link-selector.php:120
-#: ../ed2k-link-selector.php:136
-#: ../ed2k-link-selector.php:368
-#: ../ed2k-link-selector.php:377
+#: ../ed2k-link-selector.php:120 ../ed2k-link-selector.php:229
+#: ../ed2k-link-selector.php:385 ../ed2k-link-selector.php:394
 msgid "TB"
 msgstr "TB"
 
-#: ../ed2k-link-selector.php:121
-#: ../ed2k-link-selector.php:139
-#: ../ed2k-link-selector.php:369
-#: ../ed2k-link-selector.php:378
+#: ../ed2k-link-selector.php:121 ../ed2k-link-selector.php:232
+#: ../ed2k-link-selector.php:386 ../ed2k-link-selector.php:395
 msgid "GB"
 msgstr "GB"
 
-#: ../ed2k-link-selector.php:122
-#: ../ed2k-link-selector.php:142
-#: ../ed2k-link-selector.php:370
-#: ../ed2k-link-selector.php:379
+#: ../ed2k-link-selector.php:122 ../ed2k-link-selector.php:235
+#: ../ed2k-link-selector.php:387 ../ed2k-link-selector.php:396
 msgid "MB"
 msgstr "MB"
 
-#: ../ed2k-link-selector.php:123
-#: ../ed2k-link-selector.php:145
-#: ../ed2k-link-selector.php:371
-#: ../ed2k-link-selector.php:380
+#: ../ed2k-link-selector.php:123 ../ed2k-link-selector.php:238
+#: ../ed2k-link-selector.php:388 ../ed2k-link-selector.php:397
 msgid "KB"
 msgstr "KB"
 
-#: ../ed2k-link-selector.php:245
-#: ../ed2k-link-selector.php:259
-#: ../ed2k-link-selector.php:350
-#: ../ed2k-link-selector.php:364
-#: ../options.php:144
-#: ../options.php:156
-#: ../options.php:163
-#: ../options.php:175
-#: ../options.php:186
-#: ../options.php:197
-#: ../options.php:207
-#: ../options.php:214
-#: ../options.php:221
-#: ../options.php:232
-#: ../options.php:242
+#: ../ed2k-link-selector.php:263 ../ed2k-link-selector.php:276
+#: ../ed2k-link-selector.php:367 ../ed2k-link-selector.php:381
+#: ../options.php:144 ../options.php:156 ../options.php:163 ../options.php:175
+#: ../options.php:186 ../options.php:197 ../options.php:207 ../options.php:214
+#: ../options.php:221 ../options.php:232 ../options.php:242
 msgid "Help"
 msgstr "帮助"
 
-#: ../ed2k-link-selector.php:247
+#: ../ed2k-link-selector.php:265
 msgid "Please enable javascript in your browser to visit this page."
 msgstr "请开启浏览器的JavaScript功能以访问该页面。"
 
-#: ../ed2k-link-selector.php:253
+#: ../ed2k-link-selector.php:270
 msgid "Close help info"
 msgstr "关闭帮助信息"
 
-#: ../ed2k-link-selector.php:254
+#: ../ed2k-link-selector.php:271
 msgid "Help Info:"
 msgstr "帮助信息："
 
-#: ../ed2k-link-selector.php:261
-#: ../options.php:103
+#: ../ed2k-link-selector.php:278 ../options.php:103
 msgid "eMule Official Site"
 msgstr "eMule官方网站"
 
-#: ../ed2k-link-selector.php:261
-#: ../options.php:103
+#: ../ed2k-link-selector.php:278 ../options.php:103
 msgid "eMule Official"
 msgstr "eMule官方"
 
-#: ../ed2k-link-selector.php:263
-#: ../options.php:105
+#: ../ed2k-link-selector.php:280 ../options.php:105
 msgid "eMuleFans.com [eMule Fans Chinese Blog]"
 msgstr "eMuleFans.com [电骡爱好者中文Blog]"
 
-#: ../ed2k-link-selector.php:263
-#: ../options.php:105
+#: ../ed2k-link-selector.php:280 ../options.php:105
 msgid "eMuleFans.com"
 msgstr "eMule Fans 电骡爱好者"
 
-#: ../ed2k-link-selector.php:265
-#: ../options.php:107
+#: ../ed2k-link-selector.php:282 ../options.php:107
 msgid "eMule-Mods.de [eMule Mods Site]"
 msgstr "eMule-Mods.de [eMule Mods站点]"
 
-#: ../ed2k-link-selector.php:267
-#: ../options.php:101
+#: ../ed2k-link-selector.php:284 ../options.php:101
 msgid "Homepage for eD2k Link Selector WordPress Plugin"
 msgstr "eD2k Link Selector（eD2k链接选择器）WordPress插件主页"
 
-#: ../ed2k-link-selector.php:267
-#: ../options.php:101
+#: ../ed2k-link-selector.php:284 ../options.php:101
 msgid "Plugin Home"
 msgstr "插件主页"
 
-#: ../ed2k-link-selector.php:316
+#: ../ed2k-link-selector.php:333
 msgid "Stat"
 msgstr "查源"
 
-#: ../ed2k-link-selector.php:346
+#: ../ed2k-link-selector.php:363
 msgid "All"
 msgstr "全选"
 
-#: ../ed2k-link-selector.php:350
-#: ../options.php:175
+#: ../ed2k-link-selector.php:367 ../options.php:175
 msgid "Name Filter"
 msgstr "文件名选择"
 
-#: ../ed2k-link-selector.php:364
-#: ../options.php:186
+#: ../ed2k-link-selector.php:381 ../options.php:186
 msgid "Size Filter"
 msgstr "大小选择"
 
-#: ../ed2k-link-selector.php:387
+#: ../ed2k-link-selector.php:404
 msgid "Files"
 msgstr "文件"
 
-#: ../ed2k-link-selector.php:391
+#: ../ed2k-link-selector.php:408
 msgid "Download"
 msgstr "下载选中文件"
 
-#: ../ed2k-link-selector.php:392
+#: ../ed2k-link-selector.php:410
 msgid "Copy Links"
 msgstr "复制选中链接"
 
-#: ../ed2k-link-selector.php:393
+#: ../ed2k-link-selector.php:413
 msgid "Copy Names"
 msgstr "复制选中名称"
 
-#: ../ed2k-link-selector.php:396
-#: ../options.php:197
+#: ../ed2k-link-selector.php:417 ../options.php:197
 msgid "eMuleCollection"
 msgstr "eMule收藏集"
 
-#: ../ed2k-link-selector.php:399
+#: ../ed2k-link-selector.php:420
 msgid "Copyed"
 msgstr "已复制"
 
-#: ../ed2k-link-selector.php:446
-#: ../tinymce/dialog.php:6
+#: ../ed2k-link-selector.php:478 ../tinymce/dialog.php:6
 msgid "Add eD2k Links"
 msgstr "插入eD2k链接"
 
-#: ../ed2k-link-selector.php:479
-#: ../options.php:100
+#: ../ed2k-link-selector.php:511 ../options.php:100
 msgid "eD2k Link Selector Options"
 msgstr "eD2k链接选择器设置"
 
-#: ../ed2k-link-selector.php:479
+#: ../ed2k-link-selector.php:511
 msgid "eD2k Link Selector"
 msgstr "eD2k链接选择器"
 
-#: ../ed2k-link-selector.php:505
+#: ../ed2k-link-selector.php:537
 msgid "eD2k Links"
 msgstr "eD2k链接"
 
-#: ../ed2k-link-selector.php:586
+#: ../ed2k-link-selector.php:618
 msgid "Disable and delete the saved settings in the database"
 msgstr "停用并删除该插件在数据库中的选项设置"
 
-#: ../ed2k-link-selector.php:586
-msgid "Disable Cpltly"
-msgstr "完全停用"
+#: ../ed2k-link-selector.php:618
+msgid "Disable Forever"
+msgstr "永久停用"
 
-#: ../ed2k-link-selector.php:587
-#: ../options.php:138
+#: ../ed2k-link-selector.php:619 ../options.php:138
 msgid "Settings"
 msgstr "设置"
 
 #: ../options.php:129
 #, php-format
-msgid "Uninstalled successfully. Please click <a href=\"%1$s\">here</a> to disable the plugin. Click the \"%2$s\" button to restore default settings and reuse the plugin."
-msgstr "数据卸载成功。请点击<a href=\"%1$s\">此处</a>完全停用该插件。点击本页上的“%2$s”按钮重设数据并重新使用本插件。"
+msgid ""
+"Uninstalled successfully. Please click <a href=\"%1$s\">here</a> to disable "
+"the plugin. Click the \"%2$s\" button to restore default settings and reuse "
+"the plugin."
+msgstr ""
+"数据卸载成功。请点击<a href=\"%1$s\">此处</a>完全停用该插件。点击本页上"
+"的“%2$s”按钮重设数据并重新使用本插件。"
 
-#: ../options.php:129
-#: ../options.php:133
-#: ../options.php:259
+#: ../options.php:129 ../options.php:133 ../options.php:259
 msgid "Restore Default"
 msgstr "恢复默认"
 
 #: ../options.php:133
 #, php-format
-msgid "Failed to read from the database. Please go to <a href=\"%1$s\">Plugin Page</a> to reinstall the plugin, or click the \"%2$s\" button below."
-msgstr "从数据库中读取本插件数据失败。请去<a href=\"%1$s\">插件页</a>重新安装本插件或点击下方的“%2$s”按钮。"
+msgid ""
+"Failed to read from the database. Please go to <a href=\"%1$s\">Plugin Page</"
+"a> to reinstall the plugin, or click the \"%2$s\" button below."
+msgstr ""
+"从数据库中读取本插件数据失败。请去<a href=\"%1$s\">插件页</a>重新安装本插件或"
+"点击下方的“%2$s”按钮。"
 
 #: ../options.php:140
 #, php-format
-msgid "Click \"[?]\" button for help. The settings below will apply globally. You can also set \"%2$s\" and \"%3$s\" for specific %1$s tag in the post."
-msgstr "点击“[?]”按钮看帮助。这里的设置用于全部。您还可以在文章中对于指定的某个%1$s标签设置单独的“%2$s”及“%3$s”。"
+msgid ""
+"Click \"[?]\" button for help. The settings below will apply globally. You "
+"can also set \"%2$s\" and \"%3$s\" for specific %1$s tag in the post."
+msgstr ""
+"点击“[?]”按钮看帮助。这里的设置用于全部。您还可以在文章中对于指定的某个%1$s标"
+"签设置单独的“%2$s”及“%3$s”。"
 
-#: ../options.php:140
-#: ../options.php:159
-#: ../options.php:171
-#: ../options.php:182
-#: ../options.php:193
-#: ../options.php:203
-#: ../options.php:210
-#: ../options.php:217
-#: ../options.php:228
-#: ../options.php:238
-#: ../options.php:248
+#: ../options.php:140 ../options.php:159 ../options.php:171 ../options.php:182
+#: ../options.php:193 ../options.php:203 ../options.php:210 ../options.php:217
+#: ../options.php:228 ../options.php:238 ../options.php:248
 msgid "Tag Attribute"
 msgstr "标签属性"
 
-#: ../options.php:140
-#: ../options.php:159
-#: ../options.php:171
-#: ../options.php:182
-#: ../options.php:193
-#: ../options.php:203
-#: ../options.php:210
-#: ../options.php:217
-#: ../options.php:228
-#: ../options.php:238
-#: ../options.php:248
+#: ../options.php:140 ../options.php:159 ../options.php:171 ../options.php:182
+#: ../options.php:193 ../options.php:203 ../options.php:210 ../options.php:217
+#: ../options.php:228 ../options.php:238 ../options.php:248
 msgid "Available Value(s)"
 msgstr "可用值"
 
@@ -289,38 +289,26 @@ msgstr "任意文字"
 msgid "Stat Button"
 msgstr "查源按钮"
 
-#: ../options.php:166
-#: ../options.php:179
-#: ../options.php:182
-#: ../options.php:190
-#: ../options.php:193
-#: ../options.php:200
-#: ../options.php:203
-msgid "Enable"
+#: ../options.php:166 ../options.php:179 ../options.php:182 ../options.php:190
+#: ../options.php:193 ../options.php:200 ../options.php:203
+msgid "Enabled"
 msgstr "使用"
 
-#: ../options.php:167
-#: ../options.php:171
-#: ../options.php:180
-#: ../options.php:182
-#: ../options.php:191
-#: ../options.php:193
-#: ../options.php:201
-#: ../options.php:203
-msgid "Disable"
+#: ../options.php:167 ../options.php:171 ../options.php:180 ../options.php:182
+#: ../options.php:191 ../options.php:193 ../options.php:201 ../options.php:203
+msgid "Disabled"
 msgstr "停用"
 
 #: ../options.php:171
-msgid "(For the \"Table\" format) Whether to use stat button, and which stat site."
+msgid ""
+"(For the \"Table\" format) Whether to use stat button, and which stat site."
 msgstr "（表格形式下）是否使用查源按钮，及查源网站是什么。"
 
 #: ../options.php:171
 msgid "Stat site URL prefix"
 msgstr "查源网站链接前缀"
 
-#: ../options.php:178
-#: ../options.php:182
-#: ../options.php:189
+#: ../options.php:178 ../options.php:189
 msgid "Auto"
 msgstr "自动"
 
@@ -328,13 +316,13 @@ msgstr "自动"
 msgid "(For the \"Table\" format) Whether to use name filter."
 msgstr "（表格形式下）是否使用文件名选择功能。"
 
+#: ../options.php:182 ../options.php:193
+msgid "Auto. Disable if only one link, enable if multiple links"
+msgstr "自动。仅一个链接时停用，多个链接时使用"
+
 #: ../options.php:193
 msgid "(For the \"Table\" format) Whether to use size filter."
 msgstr "（表格形式下）是否使用大小选择功能。"
-
-#: ../options.php:193
-msgid "Auto. Disable if only 1 link, enable if > 1"
-msgstr "自动。仅1个链接时停用，多于1时使用"
 
 #: ../options.php:203
 msgid "(For the \"Table\" format) Whether to show emulecollection button."
@@ -368,18 +356,15 @@ msgstr "字号，以%、px、pt或em为单位"
 msgid "Button Style"
 msgstr "按钮样式"
 
-#: ../options.php:224
-#: ../options.php:228
+#: ../options.php:224 ../options.php:228
 msgid "Text only"
 msgstr "仅文字"
 
-#: ../options.php:225
-#: ../options.php:228
+#: ../options.php:225 ../options.php:228
 msgid "Image and text"
 msgstr "图片与文字"
 
-#: ../options.php:226
-#: ../options.php:228
+#: ../options.php:226 ../options.php:228
 msgid "Image only"
 msgstr "仅图片"
 
@@ -391,36 +376,35 @@ msgstr "（表格形式下）按钮样式。"
 msgid "Format"
 msgstr "形式"
 
-#: ../options.php:235
-#: ../options.php:238
-msgid "Table"
-msgstr "表格形式"
+#: ../options.php:235 ../options.php:238
+msgid "Selector table"
+msgstr "选择器表格形式"
 
-#: ../options.php:236
-#: ../options.php:238
-msgid "Anchor"
+#: ../options.php:236 ../options.php:238
+msgid "Simple anchor links"
 msgstr "普通链接形式"
 
 #: ../options.php:238
 msgid "Which format to use for content on single post and page."
-msgstr "在文章（single post）和页面（page）上输出的内容（content）使用何种形式。"
+msgstr ""
+"在文章（single post）和页面（page）上输出的内容（content）使用何种形式。"
 
 #: ../options.php:242
 msgid "For All"
 msgstr "应用于所有"
 
-#: ../options.php:245
-#: ../options.php:248
+#: ../options.php:245 ../options.php:248
 msgid "Yes"
 msgstr "是"
 
-#: ../options.php:246
-#: ../options.php:248
+#: ../options.php:246 ../options.php:248
 msgid "No"
 msgstr "否"
 
 #: ../options.php:248
-msgid "Whether to apply on non-singular pages (pages which are not single posts or pages. Like front page and category pages)."
+msgid ""
+"Whether to apply on non-singular pages (pages which are not single posts or "
+"pages. Like front page and category pages)."
 msgstr "是否应用于除文章和页面外的页（例如首页和分类页等）。"
 
 #: ../options.php:253
@@ -431,8 +415,7 @@ msgstr "保存设置"
 msgid "Demo"
 msgstr "预览"
 
-#: ../options.php:285
-#: ../options.php:289
+#: ../options.php:285 ../options.php:289
 msgid "Uninstall"
 msgstr "卸载"
 
@@ -459,4 +442,3 @@ msgstr "清理"
 #: ../tinymce/dialog.php:67
 msgid "Cancel"
 msgstr "取消"
-

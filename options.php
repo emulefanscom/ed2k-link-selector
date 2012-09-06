@@ -163,12 +163,12 @@ if ($condition == 1) {
 					<th><?php echo __('Stat Button', 'ed2kls'); ?><a class="elsopt-help" title="<?php echo __('Help', 'ed2kls'); ?>" onclick="elsInfoToggle('stat');">[?]</a></th>
 					<td>
 						<select id="elsopt-stat-if" name="elsopt-stat-if" class="elsopt-opt" onchange="ed2klsStatToggle(this.options[this.selectedIndex].value);">
-							<option value="true"<?php if($oldOptions['stat'] != 'false'){echo ' selected="selected"';} ?>><?php echo __('Enable', 'ed2kls'); ?></option>
-							<option value="false"<?php if($oldOptions['stat'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disable', 'ed2kls'); ?></option>
+							<option value="true"<?php if($oldOptions['stat'] != 'false'){echo ' selected="selected"';} ?>><?php echo __('Enabled', 'ed2kls'); ?></option>
+							<option value="false"<?php if($oldOptions['stat'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disabled', 'ed2kls'); ?></option>
 						</select>
 						<br />
 						<input type="text" id="elsopt-stat" name="elsopt-stat" class="elsopt-opt elsopt-txt" value="<?php if($oldOptions['stat'] != 'false'){echo $oldOptions['stat'];} ?>"<?php if($oldOptions['stat'] == 'false'){echo ' disabled="disabled"';} ?> />
-						<div id="elsopt-info-stat" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use stat button, and which stat site.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>stat</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>[<?php echo __('Stat site URL prefix', 'ed2kls'); ?>]</code>;</li><li><code>false</code>: <?php echo __('Disable', 'ed2kls'); ?></li></ul></li></ul></div>
+						<div id="elsopt-info-stat" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use stat button, and which stat site.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>stat</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>[<?php echo __('Stat site URL prefix', 'ed2kls'); ?>]</code>;</li><li><code>false</code>: <?php echo __('Disabled', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>
 				</tr>
 				<tr>
@@ -176,10 +176,10 @@ if ($condition == 1) {
 					<td>
 						<select id="elsopt-name" name="elsopt-name" class="elsopt-opt">
 							<option value="auto"<?php if($oldOptions['name'] == 'auto'){echo ' selected="selected"';} ?>><?php echo __('Auto', 'ed2kls'); ?></option>
-							<option value="true"<?php if($oldOptions['name'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enable', 'ed2kls'); ?></option>
-							<option value="false"<?php if($oldOptions['name'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disable', 'ed2kls'); ?></option>
+							<option value="true"<?php if($oldOptions['name'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enabled', 'ed2kls'); ?></option>
+							<option value="false"<?php if($oldOptions['name'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disabled', 'ed2kls'); ?></option>
 						</select>
-						<div id="elsopt-info-name" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use name filter.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>name</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>auto</code>: <?php echo __('Auto', 'ed2kls'); ?>;</li><li><code>true</code>: <?php echo __('Enable', 'ed2kls'); ?>;</li><li><code>false</code>: <?php echo __('Disable', 'ed2kls'); ?></li></ul></li></ul></div>
+						<div id="elsopt-info-name" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use name filter.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>name</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>auto</code>: <?php echo __('Auto. Disable if only one link, enable if multiple links', 'ed2kls'); ?>;</li><li><code>true</code>: <?php echo __('Enabled', 'ed2kls'); ?>;</li><li><code>false</code>: <?php echo __('Disabled', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>
 				</tr>
 				<tr>
@@ -187,20 +187,20 @@ if ($condition == 1) {
 					<td>
 						<select id="elsopt-size" name="elsopt-size" class="elsopt-opt">
 							<option value="auto"<?php if($oldOptions['size'] == 'auto'){echo ' selected="selected"';} ?>><?php echo __('Auto', 'ed2kls'); ?></option>
-							<option value="true"<?php if($oldOptions['size'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enable', 'ed2kls'); ?></option>
-							<option value="false"<?php if($oldOptions['size'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disable', 'ed2kls'); ?></option>
+							<option value="true"<?php if($oldOptions['size'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enabled', 'ed2kls'); ?></option>
+							<option value="false"<?php if($oldOptions['size'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disabled', 'ed2kls'); ?></option>
 						</select>
-						<div id="elsopt-info-size" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use size filter.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>size</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>auto</code>: <?php echo __('Auto. Disable if only 1 link, enable if > 1', 'ed2kls'); ?>;</li><li><code>true</code>: <?php echo __('Enable', 'ed2kls'); ?>;</li><li><code>false</code>: <?php echo __('Disable', 'ed2kls'); ?></li></ul></li></ul></div>
+						<div id="elsopt-info-size" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use size filter.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>size</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>auto</code>: <?php echo __('Auto. Disable if only one link, enable if multiple links', 'ed2kls'); ?>;</li><li><code>true</code>: <?php echo __('Enabled', 'ed2kls'); ?>;</li><li><code>false</code>: <?php echo __('Disabled', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>
 				</tr>
 				<tr>
 					<th><?php echo __('eMuleCollection', 'ed2kls'); ?><a class="elsopt-help" title="<?php echo __('Help', 'ed2kls'); ?>" onclick="elsInfoToggle('collection');">[?]</a></th>
 					<td>
 						<select id="elsopt-collection" name="elsopt-collection" class="elsopt-opt">
-							<option value="true"<?php if($oldOptions['collection'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enable', 'ed2kls'); ?></option>
-							<option value="false"<?php if($oldOptions['collection'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disable', 'ed2kls'); ?></option>
+							<option value="true"<?php if($oldOptions['collection'] == 'true'){echo ' selected="selected"';} ?>><?php echo __('Enabled', 'ed2kls'); ?></option>
+							<option value="false"<?php if($oldOptions['collection'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disabled', 'ed2kls'); ?></option>
 						</select>
-						<div id="elsopt-info-collection" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to show emulecollection button.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>collection</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>true</code>: <?php echo __('Enable', 'ed2kls'); ?>;</li><li><code>false</code>: <?php echo __('Disable', 'ed2kls'); ?></li></ul></li></ul></div>
+						<div id="elsopt-info-collection" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to show emulecollection button.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>collection</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>true</code>: <?php echo __('Enabled', 'ed2kls'); ?>;</li><li><code>false</code>: <?php echo __('Disabled', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>
 				</tr>
 				<tr>
@@ -232,10 +232,10 @@ if ($condition == 1) {
 					<th><?php echo __('Format', 'ed2kls'); ?><a class="elsopt-help" title="<?php echo __('Help', 'ed2kls'); ?>" onclick="elsInfoToggle('format');">[?]</a></th>
 					<td>
 						<select id="elsopt-format" name="elsopt-format" class="elsopt-opt">
-							<option value="1"<?php if($oldOptions['format'] == '1'){echo ' selected="selected"';} ?>><?php echo __('Table', 'ed2kls'); ?></option>
-							<option value="2"<?php if($oldOptions['format'] == '2'){echo ' selected="selected"';} ?>><?php echo __('Anchor', 'ed2kls'); ?></option>
+							<option value="1"<?php if($oldOptions['format'] == '1'){echo ' selected="selected"';} ?>><?php echo __('Selector table', 'ed2kls'); ?></option>
+							<option value="2"<?php if($oldOptions['format'] == '2'){echo ' selected="selected"';} ?>><?php echo __('Simple anchor links', 'ed2kls'); ?></option>
 						</select>
-						<div id="elsopt-info-format" class="elsopt-info" style="display:none;"><?php echo __('Which format to use for content on single post and page.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>format</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>1</code>: <?php echo __('Table', 'ed2kls'); ?>;</li><li><code>2</code>: <?php echo __('Anchor', 'ed2kls'); ?></li></ul></li></ul></div>
+						<div id="elsopt-info-format" class="elsopt-info" style="display:none;"><?php echo __('Which format to use for content on single post and page.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>format</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>1</code>: <?php echo __('Selector table', 'ed2kls'); ?>;</li><li><code>2</code>: <?php echo __('Simple anchor links', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>
 				</tr>
 				<tr>
@@ -266,10 +266,10 @@ if ($condition == 1) {
 		<h3><?php echo __('Demo', 'ed2kls'); ?></h3>
 <?php
 	global $eD2kLinkSelector;
-	$content1 = 'ed2k://|file|eMule0.49c.zip|2868871|0F88EEFA9D8AD3F43DABAC9982D2450C|h=SQ7LUTYUSMDBP2TVE2M7T6VUBLU324KF|/';
+	$content1 = 'ed2k://|file|eMule0.50a-Installer.exe|3389035|3D366ED505B977FC61C9A6EE01E96329|h=EKE4PSKRQ65MWEPFTRDSAHW5VMDIMFAJ|/';
 	$content2 = 'ed2k://|file|emule0.49c-Xtreme7.2.7z|7124399|071F8D79E5BDC96208079ADE1C2443B0|h=THOGM3WRM4OGNCQHDQBS5JFFAUTQNZEU|/
-Browser
-ed2k://|file|Firefox%20Setup%20win%203.6%20en-US.exe|8327264|E35EBC236C3F254044CCAD73C81DAB2B|h=DDDKMVPBSYNTCVEU4UXBMSHHSPL34FOP|/';
+Browsers
+ed2k://|file|Firefox_15.0_win32_en-US.exe|17789456|07e4607e4dc411237be1ce0b8a2a5c59|/|sources,78.47.189.237:14091|/';
 	global $eD2kLSOption;
 	$myatts = $eD2kLSOption->readOptions();
 	global $ed2klsnumber;

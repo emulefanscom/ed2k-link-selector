@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>eD2k Link Selector Instruction</title>
+<style>
+body {
+	font: 14px/1.6em Verdana, Arial, sans-serif;
+	width: 96%;
+	margin: 1.2em 2%;
+}
+p {
+	margin: 0.6em 0;
+}
+a, a:link, a:visited {
+	color: #0000e6;
+	text-decoration: none;
+}
+a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+table {
+	border-collapse: collapse;
+}
+td, th {
+	border: 1px solid #000;
+}
+tr:hover {
+	background: #ecf9ff;
+}
+h2, h3, h4 {
+	background: #caeeff;
+	padding: 0.3em 0.8em;
+	border-radius: 0 0 0.4em 0.4em;
+}
+.h-content {
+	border-left: 2px solid #00a5f4;
+	margin-left: 0.6em;
+	padding-left: 1.4em;
+}
+code, pre {
+	font: 14px/1.6em "Courier New", monospace;
+	background: #eee;
+}
+.toc {
+	float: right;
+	border: 1px solid #000;
+	background: #fff;
+	padding: 0.5em 0.8em 0.5em 0.5em;
+	margin: 0.5em;
+	border-radius: 0.4em 0.4em;
+}
+.toc ol {
+	margin: 0;
+	padding-left: 2em;
+}
+.toctitle {
+	text-align: center;
+	font-weight: bold;
+}
+</style>
+</head>
+<body id="start">
+<div class="toc">
+<div class="toctitle">Contents</div>
+<ol>
+	<li><a href="#installation">Installation</a></li>
+	<li><a href="#basic-usage">Basic Usage</a></li>
+	<li>
+		<a href="#advanced-usage">Advanced Usage</a>
+		<ol>
+			<li><a href="#options">Options</a></li>
+			<li><a href="#on-which-pages">On which pages?</a></li>
+			<li><a href="#selectors">Selectors</a></li>
+			<li><a href="#bbcode-attributes">BBCode Attributes</a></li>
+			<li><a href="#custom-style">Custom Style</a></li>
+		</ol>
+	</li>
+	<li><a href="#languages">Languages</a></li>
+	<li><a href="#changelog">Changelog</a></li>
+	<li><a href="#other-implements">Other Implements</a></li>
+	<li><a href="#licenses">Licenses</a></li>
+</ol>
+</div>
+<h1>eD2k Link Selector Instruction</h1>
+<p><strong>by tomchen1989</strong> (<strong><a href="http://emulefans.com/wordpress-ed2k-link-selector/" title="Home page of eD2k Link Selector plugin">Plugin Home</a></strong>; <strong><a href="http://emulefans.com/" title="eMule Fans">eMuleFans.com</a></strong>; email: tomchen1989/ατ/yahoo.com.cn or admin/ατ/emulefans.com)</p>
+
+<p><strong>eD2k Link Selector</strong> WordPress plugin may convert BBCode tags <code>[ed2k][/ed2k]</code> and <code>[emule][/emule]</code> that contain eD2k (eMule) links or other text to a nice table to display them with some filters which make it easy to select.</p>
+
+<p>You can download eMule from <a href="http://www.emule-project.net/">eMule official site</a> or <a href="http://www.emule-mods.de/?mods=start" title="Mods page on emule-mods.de">emule-mods.de</a>, or use other clients like <a href="http://www.amule.org/" title="amule official site">aMule</a>.</p>
+
+<p>If you read Chinese (Simplified or Traditional), you may find <a href="http://emulefans.com/wordpress-ed2k-link-selector/" title="Home page of eD2k Link Selector plugin">Chinese introductions about eD2k Link Selector plugin</a> and a <a href="http://emulefans.com/news/" title="List of eMule/eDonkeys">eMule/eDonkey softwares' list</a> from <a href="http://emulefans.com/" title="eMule Fans 电骡爱好者">eMuleFans.com</a>. <a href="http://en.wikipedia.org/wiki/VeryCD" title="VeryCD - wikipedia">VeryCD</a> and its easyMule are fake eMules, don't use them. 如果您阅读中文，请至<a href="http://emulefans.com/wordpress-ed2k-link-selector/" title="eD2k Link Selector（eD2k电驴链接选择器插件）">eD2k Link Selector插件发布页（中文）</a>查看中文的用法、功能的介绍与讨论、插件效果演示。您可在<a href="http://www.emule-project.net/" title="eMule官方网站">eMule官方网站</a>下载官方eMule，或在<a href="http://emulefans.com/news/emule/" title="eMuleFans.com电骡爱好者blog的Mod页">eMuleFans.com电骡爱好者blog</a>和<a href="http://www.emule-mods.de/?mods=start" title="emule-mods.de的Mod页">emule-mods.de</a>上找到适合您使用的eMule Mod，或用诸如<a href="http://www.amule.org/" title="amule官方网站">aMule</a>等其他客户端。请注意：VeryCD及其easyMule和emule.org.cn站点都与eMule或<a href="http://zh.wikipedia.org/wiki/%E2%80%9C%E7%94%B5%E9%A9%B4%E2%80%9D%E5%90%8D%E7%A7%B0%E4%BA%89%E8%AE%AE" title="维基百科“‘电驴’名称争议”">电驴</a>官方无关，不推荐使用VeryCD的软件。</p>
+
+<h2 id="installation">Installation</h2>
+Decompress the package. Upload <code>ed2k-link-selector</code> folder to <code>/wp-content/plugins/</code> directory. Activate the plugin through the "Plugins" menu in WordPress.
+
+<h2 id="basic-usage">Basic Usage</h2>
+Then use <code>[ed2k]</code> or <code>[emule]</code> tag in your posts like this:
+<pre>
+[ed2k]
+ed2k://|file|eMule0.50a-Installer.exe|3389035|3D366ED505B977FC61C9A6EE01E96329|h=EKE4PSKRQ65MWEPFTRDSAHW5VMDIMFAJ|/
+ed2k://|file|emule0.49c-Xtreme7.2.7z|7124399|071F8D79E5BDC96208079ADE1C2443B0|h=THOGM3WRM4OGNCQHDQBS5JFFAUTQNZEU|/
+Browsers
+ed2k://|file|Firefox_15.0_win32_en-US.exe|17789456|07e4607e4dc411237be1ce0b8a2a5c59|/|sources,78.47.189.237:14091|/
+[/ed2k]
+</pre>
+
+<p>It renders as:</p>
+
+<img src="screenshot-1.png" width="648" height="275" border="0" alt="Basic selector table" title="Basic selector table">
+
+<p>In your "HTML" and "Visual" editor, a "eD2k" button and a mule image button respectively, may help you insert such code:</p>
+
+<img src="screenshot-2.png" width="351" height="86" border="0" alt="Buttons for HTML (Quicktags) and TinyMCE editors" title="Buttons for HTML (Quicktags) and TinyMCE editorse">
+
+<p>In your RSS feed, such code will render as:</p>
+
+<p class="el-s-wrapper">
+<span class="el-s-linkline">ed2k: <a class="el-s-link inlinks" href="ed2k://|file|eMule0.50a-Installer.exe|3389035|3D366ED505B977FC61C9A6EE01E96329|h=EKE4PSKRQ65MWEPFTRDSAHW5VMDIMFAJ|/">eMule0.50a-Installer.exe</a></span><br />
+<span class="el-s-linkline">ed2k: <a class="el-s-link inlinks" href="ed2k://|file|emule0.49c-Xtreme7.2.7z|7124399|071F8D79E5BDC96208079ADE1C2443B0|h=THOGM3WRM4OGNCQHDQBS5JFFAUTQNZEU|/">emule0.49c-Xtreme7.2.7z</a></span><br />
+<span class="el-s-desc">Browser</span><br />
+<span class="el-s-linkline">ed2k: <a class="el-s-link inlinks" href="ed2k://|file|Firefox_15.0_win32_en-US.exe|17789456|07e4607e4dc411237be1ce0b8a2a5c59|/|sources,78.47.189.237:14091|/">Firefox_15.0_win32_en-US.exe</a></span>
+</p>
+
+<h2 id="advanced-usage">Advanced Usage</h2>
+<div class="h-content">
+<h3 id="options">Options</h3>
+<p>You may find and open it in your "Settings" menu:</p>
+<img src="screenshot-3.png" width="564" height="766" border="0" alt="Options page" title="Options page">
+<p>Click the "[?]" to see the description for each item.</p>
+
+<h3 id="on-which-pages">On which pages?</h3>
+By default, <code>[ed2k]</code> tags in <a href="http://codex.wordpress.org/Template_Tags/the_content">content</a> from a <a href="http://codex.wordpress.org/Function_Reference/is_single">single post</a> or a <a href="http://codex.wordpress.org/Pages">page</a> will be converted to that table, while <a href="http://codex.wordpress.org/Function_Reference/is_home">home</a>, <a href="http://codex.wordpress.org/WordPress_Feeds">feed</a>, <a href="http://codex.wordpress.org/Category_Templates">category</a>, <a href="http://codex.wordpress.org/Function_Reference/is_archive">archive</a> pages and <a href="http://codex.wordpress.org/Excerpt">excerpt</a> from a post or a page use the simple anchor links. However it can be changed by Options or by attributes of the BBCode (see below).
+
+<h3 id="selectors">Selectors</h3>
+<p>Click and hold down SHIFT key to toggle multiple checkboxes.</p>
+
+<p>Name Filter helps you select files by their names or extensions. Case insensitive.</p>
+<p>Symbols Usage:</p>
+<p>AND: space(<code> </code>), <code>+</code>;<br />
+NOT: <code>-</code>;<br />
+OR: <code>|</code>;<br />
+Escape: two quote marks(<code>""</code>);<br />
+Match at the start: <code>^</code>;<br />
+Match at the end: <code>$</code>.</p>
+<p>e.g.<br />
+<code>emule|0.50a -exe</code> to select names that contain "eMule" and "0.50a" but not contain "exe";<br />
+<code>^emule 0.50a$</code> to select names started with "emule" and end with "0.50a";<br />
+<code>"emule 0.50a"</code> with quote marks to match exactly a "emule 0.50a", not a "eMule fake 0.50a".</p>
+
+<p>The copy buttons are compatible with all modern broswers.</p>
+
+<p>Click the "[?]" on the selector table to see help infos.</p>
+
+<h3 id="bbcode-attributes">BBCode Attributes</h3>
+<p>Available attributes for <code>[ed2k]</code> and <code>[emule]</code> (used as: <code>[ed2k attr1=value1 attr2=value2]...[/ed2k]</code>)：</p>
+<table>
+<tbody><tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Valid Values</th>
+<th style="width:12em;">Default Value (may be changed by Options)</th>
+</tr>
+<tr>
+<td><code>head</code></td>
+<td>(For the "Table" format)<br />The title.</td>
+<td>
+<code>[Text]</code>
+		</td>
+<td><code>eD2k Links</code> (if you blog in English)</td>
+</tr>
+<tr>
+<td><code>stat</code></td>
+<td>(For the "Table" format)<br /> Whether to use stat button, and which stat site.</td>
+<td>
+<code>[Stat site URL prefix]</code>;<br />
+<code>false</code>: Disabled
+		</td>
+<td><code>http://ed2k.shortypower.org/?hash=</code> (<a href="http://ed2k.shortypower.org/">Shortypower's eD2k Stats</a>)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>(For the "Table" format)<br /> Whether to use name filter.</td>
+<td>
+<code>auto</code>: Auto.<br /> Disable if only one link, enable if multiple links;<br />
+<code>true</code>: Enabled;<br />
+<code>false</code>: Disabled
+		</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>(For the "Table" format)<br /> Whether to use size filter.</td>
+<td>
+<code>auto</code>: Auto.<br /> Disable if only one link, enable if multiple links;<br />
+<code>true</code>: Enabled;<br />
+<code>false</code>: Disabled
+		</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>collection</code></td>
+<td>(For the "Table" format)<br /> Whether to show emulecollection button.</td>
+<td>
+<code>true</code>: Enabled;<br />
+<code>false</code>: Disabled
+		</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>(For the "Table" format) Width of the table.</td>
+<td>
+<code>[Width, in %, px, pt or em]</code>
+		</td>
+<td><code>100%</code></td>
+</tr>
+<tr>
+<td><code>font-size</code></td>
+<td>(For the "Table" format) Font size of the table.</td>
+<td>
+<code>[Font size, in %, px, pt or em]</code>
+		</td>
+<td><code>13px</code></td>
+</tr>
+<tr>
+<td><code>buttonstyle</code></td>
+<td>(For the "Table" format) Style of buttons.</td>
+<td>
+<code>0</code>: text only;<br />
+<code>1</code>: image and text;<br /><a href="screenshot-4.png"><img src="screenshot-4.png" width="218.5" height="26.5" border="0" alt="'Image and text' style of buttons" title="'Image and text' style of buttons. Click to enlarge"></a><br />
+<code>2</code>: image only
+		</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code id="format">format</code></td>
+<td>Which format to use for content on single post and page.</td>
+<td>
+<code>1</code>: Selector table;<br />
+<code>2</code>: Simple anchor links
+		</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code id="forall">forall</code></td>
+<td>Whether to apply on non-singular pages (pages which are not single posts or pages. Like front page and category pages).</td>
+<td>
+<code>true</code>: Yes;<br />
+<code>false</code>: No
+		</td>
+<td><code>false</code></td>
+</tr>
+</tbody></table>
+
+<p>Example:</p>
+
+<pre>[ed2k head='Feel Free to Download These eD2k Links!' size=false]
+ed2k://|file|eMule0.50a-Installer.exe|3389035|3D366ED505B977FC61C9A6EE01E96329|h=EKE4PSKRQ65MWEPFTRDSAHW5VMDIMFAJ|/
+[/ed2k]</pre>
+
+<h3 id="custom-style">Custom Style</h3>
+<p>We use ed2kls.css in the ed2k-link-selector folder as the default style. If a file named "ed2kls.css" is detected in your current theme folder, this ed2kls.css will be used as your customized style.</p>
+</div>
+
+<h2 id="languages">Languages</h2>
+<p>The plugin is available in:</p>
+<ul>
+<li>English (en_US)</li>
+<li>Simplified Chinese (简体中文 zh_CN)</li>
+<li>Traditional Chinese (繁體中文 zh_TW)</li>
+<li>French (Français fr_FR)</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>1.2.0
+<ul>
+<li>Fix the broken eD2k Quicktag button in HTML editor in WordPress 3.3+ (meanwhile WP2.5-3.2 are still supported)</li>
+<li>New lines for extremely long non-break file names; thead element changed to caption</li>
+<li>Fix hide/show button in IE8-</li>
+<li>Update ZeroClipboard to v1.0.8</li>
+<li>Fix ZeroClipboard flash relative position (add .el-s-button-container)</li>
+<li>Fix a possible conflict of ZeroClipboard</li>
+<li>Use flash ZeroClipboard rather than clipboardData in all IEs, unless flash cannot be loaded</li>
+<li>JS file now compressed with Google Closure Compiler Simple; CSS compressed with YUI</li>
+<li>English instruction</li>
+<li>(If you are not using our default CSS file, you need to make some change to your customized CSS file. Please add ".el-s-button-container{position:relative;}" and fix styles for caption (used to be thead), see <a href="http://plugins.svn.wordpress.org/ed2k-link-selector/trunk/" title="offcial SVN repository">SVN</a> diff of <a href="http://plugins.trac.wordpress.org/browser/ed2k-link-selector/trunk/ed2kls.dev.css" title="browse ed2k.dev.css">ed2k.dev.css</a>)</li>
+</ul>
+</li>
+<li>1.1.7
+<ul>
+<li>Compatible up to WordPress 3</li>
+<li>Small fix</li>
+</ul>
+</li>
+<li>1.1.6
+<ul>
+<li>Fix database update problem</li>
+<li>Use in comment</li>
+<li>Auto detect ed2k links in complex text</li>
+<li>Fix format option bug</li>
+<li>Add button style option</li>
+</ul>
+</li>
+<li>1.1.5
+<ul>
+<li>Add Options page</li>
+<li>Fix conflicts with wp-print plugin</li>
+<li>Optimize HTML and JavaScript</li>
+<li>Add width and font size options</li>
+<li>Prevent from browsing the directory</li>
+</ul>
+</li>
+<li>1.1.2
+<ul>
+<li>Add eMuleCollection</li>
+<li>Optimize JavaScript code and fix some bugs</li>
+</ul>
+</li>
+<li>1.1.1
+<ul>
+<li>Avoid JavaScript conflicts</li>
+</ul>
+</li>
+<li>1.1.0
+<ul>
+<li>Add buttons to Visual editor (TinyMCE) and HTML editor (Quicktags)</li>
+<li>Fix JavaScript i18n bug</li>
+<li>Allow to check multiple file extension checkboxs</li>
+</ul>
+</li>
+<li>1.0.0
+<ul>
+<li>Initial release</li>
+</ul>
+</li>
+</ul>
+<h2 id="other-implements">Other Implements</h2>
+You may find PHP class, Discuz! and phpwind plugin of eD2k Link Selector from <a href="http://code.google.com/p/ed2k-link-selector/">Google Code ed2k-link-selector project</a>. They are all based on the WordPress plugin, and may be not updated on time when a new version of the WordPress plugin releases.
+
+<h2 id="licenses">Licenses</h2>
+<p>All these php, js files of "eD2k Link Selector" by tomechen1989 (tomchen1989/ατ/yahoo.com.cn) are licensed under <a href="GPLv2">GNU GPL v2</a>.</p>
+
+<p><a href="https://github.com/jonrohan/ZeroClipboard">ZeroClipboard</a> by Joseph Huckaby is released under <a href="MIT">MIT License</a>.</p>
+
+<p>I do not assume any responsibility or liability in connection with ed2k links that you post on your blog.</p>
+</body>
+</html>
