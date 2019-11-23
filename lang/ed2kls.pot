@@ -1,0 +1,421 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: eD2k Link Selector 2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-22 23:06+0100\n"
+"PO-Revision-Date: 2012-09-06 15:38+0800\n"
+"Last-Translator: Tom Chen <tomchen.org@gmail.com>\n"
+"Language-Team: Tom Chen <tomchen.org@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../ed2k-link-selector.php:86
+msgid ""
+"You can use <a href=\"https://www.emule-project.net/home/perl/general.cgi?"
+"l=1&rm=download\">eMule</a> or its mod (see <a href=\"http://www.emule-mods."
+"de/?mods=start\">Mod Page on emule-mods.de</a>) (Windows), <a href=\"http://"
+"www.amule.org/\">aMule</a> (Win, Linux, Mac), etc. to download files via "
+"eD2k links. See <a href=\"http://wiki.amule.org/wiki/Ed2k_links_handling"
+"\">eD2k Links Handling</a> for help.<br>eMuleCollection files contain a set "
+"of links intended to be downloaded. They can be managed by eMule.<br>Click "
+"and hold down SHIFT key to toggle multiple checkboxes.<br>Use filters to "
+"select files.<br>Go to the <a href=\"https://emulefans.com/wordpress-ed2k-"
+"link-selector/\">eD2k Link Selector WordPress plugin homePage by the author</"
+"a> (Chinese) or the <a href=\"https://wordpress.org/plugins/ed2k-link-"
+"selector/\">page on WordPress.org</a> (international) to find this plugin or "
+"contact the author."
+msgstr ""
+
+#: ../ed2k-link-selector.php:89
+msgid ""
+"Name Filter helps you select files by their names or extensions. Case "
+"insensitive.<br>Symbols Usage:<br>AND: space (<code> </code>), <code>+</"
+"code>;<br>NOT: <code>-</code>;<br>OR: <code>|</code>;<br>Escape: pair of "
+"quote marks (<code>\"\"</code>);<br>Match the start: <code>^</code>;"
+"<br>Match the end: <code>$</code>.<br>e.g.<br><code>emule|0.49c -exe</code> "
+"selects names that contain \"eMule\" and \"0.49c\" but not contain \"exe\";"
+"<br><code>^emule 0.49c$</code> selects names started with \"eMule\" and end "
+"with \"0.49c\";<br><code>\"emule 0.49c\"</code> with quote marks matches "
+"exactly \"eMule 0.49c\", but not \"eMule fake 0.49c\"."
+msgstr ""
+
+#: ../ed2k-link-selector.php:92
+msgid "Size Filter helps you select files by their sizes."
+msgstr ""
+
+#: ../ed2k-link-selector.php:98
+msgid "Loading not finished. Please retry."
+msgstr ""
+
+#: ../ed2k-link-selector.php:99 ../ed2k-link-selector.php:237
+msgid "Hide"
+msgstr ""
+
+#: ../ed2k-link-selector.php:100
+msgid "Show"
+msgstr ""
+
+#: ../ed2k-link-selector.php:101 ../ed2k-link-selector.php:205
+#: ../ed2k-link-selector.php:363 ../ed2k-link-selector.php:372
+msgid "Bytes"
+msgstr ""
+
+#: ../ed2k-link-selector.php:102 ../ed2k-link-selector.php:208
+#: ../ed2k-link-selector.php:359 ../ed2k-link-selector.php:368
+msgid "TB"
+msgstr ""
+
+#: ../ed2k-link-selector.php:103 ../ed2k-link-selector.php:211
+#: ../ed2k-link-selector.php:360 ../ed2k-link-selector.php:369
+msgid "GB"
+msgstr ""
+
+#: ../ed2k-link-selector.php:104 ../ed2k-link-selector.php:214
+#: ../ed2k-link-selector.php:361 ../ed2k-link-selector.php:370
+msgid "MB"
+msgstr ""
+
+#: ../ed2k-link-selector.php:105 ../ed2k-link-selector.php:217
+#: ../ed2k-link-selector.php:362 ../ed2k-link-selector.php:371
+msgid "KB"
+msgstr ""
+
+#: ../ed2k-link-selector.php:237 ../ed2k-link-selector.php:250
+#: ../ed2k-link-selector.php:341 ../ed2k-link-selector.php:355
+#: ../options.php:144 ../options.php:156 ../options.php:163 ../options.php:175
+#: ../options.php:186 ../options.php:197 ../options.php:207 ../options.php:214
+#: ../options.php:221 ../options.php:232 ../options.php:242
+msgid "Help"
+msgstr ""
+
+#: ../ed2k-link-selector.php:239
+msgid "Please enable javascript in your browser to visit this page."
+msgstr ""
+
+#: ../ed2k-link-selector.php:244
+msgid "Close help info"
+msgstr ""
+
+#: ../ed2k-link-selector.php:245
+msgid "Help Info:"
+msgstr ""
+
+#: ../ed2k-link-selector.php:252 ../options.php:103
+msgid "eMule Official Site"
+msgstr ""
+
+#: ../ed2k-link-selector.php:252 ../options.php:103
+msgid "eMule Official"
+msgstr ""
+
+#: ../ed2k-link-selector.php:254 ../options.php:105
+msgid "eMuleFans.com [eMule Fans Chinese Blog]"
+msgstr ""
+
+#: ../ed2k-link-selector.php:254 ../options.php:105
+msgid "eMuleFans.com"
+msgstr ""
+
+#: ../ed2k-link-selector.php:256 ../options.php:107
+msgid "eMule-Mods.de [eMule Mods Site]"
+msgstr ""
+
+#: ../ed2k-link-selector.php:258 ../options.php:101
+msgid "Homepage for eD2k Link Selector WordPress Plugin"
+msgstr ""
+
+#: ../ed2k-link-selector.php:258 ../options.php:101
+msgid "Plugin Home"
+msgstr ""
+
+#: ../ed2k-link-selector.php:307
+msgid "Stat"
+msgstr ""
+
+#: ../ed2k-link-selector.php:337
+msgid "All"
+msgstr ""
+
+#: ../ed2k-link-selector.php:341 ../options.php:175
+msgid "Name Filter"
+msgstr ""
+
+#: ../ed2k-link-selector.php:355 ../options.php:186
+msgid "Size Filter"
+msgstr ""
+
+#: ../ed2k-link-selector.php:378
+msgid " file(s)"
+msgstr ""
+
+#: ../ed2k-link-selector.php:382
+msgid "Download"
+msgstr ""
+
+#: ../ed2k-link-selector.php:383
+msgid "Copy Links"
+msgstr ""
+
+#: ../ed2k-link-selector.php:384
+msgid "Copy Names"
+msgstr ""
+
+#: ../ed2k-link-selector.php:387 ../options.php:197
+msgid "eMuleCollection"
+msgstr ""
+
+#: ../ed2k-link-selector.php:390
+msgid "Copyed"
+msgstr ""
+
+#: ../ed2k-link-selector.php:444 ../tinymce/dialog.php:6
+msgid "Add eD2k Links"
+msgstr ""
+
+#: ../ed2k-link-selector.php:477 ../options.php:100
+msgid "eD2k Link Selector Options"
+msgstr ""
+
+#: ../ed2k-link-selector.php:477
+msgid "eD2k Link Selector"
+msgstr ""
+
+#: ../ed2k-link-selector.php:503
+msgid "eD2k Links"
+msgstr ""
+
+#: ../ed2k-link-selector.php:584
+msgid "Disable and delete the saved settings in the database"
+msgstr ""
+
+#: ../ed2k-link-selector.php:584
+msgid "Disable Forever"
+msgstr ""
+
+#: ../ed2k-link-selector.php:585 ../options.php:138
+msgid "Settings"
+msgstr ""
+
+#: ../options.php:129
+#, php-format
+msgid ""
+"Uninstalled successfully. Please click <a href=\"%1$s\">here</a> to disable "
+"the plugin. Click the \"%2$s\" button to restore default settings and reuse "
+"the plugin."
+msgstr ""
+
+#: ../options.php:129 ../options.php:133 ../options.php:259
+msgid "Restore Default"
+msgstr ""
+
+#: ../options.php:133
+#, php-format
+msgid ""
+"Failed to read from the database. Please go to <a href=\"%1$s\">Plugin Page</"
+"a> to reinstall the plugin, or click the \"%2$s\" button below."
+msgstr ""
+
+#: ../options.php:140
+#, php-format
+msgid ""
+"Click \"[?]\" button for help. The settings below will apply globally. You "
+"can also set \"%2$s\" and \"%3$s\" for specific %1$s tag in the post."
+msgstr ""
+
+#: ../options.php:140 ../options.php:159 ../options.php:171 ../options.php:182
+#: ../options.php:193 ../options.php:203 ../options.php:210 ../options.php:217
+#: ../options.php:228 ../options.php:238 ../options.php:248
+msgid "Tag Attribute"
+msgstr ""
+
+#: ../options.php:140 ../options.php:159 ../options.php:171 ../options.php:182
+#: ../options.php:193 ../options.php:203 ../options.php:210 ../options.php:217
+#: ../options.php:228 ../options.php:238 ../options.php:248
+msgid "Available Value(s)"
+msgstr ""
+
+#: ../options.php:144
+msgid "Language"
+msgstr ""
+
+#: ../options.php:152
+msgid "Plugin language."
+msgstr ""
+
+#: ../options.php:156
+msgid "Title"
+msgstr ""
+
+#: ../options.php:159
+msgid "(For the \"Table\" format) The title."
+msgstr ""
+
+#: ../options.php:159
+msgid "Text"
+msgstr ""
+
+#: ../options.php:163
+msgid "Stat Button"
+msgstr ""
+
+#: ../options.php:166 ../options.php:179 ../options.php:182 ../options.php:190
+#: ../options.php:193 ../options.php:200 ../options.php:203
+msgid "Enabled"
+msgstr ""
+
+#: ../options.php:167 ../options.php:171 ../options.php:180 ../options.php:182
+#: ../options.php:191 ../options.php:193 ../options.php:201 ../options.php:203
+msgid "Disabled"
+msgstr ""
+
+#: ../options.php:171
+msgid ""
+"(For the \"Table\" format) Whether to use stat button, and which stat site."
+msgstr ""
+
+#: ../options.php:171
+msgid "Stat site URL prefix"
+msgstr ""
+
+#: ../options.php:178 ../options.php:189
+msgid "Auto"
+msgstr ""
+
+#: ../options.php:182
+msgid "(For the \"Table\" format) Whether to use name filter."
+msgstr ""
+
+#: ../options.php:182 ../options.php:193
+msgid "Auto. Disable if only one link, enable if multiple links"
+msgstr ""
+
+#: ../options.php:193
+msgid "(For the \"Table\" format) Whether to use size filter."
+msgstr ""
+
+#: ../options.php:203
+msgid "(For the \"Table\" format) Whether to show emulecollection button."
+msgstr ""
+
+#: ../options.php:207
+msgid "Width"
+msgstr ""
+
+#: ../options.php:210
+msgid "(For the \"Table\" format) Width of the table."
+msgstr ""
+
+#: ../options.php:210
+msgid "Width, in %, px, pt or em"
+msgstr ""
+
+#: ../options.php:214
+msgid "Font Size"
+msgstr ""
+
+#: ../options.php:217
+msgid "(For the \"Table\" format) Font size of the table."
+msgstr ""
+
+#: ../options.php:217
+msgid "Font size, in %, px, pt or em"
+msgstr ""
+
+#: ../options.php:221
+msgid "Button Style"
+msgstr ""
+
+#: ../options.php:224 ../options.php:228
+msgid "Text only"
+msgstr ""
+
+#: ../options.php:225 ../options.php:228
+msgid "Image and text"
+msgstr ""
+
+#: ../options.php:226 ../options.php:228
+msgid "Image only"
+msgstr ""
+
+#: ../options.php:228
+msgid "(For the \"Table\" format) Style of buttons."
+msgstr ""
+
+#: ../options.php:232
+msgid "Format"
+msgstr ""
+
+#: ../options.php:235 ../options.php:238
+msgid "Selector table"
+msgstr ""
+
+#: ../options.php:236 ../options.php:238
+msgid "Simple anchor links"
+msgstr ""
+
+#: ../options.php:238
+msgid "Which format to use for content on single post and page."
+msgstr ""
+
+#: ../options.php:242
+msgid "For All"
+msgstr ""
+
+#: ../options.php:245 ../options.php:248
+msgid "Yes"
+msgstr ""
+
+#: ../options.php:246 ../options.php:248
+msgid "No"
+msgstr ""
+
+#: ../options.php:248
+msgid ""
+"Whether to apply on non-singular pages (pages which are not single posts or "
+"pages. Like front page and category pages)."
+msgstr ""
+
+#: ../options.php:253
+msgid "Save Options"
+msgstr ""
+
+#: ../options.php:266
+msgid "Demo"
+msgstr ""
+
+#: ../options.php:286 ../options.php:290
+msgid "Uninstall"
+msgstr ""
+
+#: ../options.php:287
+msgid "Click uninstall button to delete the settings saved in the database."
+msgstr ""
+
+#: ../options.php:291
+msgid "Confirm"
+msgstr ""
+
+#: ../tinymce/dialog.php:59
+msgid "Enter your eD2k links and intros:"
+msgstr ""
+
+#: ../tinymce/dialog.php:65
+msgid "OK"
+msgstr ""
+
+#: ../tinymce/dialog.php:66
+msgid "Clean"
+msgstr ""
+
+#: ../tinymce/dialog.php:67
+msgid "Cancel"
+msgstr ""
