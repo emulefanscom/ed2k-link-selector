@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: eD2k Link Selector 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-22 23:06+0100\n"
-"PO-Revision-Date: 2019-11-22 23:06+0100\n"
+"PO-Revision-Date: 2019-11-23 14:25+0100\n"
 "Last-Translator: Tom Chen <tomchen.org@gmail.com>\n"
 "Language-Team: Tom Chen <tomchen.org@gmail.com>\n"
 "Language: zh_CN\n"
@@ -175,7 +175,7 @@ msgstr "大小选择"
 
 #: ../ed2k-link-selector.php:378
 msgid " file(s)"
-msgstr "文件"
+msgstr "个文件"
 
 #: ../ed2k-link-selector.php:382
 msgid "Download"
