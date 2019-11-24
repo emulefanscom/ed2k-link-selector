@@ -1,6 +1,6 @@
 <style type="text/css">
 #icon-ed2k {
-	background: url("<?php echo constant('ED2KLS_URL'); ?>/img/emulecollection.png") no-repeat scroll 0 0 transparent;
+	background: url("<?php plugins_url("img/emulecollection.png", __FILE__) ?>") no-repeat scroll 0 0 transparent;
 }
 .elsopt-wrap, .elsopt-wrap code {
 	font-size: 13px;
@@ -279,7 +279,7 @@ ed2k://|file|Firefox_15.0_win32_en-US.exe|17789456|07e4607e4dc411237be1ce0b8a2a5
 	echo $eD2kLinkSelector->convert2table($content1, $myatts, '1');
 	echo '<br>';
 	echo $eD2kLinkSelector->convert2table($content2, $myatts, '2');
-	echo $eD2kLinkSelector->addFooter();
+	echo $eD2kLinkSelector->addFooterAndScript();
 ?>
 	</div>
 	<div id="elsopt-uninstall-all">

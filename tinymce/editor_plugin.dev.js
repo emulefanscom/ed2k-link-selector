@@ -3,13 +3,20 @@
     init : function(ed, url) {
       ed.addCommand("ed2klsDialog", function() {
         ed.windowManager.open({
-          file : elsMceVar.url + "/tinymce/dialog.php",
-          width : 700,
-          height : 450,
-          inline : 1
-        }, {
-          plugin_url : url,
-        });
+          title: elsMceVar.title,
+          body: {
+            type: 'textbox',
+            name: 'code',
+            multiline: true,
+            minWidth: 700,
+            minHeight: 450,
+            spellcheck: false,
+            style: 'direction: ltr; text-align: left'
+          },
+          onSubmit: function (e) {
+              ed.insertContent("[ed2k]" + e.data.code + "[/ed2k]");
+          }
+          });
       });
 
       ed.addButton("ed2kls", {
@@ -17,24 +24,10 @@
         cmd : "ed2klsDialog",
         image : url + "/icon.gif"
       });
-
-      ed.onNodeChange.add(function(ed, cm, n) {
-        cm.setActive("ed2kls", n.nodeName == "IMG");
-      });
     },
 
     createControl : function(n, cm) {
       return null;
-    },
-
-    getInfo : function() {
-      return {
-        longname : "eD2k Link Selector",
-        author : "Tom Chen",
-        authorurl : "https://emulefans.com",
-        infourl : "https://emulefans.com/wordpress-ed2k-link-selector/",
-        version : "2.0.0"
-      };
     }
   });
 

@@ -2,7 +2,7 @@
 Contributors: Tom Chen
 Donate link: https://emulefans.com/wordpress-ed2k-link-selector/
 Tags: ed2k, emule, link, 电驴, 链接, 电骡
-Requires at least: 2.5
+Requires at least: 3.0
 Tested up to: 5.3
 Stable tag: 2.0.0
 
@@ -12,7 +12,7 @@ Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k
 
 eD2k Link Selector plugin may convert BBCode tags `[ed2k][/ed2k]` and `[emule][/emule]` that contain eD2k (eMule) links or other text to a nice table to display them with some filters which make it easy to select.
 
-Here is the [English documentation](https://emulefans.com/wp-content/plugins/ed2k-link-selector/README.html#basic-usage "README.html").
+Here is the [instruction in English](https://emulefans.com/ed2k-link-selector-wordpress-plugin/ "Instruction in English").
 
 You can download eMule from [eMule official site](https://www.emule-project.net/ "eMule official site") or [emule-mods.de](http://www.emule-mods.de/?mods=start "Mods page on emule-mods.de"), or use other clients like [aMule](http://www.amule.org/ "amule official site").
 

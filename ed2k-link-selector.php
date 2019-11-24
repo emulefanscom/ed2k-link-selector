@@ -9,8 +9,7 @@ Author:       Tom Chen
 Author URI:   https://emulefans.com/
 */
 
-define('ED2KLS_VERSION', '200');
-define('ED2KLS_URL', WP_PLUGIN_URL . '/ed2k-link-selector');
+define('ED2KLS_VERSION', '2.0.0');
 define('ED2KLS_DBVERSION', '3');
 
 $ed2klsnumber = 0;
@@ -21,7 +20,8 @@ if(!class_exists('eD2kLinkSelector')) {
 
 		function eD2kLinkSelector() {
 			add_action('init', array(&$this, 'textdomain'));
-			add_action('wp_head', array(&$this, 'addHead'));
+			add_action('wp', array(&$this, 'addStyle'));
+			add_action('wp', array(&$this, 'addScript'));
 			add_action('wp_footer', array(&$this, 'addFooter'));
 			add_filter('the_content', array(&$this, 'doShortcode'));
 			add_filter('comment_text', array(&$this, 'doShortcodeCmt'));
@@ -60,53 +60,52 @@ if(!class_exists('eD2kLinkSelector')) {
 				}
 			}
 			//$locale = 'en_US';
-			$domain = 'ed2kls';
-			load_textdomain ($domain, dirname (__FILE__) . '/lang/' . $domain . '-' . $locale . '.mo');
+			load_textdomain('ed2kls', plugin_dir_path(__FILE__) . 'lang/ed2kls-' . $locale . '.mo');
 		}
 
-		function addHead() {
+		function addStyle() {
 			global $ed2klspage;
 			$ed2klspage = 1;
-			$cssUrl = constant('ED2KLS_URL') . '/ed2kls.css?v=' . constant('ED2KLS_VERSION');
-			if ( file_exists(TEMPLATEPATH . '/ed2kls.css') ) {
-				$cssUrl = get_bloginfo('template_url') . '/ed2kls.css';
+			wp_enqueue_style( 'ed2kls_style', plugins_url( 'ed2kls.css', __FILE__ ), null, constant('ED2KLS_VERSION'), 'screen' );
+		}
+
+		function addScript() {
+			function ed2kls_enqueue_script() {
+				wp_enqueue_script( 'ed2kls-script', plugins_url( 'ed2kls.js', __FILE__ ), array(), constant('ED2KLS_VERSION'), true );
+				wp_add_inline_script( 'ed2kls-script', '
+var ed2klsVar = {};
+ed2klsVar.retry = "' . esc_js(__('Loading not finished. Please retry.', 'ed2kls')) . '";
+ed2klsVar.shk = "' . esc_js(__('Hide', 'ed2kls')) . '";
+ed2klsVar.exd = "' . esc_js(__('Show', 'ed2kls')) . '";
+ed2klsVar.bytes = "' . esc_js(__('Bytes', 'ed2kls')) . '";
+ed2klsVar.tb = "' . esc_js(__('TB', 'ed2kls')) . '";
+ed2klsVar.gb = "' . esc_js(__('GB', 'ed2kls')) . '";
+ed2klsVar.mb = "' . esc_js(__('MB', 'ed2kls')) . '";
+ed2klsVar.kb = "' . esc_js(__('KB', 'ed2kls')) . '";
+', 'before' );
 			}
-			echo '
-<link rel="stylesheet" type="text/css" href="' . $cssUrl . '" /><!-- eD2k Link Selector CSS -->
-';
+			add_action( 'wp_enqueue_scripts', 'ed2kls_enqueue_script' );
 		}
 
 		function addFooter() {
 			global $ed2klsnumber;
 			if ($ed2klsnumber >= 1) {
-				echo '
+
+				?>
 <!-- START of eD2k Link Selector -->
 <div style="display:none;">
 <div id="el-s-info-content-str-0" class="el-s-info-content-str">
-' . __('You can use <a href="https://www.emule-project.net/home/perl/general.cgi?l=1&rm=download">eMule</a> or its mod (see <a href="http://www.emule-mods.de/?mods=start">Mod Page on emule-mods.de</a>) (Windows), <a href="http://www.amule.org/">aMule</a> (Win, Linux, Mac), etc. to download files via eD2k links. See <a href="http://wiki.amule.org/wiki/Ed2k_links_handling">eD2k Links Handling</a> for help.<br>eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br>Click and hold down SHIFT key to toggle multiple checkboxes.<br>Use filters to select files.<br>Go to the <a href="https://emulefans.com/wordpress-ed2k-link-selector/">eD2k Link Selector WordPress plugin homePage by the author</a> (Chinese) or the <a href="https://wordpress.org/plugins/ed2k-link-selector/">page on WordPress.org</a> (international) to find this plugin or contact the author.', 'ed2kls') . '
+<?php _e('You can use <a href="https://www.emule-project.net/home/perl/general.cgi?l=1&rm=download">eMule</a> or its mod (see <a href="http://www.emule-mods.de/?mods=start">Mod Page on emule-mods.de</a>) (Windows), <a href="http://www.amule.org/">aMule</a> (Win, Linux, Mac), etc. to download files via eD2k links. See <a href="http://wiki.amule.org/wiki/Ed2k_links_handling">eD2k Links Handling</a> for help.<br>eMuleCollection files contain a set of links intended to be downloaded. They can be managed by eMule.<br>Click and hold down SHIFT key to toggle multiple checkboxes.<br>Use filters to select files.<br>Go to the <a href="https://emulefans.com/wordpress-ed2k-link-selector/">eD2k Link Selector WordPress plugin homePage by the author</a> (Chinese) or the <a href="https://wordpress.org/plugins/ed2k-link-selector/">page on WordPress.org</a> (international) to find this plugin or contact the author.', 'ed2kls'); ?>
 </div>
 <div id="el-s-info-content-str-1" class="el-s-info-content-str">
-' . __('Name Filter helps you select files by their names or extensions. Case insensitive.<br>Symbols Usage:<br>AND: space (<code> </code>), <code>+</code>;<br>NOT: <code>-</code>;<br>OR: <code>|</code>;<br>Escape: pair of quote marks (<code>""</code>);<br>Match the start: <code>^</code>;<br>Match the end: <code>$</code>.<br>e.g.<br><code>emule|0.49c -exe</code> selects names that contain "eMule" and "0.49c" but not contain "exe";<br><code>^emule 0.49c$</code> selects names started with "eMule" and end with "0.49c";<br><code>"emule 0.49c"</code> with quote marks matches exactly "eMule 0.49c", but not "eMule fake 0.49c".', 'ed2kls') . '
+<?php _e('Name Filter helps you select files by their names or extensions. Case insensitive.<br>Symbols Usage:<br>AND: space (<code> </code>), <code>+</code>;<br>NOT: <code>-</code>;<br>OR: <code>|</code>;<br>Escape: pair of quote marks (<code>""</code>);<br>Match the start: <code>^</code>;<br>Match the end: <code>$</code>.<br>e.g.<br><code>emule|0.49c -exe</code> selects names that contain "eMule" and "0.49c" but not contain "exe";<br><code>^emule 0.49c$</code> selects names started with "eMule" and end with "0.49c";<br><code>"emule 0.49c"</code> with quote marks matches exactly "eMule 0.49c", but not "eMule fake 0.49c".', 'ed2kls'); ?>
 </div>
 <div id="el-s-info-content-str-2" class="el-s-info-content-str">
-' . __('Size Filter helps you select files by their sizes.', 'ed2kls') . '
+<?php _e('Size Filter helps you select files by their sizes.', 'ed2kls'); ?>
 </div>
 </div>
-<script type="text/javascript">//<![CDATA[
-var ed2klsPath="' . constant('ED2KLS_URL') . '";
-var ed2klsVar = {};
-ed2klsVar.retry = "' . __('Loading not finished. Please retry.', 'ed2kls') . '";
-ed2klsVar.shk = "' . __('Hide', 'ed2kls') . '";
-ed2klsVar.exd = "' . __('Show', 'ed2kls') . '";
-ed2klsVar.bytes = "' . __('Bytes', 'ed2kls') . '";
-ed2klsVar.tb = "' . __('TB', 'ed2kls') . '";
-ed2klsVar.gb = "' . __('GB', 'ed2kls') . '";
-ed2klsVar.mb = "' . __('MB', 'ed2kls') . '";
-ed2klsVar.kb = "' . __('KB', 'ed2kls') . '";
-//]]></script>
-<script type="text/javascript" src="' . constant('ED2KLS_URL') . '/ed2kls.js?v=' . constant('ED2KLS_VERSION') .'"></script>
 <!-- END of eD2k Link Selector -->
-';
+<?php
 			}
 		}
 
@@ -403,53 +402,51 @@ if(!class_exists('eD2kLSButton')) {
 
 		function eD2kLSButton() {
 			add_action('init', array(&$this, 'addTinymce'));
-			if (get_bloginfo('version') >= 3.3) {
-				add_filter('admin_print_footer_scripts', array(&$this, 'addQuicktag'), 100);
-			} else {
-				add_filter('admin_head', array(&$this, 'addQuicktagOld'));
+			function addQuicktag() {
+				if (wp_script_is('quicktags')){
+			?>
+<script type="text/javascript">
+if(typeof QTags!=="undefined")QTags.addButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
+</script>
+			<?php
+				}
 			}
+			add_action( 'admin_print_footer_scripts', 'addQuicktag', 100 );
 		}
+
 
 		function addQuicktag() {
-			echo '
-<script type="text/javascript">//<![CDATA[
-if(typeof QTags!="undefined")QTags.addButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
-//]]></script>
-';
-		}
-
-		function addQuicktagOld() {
-			echo '
-<script type="text/javascript">//<![CDATA[
-if(typeof edButtons!="undefined")edButtons[edButtons.length]=new edButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
-//]]></script>
-';
+			function ed2kls_enqueue_script_qtag() {
+						wp_add_inline_script( 'ed2kls-script-qtag', '
+			if(typeof QTags!="undefined")QTags.addButton("ed_ed2k","eD2k","[ed2k]\n","\n[/ed2k]","e");
+			' );
+			}
+			add_action( 'wp_enqueue_scripts', 'ed2kls_enqueue_script_qtag' );
 		}
 
 		function addTinymce() {
 			if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') ){
 				return;
 			}
-			if ( get_user_option('rich_editing') == 'true' ) {
-				add_filter('admin_head', array(&$this, 'addTinymceJsVars'));
+			if ( get_user_option('rich_editing') == true ) {
+				add_filter('admin_head', array(&$this, 'addTinymceJsI18n'));
 				add_filter('mce_external_plugins', array(&$this, 'addTinymcePlugin'));
 				add_filter('mce_buttons', array(&$this, 'addTinymceButton'));
 			}
 		}
 
-		function addTinymceJsVars() {
-			echo '
-<script type="text/javascript">//<![CDATA[
+		function addTinymceJsI18n() {
+						echo '
+<script type="text/javascript">
 var elsMceVar = {
-	title : "' . __('Add eD2k Links', 'ed2kls') . '",
-	url : "' . constant('ED2KLS_URL') . '"
+	title : "' . esc_js(__('Add eD2k Links', 'ed2kls')) . '"
 };
-//]]></script>
+</script>
 ';
 		}
 
 		function addTinymcePlugin($plugin_array) {
-			$plugin_array['ed2kls'] = constant('ED2KLS_URL') . '/tinymce/editor_plugin.js';
+			$plugin_array['ed2kls'] = plugins_url("", __FILE__) . '/tinymce/editor_plugin.js';
 			return $plugin_array;
 		}
 
