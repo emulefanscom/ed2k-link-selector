@@ -1,6 +1,6 @@
 <style type="text/css">
 #icon-ed2k {
-	background: url("<?php echo constant('ED2KLS_URL'); ?>/img/emulecollection.png") no-repeat scroll 0 0 transparent;
+	background: url("<?php plugins_url("img/emulecollection.png", __FILE__) ?>") no-repeat scroll 0 0 transparent;
 }
 .elsopt-wrap, .elsopt-wrap code {
 	font-size: 13px;
@@ -67,7 +67,7 @@ function elsInfoToggle(str) {
 	if (!target) {
 		return false;
 	}
-	if (target.style.display == "block") {
+	if (target.style.display !== "none") {
 		if (typeof jQuery == "undefined") {
 			target.style.display = "none";
 		} else {
@@ -98,11 +98,11 @@ function ed2klsUninstall(checked) {
 <div class="wrap elsopt-wrap">
 	<?php screen_icon('ed2k'); ?>
 	<h2><?php echo __('eD2k Link Selector Options', 'ed2kls'); ?></h2>
-	<?php echo '<a href="http://emulefans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
+	<?php echo '<a href="https://emulefans.com/wordpress-ed2k-link-selector/" target="_blank" title="' . __('Homepage for eD2k Link Selector WordPress Plugin', 'ed2kls') . '">' . __('Plugin Home', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
-	<a href="http://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
+	<a href="https://www.emule-project.net/" target="_blank" title="' . __('eMule Official Site', 'ed2kls') . '">' . __('eMule Official', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
-	<a href="http://emulefans.com/" target="_blank" title="' . __('eMuleFans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('eMuleFans.com', 'ed2kls') . '</a>
+	<a href="https://emulefans.com/" target="_blank" title="' . __('eMuleFans.com [eMule Fans Chinese Blog]', 'ed2kls') . '">' . __('eMuleFans.com', 'ed2kls') . '</a>
 	<span class="el-s-sep">|</span>
 	<a href="http://www.emule-mods.de/" target="_blank" title="' . __('eMule-Mods.de [eMule Mods Site]', 'ed2kls') . '">eMule-Mods.de</a>'; ?>
 <?php
@@ -166,7 +166,7 @@ if ($condition == 1) {
 							<option value="true"<?php if($oldOptions['stat'] != 'false'){echo ' selected="selected"';} ?>><?php echo __('Enabled', 'ed2kls'); ?></option>
 							<option value="false"<?php if($oldOptions['stat'] == 'false'){echo ' selected="selected"';} ?>><?php echo __('Disabled', 'ed2kls'); ?></option>
 						</select>
-						<br />
+						<br>
 						<input type="text" id="elsopt-stat" name="elsopt-stat" class="elsopt-opt elsopt-txt" value="<?php if($oldOptions['stat'] != 'false'){echo $oldOptions['stat'];} ?>"<?php if($oldOptions['stat'] == 'false'){echo ' disabled="disabled"';} ?> />
 						<div id="elsopt-info-stat" class="elsopt-info" style="display:none;"><?php echo __('(For the "Table" format) Whether to use stat button, and which stat site.', 'ed2kls'); ?><ul><li><?php echo __('Tag Attribute', 'ed2kls'); ?>: <code>stat</code></li><li><?php echo __('Available Value(s)', 'ed2kls'); ?>: <ul><li><code>[<?php echo __('Stat site URL prefix', 'ed2kls'); ?>]</code>;</li><li><code>false</code>: <?php echo __('Disabled', 'ed2kls'); ?></li></ul></li></ul></div>
 					</td>
@@ -277,14 +277,14 @@ ed2k://|file|Firefox_15.0_win32_en-US.exe|17789456|07e4607e4dc411237be1ce0b8a2a5
 	$ed2klsnumber = 1;
 	echo $eD2kLinkSelector->addHead();
 	echo $eD2kLinkSelector->convert2table($content1, $myatts, '1');
-	echo '<br />';
+	echo '<br>';
 	echo $eD2kLinkSelector->convert2table($content2, $myatts, '2');
-	echo $eD2kLinkSelector->addFooter();
+	echo $eD2kLinkSelector->addFooterAndScript();
 ?>
 	</div>
 	<div id="elsopt-uninstall-all">
 		<h3><?php echo __('Uninstall', 'ed2kls'); ?></h3>
-		<p><?php echo __('Click uninstall button to delete the saved settings in the database.', 'ed2kls'); ?></p>
+		<p><?php echo __('Click uninstall button to delete the settings saved in the database.', 'ed2kls'); ?></p>
 		<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<div class="submit elsopt-submitdiv">
 				<input class="button-primary" id="elsopt-uninstall" name="elsopt-uninstall" type="submit" value="<?php echo __('Uninstall', 'ed2kls'); ?> »" onclick="if(!document.getElementById('elsopt-uninstall-chk').checked){return false;}">

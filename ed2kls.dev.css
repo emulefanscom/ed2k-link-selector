@@ -1,8 +1,9 @@
-/*
-ed2k link selector css
-by tomchen1989
-http://emulefans.com/wordpress-ed2k-link-selector/
-*/
+/*!
+ * eD2k Link Selector CSS
+ * by Tom Chen
+ * https://emulefans.com/wordpress-ed2k-link-selector/
+ * GPL v2
+ */
 
 .el-s {
 	font: 13px/1.6em Verdana, Arial, sans-serif;
@@ -25,9 +26,6 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	table-layout: fixed;
 	text-align: left !important;
 	vertical-align: middle;
-	-moz-border-radius: 0 0 6px 6px;
-	-khtml-border-radius: 0 0 6px 6px;
-	-webkit-border-radius: 0 0 6px 6px;
 	border-radius: 0 0 6px 6px;
 }
 
@@ -57,11 +55,7 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 
 .el-s caption {
 	padding: 0.2em !important;
-	-moz-border-radius: 0 0 6px 6px;
-	-khtml-border-radius-topleft: 6px;
-	-khtml-border-radius-topright: 6px;
-	-webkit-border-top-left-radius: 6px 6px;
-	-webkit-border-top-right-radius: 6px 6px;
+	border-radius: 0 0 6px 6px;
 	border: 1px solid #ADBEC6 !important;
 	border-bottom: 1px dotted #ADBEC6 !important;
 	border-top-left-radius: 6px 6px;
@@ -69,11 +63,7 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 }
 
 .el-s-bottom td {
-	-moz-border-radius: 0 0 6px 6px;
-	-khtml-border-radius-bottomleft: 6px;
-	-khtml-border-radius-bottomright: 6px;
-	-webkit-border-bottom-left-radius: 6px 6px;
-	-webkit-border-bottom-right-radius: 6px 6px;
+	border-radius: 0 0 6px 6px;
 	border-bottom-left-radius: 6px 6px;
 	border-bottom-right-radius: 6px 6px;
 }
@@ -135,9 +125,11 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	width: auto;
 }
 
-.el-s-right {
-	white-space: nowrap;
-	width: 7em;
+.el-s td.el-s-right {
+    padding-right: 0.6em !important;
+    white-space: nowrap;
+    width: 7em;
+    text-align: right;
 }
 
 .el-s-selecttr td.el-s-left {
@@ -181,15 +173,11 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 	border: 1px solid #808080 !important;
 	font-weight: normal !important;
 	overflow: visible;
+	border-radius: 3px;
+	transition: background-color 0.3s ease-out;
 	margin: 0 0.2em !important;
 	padding: 2px 5px !important;
 	+padding: 3px 5px 0 !important; /* IE 6 7 hack */
-	-moz-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-transition: background-color 0.3s ease-out;
-	-moz-transition: background-color 0.3s ease-out;
 }
 
 .el-s-button:hover, .el-s-button.hover {
@@ -242,9 +230,6 @@ http://emulefans.com/wordpress-ed2k-link-selector/
 .el-s-info {
 	border: 1px solid #ADBEC6 !important;
 	padding: 0.2em 0.4em !important;
-	-moz-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
 
