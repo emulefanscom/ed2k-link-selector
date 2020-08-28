@@ -105,7 +105,7 @@
     var exd = $("el-s-exd-" + no);
     if (tb.style.display == "none") {
       ht(exd, "[-]");
-      if (typeof jQuery != "undefined" && !jQuery.browser.msie) {
+      if (typeof jQuery != "undefined") {
         jQuery(tb).fadeIn("slow");
       } else {
         var rslt = navigator.appVersion.match(/MSIE (\d+\.\d+)/, "");
@@ -118,7 +118,7 @@
       exd.setAttribute("title", ed2klsVar.shk);
     } else {
       ht(exd, "[+]");
-      if (typeof jQuery != "undefined" && !jQuery.browser.msie) {
+      if (typeof jQuery != "undefined") {
         jQuery(tb).fadeOut("slow");
       } else {
         tb.style.display = "none";

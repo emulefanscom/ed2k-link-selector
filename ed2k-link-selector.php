@@ -4,12 +4,12 @@
 Plugin Name:  eD2k Link Selector
 Plugin URI:   https://emulefans.com/wordpress-ed2k-link-selector/
 Description:  Convert [ed2k] tag to a nice table to display eD2k (eMule) links. 将标签[ed2k]转换为一个显示eD2k链接并带有过滤选择器的表格。
-Version:      2.0.0
+Version:      2.0.1
 Author:       Tom Chen
 Author URI:   https://emulefans.com/
 */
 
-define('ED2KLS_VERSION', '2.0.0');
+define('ED2KLS_VERSION', '2.0.1');
 define('ED2KLS_DBVERSION', '3');
 
 $ed2klsnumber = 0;
@@ -23,7 +23,9 @@ if(!class_exists('eD2kLinkSelector')) {
 			add_action('wp', array(&$this, 'addStyle'));
 			add_action('wp', array(&$this, 'addScript'));
 			add_action('wp_footer', array(&$this, 'addFooter'));
+			remove_filter('the_content', 'wptexturize');
 			add_filter('the_content', array(&$this, 'doShortcode'));
+			add_filter('the_content', 'wptexturize');
 			add_filter('comment_text', array(&$this, 'doShortcodeCmt'));
 		}
 
@@ -189,7 +191,7 @@ ed2klsVar.kb = "' . esc_js(__('KB', 'ed2kls')) . '";
 
 		function convert2table($content, $atts, $no) {
 			global $elsConvert;
-			return $elsConvert->convert($content, $no, $atts['head'], $atts['stat'], $atts['name'], $atts['size'], $atts['collection'], $atts['width'], $atts['fontsize'], $atts['buttonstyle']);
+			return $elsConvert->convert($content, $no, esc_html($atts['head']), esc_html($atts['stat']), esc_html($atts['name']), esc_html($atts['size']), esc_html($atts['collection']), esc_html($atts['width']), esc_html($atts['fontsize']), esc_html($atts['buttonstyle']));
 		}
 
 	}

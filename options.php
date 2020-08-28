@@ -38,7 +38,7 @@ input.elsopt-txt {
 #elsopt-default, #elsopt-uninstall-chk {
 	margin-left: 2.3em;
 }
-#elsopt-demo {
+#elsopt-demo, #elsopt-uninstall-all {
 	clear: both;
 }
 #elsopt-announce {
@@ -262,26 +262,6 @@ if ($condition == 1) {
 <?php if ($condition == 0) { ?>
 	</div>
 
-	<div id="elsopt-demo">
-		<h3><?php echo __('Demo', 'ed2kls'); ?></h3>
-<?php
-	global $eD2kLinkSelector;
-	$content1 = 'ed2k://|file|eMule0.50a-Installer.exe|3389035|3D366ED505B977FC61C9A6EE01E96329|h=EKE4PSKRQ65MWEPFTRDSAHW5VMDIMFAJ|/';
-	$content2 = 'ed2k://|file|eMule0.50a-Installer.exe|3389035|3D366ED505B977FC61C9A6EE01E96329|h=EKE4PSKRQ65MWEPFTRDSAHW5VMDIMFAJ|/
-ed2k://|file|emule0.49c-Xtreme7.2.7z|7124399|071F8D79E5BDC96208079ADE1C2443B0|h=THOGM3WRM4OGNCQHDQBS5JFFAUTQNZEU|/
-Browsers
-ed2k://|file|Firefox_15.0_win32_en-US.exe|17789456|07e4607e4dc411237be1ce0b8a2a5c59|/|sources,78.47.189.237:14091|/';
-	global $eD2kLSOption;
-	$myatts = $eD2kLSOption->readOptions();
-	global $ed2klsnumber;
-	$ed2klsnumber = 1;
-	echo $eD2kLinkSelector->addHead();
-	echo $eD2kLinkSelector->convert2table($content1, $myatts, '1');
-	echo '<br>';
-	echo $eD2kLinkSelector->convert2table($content2, $myatts, '2');
-	echo $eD2kLinkSelector->addFooterAndScript();
-?>
-	</div>
 	<div id="elsopt-uninstall-all">
 		<h3><?php echo __('Uninstall', 'ed2kls'); ?></h3>
 		<p><?php echo __('Click uninstall button to delete the settings saved in the database.', 'ed2kls'); ?></p>
